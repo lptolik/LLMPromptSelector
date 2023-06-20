@@ -10,12 +10,12 @@ Since the prompt is selected from existing written ones stored in "prompts_data_
 
 ## Visuals
 Front page, prompt selection:
-![Front page, prompt selection:](/screenshots/Page1-upon-load.jpg?raw=true "Front page")
+![Front page, prompt selection:](/screenshots/Page1-upon-load.png?raw=true "Front page")
 
-![Front page, prompt selection:](/screenshots/Page1-upon-prompt-selection.jpg?raw=true "Front page")
+![Front page, prompt selection:](/screenshots/Page1-upon-prompt-selection.png?raw=true "Front page")
 
 Second page, interacting with the model using the chosen prompt and parameters:
-![Second page, interaction](/screenshots/Page2-interaction.jpg?raw=true "Interaction page")
+![Second page, interaction](/screenshots/Page2-interaction.png?raw=true "Interaction page")
 
 ## Usage
 On the front page, the full list of loaded prompts is always available to view. Model selection between gpt-3.5-turbo or gpt-4 is available to change the model used to generate responses. Switching to the "interact-with-llm" page without first selecting a prompt will result in a default interaction with the chosen model similar to using chatGPT.
