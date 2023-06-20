@@ -7,10 +7,13 @@ from langchain.llms import OpenAI
 from langchain.chat_models import ChatOpenAI
 from streamlit_chat import message
 
+
+# Initialize keys, models and prompt templates:
 OPENAI_API_KEY = "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"
 WEAVIATE_URL = "https://first-test-cluster-dw7v1rzb.weaviate.network"
 
 os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
+
 #llm = OpenAI(temperature=0, verbose=True)
 llm = ChatOpenAI(
     openai_api_key=OPENAI_API_KEY,
@@ -39,7 +42,6 @@ def update_interactive_llm(final_prompt):
     template = "You must NEVER generate a 'user' response yourself" + final_prompt + list_to_string() + default_temp
 
     prompt = PromptTemplate(
-        #input_variables=["chat_history", "user_input"],
         input_variables=["user_input"],
         template=template
     )
@@ -81,27 +83,9 @@ else:
             st.session_state["chat_history"].append(f" \nSystem: {value} ")
             st.session_state["chat_interactions"].append({"role": "system", "content": value})
 
-# Form for interacting with the llm:
-# with st.form("llm-interaction"):
-#     st.text_area("Selected prompt:", key="selected-prompt", height=200, value=st.session_state.selected_prompt_val)
-#     st.text_area("LLM output:", key="output", height=200, value=st.session_state["default"])
-    
-#     user_response=st.text_input("User response", key="user-response")
-    
-#     submitted = st.form_submit_button("Submit")
-#     if submitted:
-#         llm_chain = update_interactive_llm(st.session_state["final_prompt"])
-#         system_response = llm_chain.predict(user_input=user_response)
-        
-#         st.session_state["chat_history"].append(f"\n\nUser: {user_response}")
-#         st.session_state["chat_interactions"].append({"role": "user", "content": user_response})
-#         st.session_state["chat_history"].append(f"\nSystem: {system_response}")
-#         st.session_state["chat_interactions"].append({"role": "system", "content": system_response})
-        
-#         st.text_area("LLM output:", value=system_response)
-#         display_chat_interaction()
-        
-#         print(st.session_state["chat_interactions"])
+#-------------------------------------------------------------------------------------
+#---------------------DISPLAY STREAMLIT OBJECTS:--------------------------------------
+#-------------------------------------------------------------------------------------
 
 st.text_area("Selected prompt:", key="selected-prompt", height=200, value=st.session_state.selected_prompt_val)
    

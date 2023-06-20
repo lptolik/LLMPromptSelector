@@ -86,9 +86,6 @@ def load_pinecone_prompts():
 
 # RETRIEVER, finds the most relevant prompt and returns it:
 def retrieve_best_prompts(db, user_input):
-    # retriever = db.as_retriever(search_type="mmr")
-    #chosen_prompt = retriever.get_relevant_documents(user_input)[0].page_content
-    # chosen_prompt = db.similarity_search(user_input)[0].page_content
     potential_prompts = db.similarity_search(user_input, k=4)
     potential_prompts_dict = []
     # Display the potential prompts to the user:
@@ -129,26 +126,6 @@ def edit_prompt(chosen_prompt):
     
     print(f"This is the edited prompt: {final_prompt}")
     
-    # creativity_prompt_template = """
-    # You are a creativity score identification system. You are provided with a prompt and you must judge
-    # how creative answers based on that prompt should be on a scale of 0.0 - 1.0. If the prompt relates to 
-    # fact or gives very specifc intructions on the type of answer, creativity should be low. If the 
-    # prompt relates to generating text/art or other subjective form then the creativity should be high. Your
-    # only output is a single number between 0.0 - 1.0 to one decimal place which rates the creativity of the
-    # provided prompt. Do not explain anything. Do not write ANY words.
-    # The prompt you must judge is:
-    # {final_prompt}
-    # """
-    
-    # creativity_prompt = PromptTemplate(
-    #     input_variables=["final_prompt"],
-    #     template=creativity_prompt_template
-    # )
-    
-    # creativity_chain = LLMChain(llm = gpt4,
-    #                             prompt=creativity_prompt,
-    #                             verbose=True)
-    
     settings_prompt_template = """
     Act as a GPT expert that chooses the best settings for a large language model based on a provided prompt 
     it will use. You must choose the best fitting temperature, top-p, presence penalty and frequency penalty 
@@ -179,30 +156,14 @@ def edit_prompt(chosen_prompt):
         verbose=True
     )
     
-    # creativity_score = creativity_chain.run(final_prompt)
-    # print(f"This is the creativity prompt output: {creativity_score}")
-    
     settings = settings_chain.run(final_prompt)
     print(f"These are the settings: \n{settings}")
     
     return final_prompt, settings
-
-
-#@st.cache_resource
-# def output_selected_prompt(user_input, db):
-#         input, chosen_prompt = retrieve_best_prompt(db, user_input)
-#         st.session_state["chosen prompt"] = chosen_prompt
-#         st.write(f"User query: {input}. Best fitting prompt found: \n\n{chosen_prompt}")
-        
-#         final_prompt, settings = edit_prompt(chosen_prompt)
-#         st.session_state["final_prompt"] = final_prompt
-#         st.session_state["settings"] = json.loads(settings)
-#         st.write(f"The prompt after editing: \n\n{final_prompt}")
-#         st.write(f"Identified settings: {json.loads(settings)}")
-        
-#         print(f"This is final prompt: {st.session_state['final_prompt']}")
-#         st.session_state["prompt_chosen"] = True
-        
+    
+#-------------------------------------------------------------------------------------
+#---------------------DISPLAY STREAMLIT OBJECTS:--------------------------------------
+#-------------------------------------------------------------------------------------
         
 # Display the prompts table:
 display_prompts()
@@ -226,7 +187,6 @@ with st.container():
 
 # Display form to select prompt:
 with st.form("form"):
-    #output_selected_prompt(user_input, db)
     prompt_df = retrieve_best_prompts(db, user_input)
     
     # Allow the user to select what prompt to use:
@@ -248,6 +208,5 @@ with st.form("form"):
         st.write(f"The prompt after editing: \n\n{final_prompt}")
         st.write(f"Identified settings: {json.loads(settings)}")
 
-        #print(f"This is final prompt: {st.session_state['final_prompt']}")
         st.session_state["prompt_chosen"] = True
 
