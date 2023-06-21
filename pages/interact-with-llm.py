@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import os
+import re
 from langchain import PromptTemplate
 from langchain.chains import LLMChain
 from langchain.llms import OpenAI
@@ -37,6 +38,32 @@ def list_to_string():
         output += i
     return output
 
+# This stops the program from crashing, but might lead to wrong results
+def escape(input_string):
+    input_string = input_string.replace("{", "{{")
+    input_string = input_string.replace("}", "}}")
+    print(input_string)
+    return input_string
+
+# This doesnt quite work, if it meets a double brace {{ it will add a third which will negate the escape:
+def escape_nested_braces(input_string):
+    stack = []
+    offset = 0
+
+    for m in re.finditer(r'[{}]', input_string):
+        pos = m.start()
+
+        if m.group() == '{':
+            stack.append(pos)
+        elif stack:
+            start_pos = stack.pop()
+            if not stack:
+                start_pos += offset
+                pos += offset
+                input_string = input_string[:start_pos] +'{'+ input_string[start_pos:pos + 1] + '}' + input_string[pos + 1:]
+                offset += 2
+    return input_string
+
 # Initialises/updates the llm and the prompt it uses:
 def update_interactive_llm(final_prompt):
     template = "You must NEVER generate a 'user' response yourself" + final_prompt + list_to_string() + default_temp
@@ -61,7 +88,7 @@ if not st.session_state["prompt_chosen"]:
     print("PROMPT NOT CHOSEN:")
     if "default" not in st.session_state:   # Making sure the 'default' value is not updated after first load
         llm_chain = update_interactive_llm("")
-        value = llm_chain.predict(user_input="")
+        value = escape_nested_braces(llm_chain.predict(user_input=""))
         st.session_state["default"] = value
         st.session_state["chat_history"].append(f" \nSystem: {value} ")
         st.session_state["chat_interactions"].append({"role": "system", "content": value})
@@ -72,13 +99,13 @@ else:
         st.session_state.selected_prompt_val = f'The prompt I will use is: \n{st.session_state["final_prompt"]}\n The settings are: {st.session_state["settings"]}\n The model being used is: {st.session_state["model"]}'
         
         llm_chain = update_interactive_llm(st.session_state["final_prompt"])
-        value = llm_chain.predict(user_input=st.session_state["user input"])
+        value = escape_nested_braces(llm_chain.predict(user_input=st.session_state["user input"]))
         
         st.session_state["selected"] = value
         st.session_state["default"] = st.session_state["selected"]
         
         if st.session_state["chat_history"] == []:  # This might be meaningless.... TODO
-            st.session_state["chat_history"].append(f"\n\nUser: {st.session_state['user input']} ")
+            st.session_state["chat_history"].append(f"\n\nUser: {escape_nested_braces(st.session_state['user input'])} ")
             st.session_state["chat_interactions"].append({"role": "user", "content": st.session_state['user input']})
             st.session_state["chat_history"].append(f" \nSystem: {value} ")
             st.session_state["chat_interactions"].append({"role": "system", "content": value})
@@ -95,12 +122,12 @@ container = st.container()
 
 with container:
     with st.form(key='my_form', clear_on_submit=True):
-        user_response = st.text_area("You:", key='input', height=100)
+        user_response = escape_nested_braces(st.text_area("You:", key='input', height=100))
         submit_button = st.form_submit_button(label='Send')
     
     if submit_button and user_response:
         llm_chain = update_interactive_llm(st.session_state["final_prompt"])
-        system_response = llm_chain.predict(user_input=user_response)
+        system_response = escape_nested_braces(llm_chain.predict(user_input=user_response))
         
         st.session_state["chat_history"].append(f"\n\nUser: {user_response}")
         st.session_state["chat_interactions"].append({"role": "user", "content": user_response})

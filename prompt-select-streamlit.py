@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import os
+import re
 import json
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import Weaviate
@@ -53,6 +54,22 @@ if "default" in st.session_state:
     del st.session_state["default"]
 if "selected" in st.session_state:
     del st.session_state["selected"]
+    
+
+# Assumes the first use of curly brackets is for the dictionary:
+def extract_dictionary(text):
+    stack = []
+
+    for m in re.finditer(r'[{}]', text):
+        pos = m.start()
+
+        if m.group() == '{':
+            stack.append(pos)
+        elif stack:
+            start_pos = stack.pop()
+            if not stack:
+                return (text[:start_pos], text[start_pos:pos + 1])
+    return ""
     
 # display the prompts in a table:
 @st.cache_data
@@ -137,9 +154,9 @@ def edit_prompt(chosen_prompt):
     such as translation tasks or question answering, a low temperature or top p value should be used to 
     improve accuracy and factual correctness. The presence penalty and frequency penalty settings are useful 
     if you want to get rid of repetition in your outputs. Do not be afraid of using the entire scale 
-    for each parameter. Try to stay away from values in the middle of the scale unless you need to. Provide 
-    the settings that you choose in a dictionary format. Do not give any explanations. 
-    Your only output should be the dictionary of settings.
+    for each parameter. Try to stay away from values in the middle of the scale unless you need to. Provide a succint explanation on why and how you chose each parameter. Provide
+    the settings that you choose in a dictionary format.
+    Your output should be the explanation of your choices followed by the dictionary of settings.
     
     The provided prompt: 
     {final_prompt}
@@ -156,10 +173,11 @@ def edit_prompt(chosen_prompt):
         verbose=True
     )
     
-    settings = settings_chain.run(final_prompt)
-    print(f"These are the settings: \n{settings}")
+    explanation, settings = extract_dictionary(settings_chain.run(final_prompt))
+    print(f"Settings reasoning:\n{explanation}")
+    print(f"\n{settings}")
     
-    return final_prompt, settings
+    return final_prompt, explanation, settings
     
 #-------------------------------------------------------------------------------------
 #---------------------DISPLAY STREAMLIT OBJECTS:--------------------------------------
@@ -170,6 +188,7 @@ display_prompts()
 
 st.sidebar.title("Sidebar")
 st.session_state["model"] = st.sidebar.radio("Choose a model:", ("gpt-3.5-turbo", "gpt-4"))
+show_details = st.sidebar.checkbox("Show details!")
 
 # Display the container to enter prompt query:
 with st.container():
@@ -198,15 +217,23 @@ with st.form("form"):
     if submit:    
         # Display chosen prompt og and edited version to user:
         st.session_state["chosen prompt"] = chosen_prompt
-        st.write(f"User query: {user_input}. Best fitting prompt found: \n\n{chosen_prompt}")
+        
+        if show_details:
+            st.subheader(f"Best fitting prompt found:")
+            st.write(f"\n\n{chosen_prompt}")
 
-        final_prompt, settings = edit_prompt(chosen_prompt)
+        final_prompt, settings_explanation, settings = edit_prompt(chosen_prompt)
         
         st.session_state["final_prompt"] = final_prompt
         st.session_state["settings"] = json.loads(settings)
         
-        st.write(f"The prompt after editing: \n\n{final_prompt}")
-        st.write(f"Identified settings: {json.loads(settings)}")
+        st.subheader(f"The prompt after editing:")
+        st.write(f"\n\n{final_prompt}")
+        
+        if show_details:
+            st.subheader(f"Settings reasoning:")
+            st.write(f"\n{settings_explanation}")
+            st.write(f"{json.loads(settings)}")
 
         st.session_state["prompt_chosen"] = True
 
