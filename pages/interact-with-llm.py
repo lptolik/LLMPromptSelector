@@ -8,6 +8,8 @@ from langchain.llms import OpenAI
 from langchain.chat_models import ChatOpenAI
 from streamlit_chat import message
 
+import ContextAgent
+
 
 # Initialize keys, models and prompt templates:
 OPENAI_API_KEY = "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"
@@ -25,6 +27,9 @@ llm = ChatOpenAI(
     top_p=st.session_state["settings"]["top_p"],
     verbose=True
 )
+
+if "agent" not in st.session_state:
+    st.session_state["agent"] = ContextAgent.ContextAgent()
 
 default_temp = """
 
@@ -66,10 +71,10 @@ def escape_nested_braces(input_string):
 
 # Initialises/updates the llm and the prompt it uses:
 def update_interactive_llm(final_prompt):
-    template = "You must NEVER generate a 'user' response yourself" + final_prompt + list_to_string() + default_temp
+    template = "You MUST NEVER generate a 'User' response yourself. Only answer the provided user input!" + final_prompt + """\nUse the following information to answer the question if its not empty: "{context}"\n Chat History: {chat_history}\n\n Begin!\n""" + default_temp
 
     prompt = PromptTemplate(
-        input_variables=["user_input"],
+        input_variables=["user_input", "context", "chat_history"],
         template=template
     )
     
@@ -82,13 +87,15 @@ def update_interactive_llm(final_prompt):
     )
     return llm_chain
 
+if "llm_chain" not in st.session_state:
+    st.session_state["llm_chain"] = update_interactive_llm("")
+
 # Setting the settings of the llm, depending on whether a prompt has been selected or not
 if not st.session_state["prompt_chosen"]:
     # If a prompt has not been selected then the user will interact with default llm:
     print("PROMPT NOT CHOSEN:")
     if "default" not in st.session_state:   # Making sure the 'default' value is not updated after first load
-        llm_chain = update_interactive_llm("")
-        value = escape_nested_braces(llm_chain.predict(user_input=""))
+        value = escape_nested_braces(st.session_state["llm_chain"].predict(user_input="", context="", chat_history=list_to_string()))
         st.session_state["default"] = value
         st.session_state["chat_history"].append(f" \nSystem: {value} ")
         st.session_state["chat_interactions"].append({"role": "system", "content": value})
@@ -98,8 +105,8 @@ else:
     if "selected" not in st.session_state:  # Making sure the 'default' value is not updated after first load
         st.session_state.selected_prompt_val = f'The prompt I will use is: \n{st.session_state["final_prompt"]}\n The settings are: {st.session_state["settings"]}\n The model being used is: {st.session_state["model"]}'
         
-        llm_chain = update_interactive_llm(st.session_state["final_prompt"])
-        value = escape_nested_braces(llm_chain.predict(user_input=st.session_state["user input"]))
+        st.session_state["llm_chain"] = update_interactive_llm(st.session_state["final_prompt"])
+        value = escape_nested_braces(st.session_state["llm_chain"].predict(user_input=st.session_state["user input"], context="", chat_history=list_to_string()))
         
         st.session_state["selected"] = value
         st.session_state["default"] = st.session_state["selected"]
@@ -114,7 +121,29 @@ else:
 #---------------------DISPLAY STREAMLIT OBJECTS:--------------------------------------
 #-------------------------------------------------------------------------------------
 
-st.text_area("Selected prompt:", key="selected-prompt", height=200, value=st.session_state.selected_prompt_val)
+st.sidebar.title("Sidebar")
+st.session_state["upload"] = st.sidebar.checkbox("Upload files!")
+
+#st.text_area("Selected prompt:", key="selected-prompt", height=200, value=st.session_state.selected_prompt_val)
+st.subheader("Selected prompt:")
+st.write(f"\n\n{st.session_state.selected_prompt_val}") 
+
+if st.session_state.upload:
+    uploaded_file = st.file_uploader("Upload any relevant files")
+    if uploaded_file !=  None:
+        with st.container():
+            bytes_data = uploaded_file.read()
+            #st.session_state["agent"].load_new_data(uploaded_file.name)
+            #st.write(bytes_data)
+            st.write("Please provide a name for the new knowledge base and a description of when it should be used:")
+            db_name = st.text_input("Tool name", label_visibility="collapsed", placeholder="Tool name: e.g. University FAQ Knowledge Base")
+            description = st.text_input("Description", label_visibility="collapsed", placeholder="Description: e.g. useful for answering frequently asked questions about University.")
+            submit = st.button("Submit")
+            if db_name and description and submit:
+                #print(st.session_state["agent"].split_data())
+                st.session_state["agent"].load_new_data(uploaded_file, db_name, description)
+                print(f"THIS IS THE AGENTS TOOLS LIST: {st.session_state.agent.agent.tools}")
+                uploaded_file = None
    
 response_container = st.container()
 
@@ -126,8 +155,12 @@ with container:
         submit_button = st.form_submit_button(label='Send')
     
     if submit_button and user_response:
-        llm_chain = update_interactive_llm(st.session_state["final_prompt"])
-        system_response = escape_nested_braces(llm_chain.predict(user_input=user_response))
+        #llm_chain = update_interactive_llm(st.session_state["final_prompt"])
+        context = ""
+        if st.session_state["agent"].tools != []:
+            print(f"THIS IS THE AGENTS TOOLS LIST DURING INTERACTION: {st.session_state.agent.agent.tools}")
+            context = st.session_state["agent"].run(user_response)  # call the agent for additional information
+        system_response = escape_nested_braces(st.session_state["llm_chain"].predict(user_input=user_response, context=context, chat_history=list_to_string()))
         
         st.session_state["chat_history"].append(f"\n\nUser: {user_response}")
         st.session_state["chat_interactions"].append({"role": "user", "content": user_response})

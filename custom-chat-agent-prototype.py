@@ -41,13 +41,13 @@ prompt =  PromptTemplate(
 
 selected_prompt_chain = LLMChain(llm=llm, prompt=prompt)
 
-main_tool = Tool(
-    name="Wise Old Man",
-    func=selected_prompt_chain.run,
-    description=(
-        'Useful for constructing the Final Answer. The action input is the exact user query and you can provide context. Always use this tool last.'
-    )
-)
+# main_tool = Tool(
+#     name="Wise Old Man",
+#     func=selected_prompt_chain.run,
+#     description=(
+#         'Useful for constructing the Final Answer. The action input is the exact user query and you can provide context. Always use this tool last.'
+#     )
+# )
 
 tools_list = []
 chat_history = []
