@@ -28,7 +28,14 @@ llm = ChatOpenAI(
     verbose=True
 )
 
-if "agent" not in st.session_state:
+summarizer = ChatOpenAI(
+    openai_api_key=OPENAI_API_KEY,
+    model_name='gpt-3.5-turbo',
+    temperature=0.5,
+    verbose=True
+)
+
+if "agent" not in st.session_state or st.session_state["chat_history"] == []:
     st.session_state["agent"] = ContextAgent.ContextAgent()
 
 default_temp = """
@@ -37,11 +44,32 @@ User: {user_input}
 System:"""
 
 # Helper function to convert list of strings that serve as the chat history into a large string:
-def list_to_string():
+def chat_to_string():
     output = ""
     for i in st.session_state["chat_history"]:
         output += i
     return output
+
+def update_chat_history_summarizer():
+    chat_history = chat_to_string()
+    
+    summarize_prompt = PromptTemplate(
+        input_variables=["chat_history"],
+        template="""
+        You are an expert in summarizing conversations. You are provided with a conversation between a "User" and a "System", where the System responds to User queries. Your key objective is to preserve what the User is talking about. Succinctly give an overview of the conversation. Your only output should be the summarised conversation.
+        The conversation:
+        "{chat_history}"
+        """
+    )
+    
+    summarize_chat_chain = LLMChain(
+        llm = summarizer,
+        prompt = summarize_prompt,
+        verbose = True
+    )
+    
+    return summarize_chat_chain
+    
 
 # This stops the program from crashing, but might lead to wrong results
 def escape(input_string):
@@ -87,15 +115,17 @@ def update_interactive_llm(final_prompt):
     )
     return llm_chain
 
+# Define llm used to answer queries and llm used to summarize conversation:
 if "llm_chain" not in st.session_state:
     st.session_state["llm_chain"] = update_interactive_llm("")
+    st.session_state["summarizer"] = update_chat_history_summarizer()
 
 # Setting the settings of the llm, depending on whether a prompt has been selected or not
 if not st.session_state["prompt_chosen"]:
     # If a prompt has not been selected then the user will interact with default llm:
     print("PROMPT NOT CHOSEN:")
     if "default" not in st.session_state:   # Making sure the 'default' value is not updated after first load
-        value = escape_nested_braces(st.session_state["llm_chain"].predict(user_input="", context="", chat_history=list_to_string()))
+        value = escape_nested_braces(st.session_state["llm_chain"].predict(user_input="", context="", chat_history=chat_to_string()))
         st.session_state["default"] = value
         st.session_state["chat_history"].append(f" \nSystem: {value} ")
         st.session_state["chat_interactions"].append({"role": "system", "content": value})
@@ -106,7 +136,7 @@ else:
         st.session_state.selected_prompt_val = f'The prompt I will use is: \n{st.session_state["final_prompt"]}\n The settings are: {st.session_state["settings"]}\n The model being used is: {st.session_state["model"]}'
         
         st.session_state["llm_chain"] = update_interactive_llm(st.session_state["final_prompt"])
-        value = escape_nested_braces(st.session_state["llm_chain"].predict(user_input=st.session_state["user input"], context="", chat_history=list_to_string()))
+        value = escape_nested_braces(st.session_state["llm_chain"].predict(user_input=st.session_state["user input"], context="", chat_history=chat_to_string()))
         
         st.session_state["selected"] = value
         st.session_state["default"] = st.session_state["selected"]
@@ -160,12 +190,17 @@ with container:
         if st.session_state["agent"].tools != []:
             print(f"THIS IS THE AGENTS TOOLS LIST DURING INTERACTION: {st.session_state.agent.agent.tools}")
             context = st.session_state["agent"].run(user_response)  # call the agent for additional information
-        system_response = escape_nested_braces(st.session_state["llm_chain"].predict(user_input=user_response, context=context, chat_history=list_to_string()))
+        system_response = escape_nested_braces(st.session_state["llm_chain"].predict(user_input=user_response, context=context, chat_history=chat_to_string()))
         
         st.session_state["chat_history"].append(f"\n\nUser: {user_response}")
         st.session_state["chat_interactions"].append({"role": "user", "content": user_response})
         st.session_state["chat_history"].append(f"\nSystem: {system_response}")
         st.session_state["chat_interactions"].append({"role": "system", "content": system_response})
+        
+        # If the chat history becomes too long, summarize it:
+        if len(st.session_state["chat_history"]) > 14:#10:
+            # The following line summarizes the entire chat, but also keeps the final few interactions intact:
+            st.session_state["chat_history"] = [st.session_state["summarizer"].predict(chat_history=chat_to_string())] + st.session_state["chat_history"][-4:]
         
         print(st.session_state["chat_interactions"])
 
