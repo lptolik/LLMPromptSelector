@@ -1,4 +1,5 @@
 import os
+import tempfile
 import re
 OPENAI_API_KEY = "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"
 os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
@@ -16,6 +17,7 @@ from langchain.chains import LLMChain
 
 from langchain.document_loaders import CSVLoader
 from langchain.document_loaders import UnstructuredPDFLoader
+from langchain.document_loaders import UnstructuredHTMLLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 from langchain.schema import AgentAction, AgentFinish, HumanMessage
@@ -52,25 +54,33 @@ class ContextAgent():
     # ---------------------- LOADING AND PROCESSING NEW DATA: ----------------------------------------
     
     # Process the file into something an llm can use:
-    def __split_data(self, file_name):
-        text_splitter = RecursiveCharacterTextSplitter(
-                chunk_size = 1000,
-                chunk_overlap = 20,
-                length_function = len,
-                add_start_index = True
-            )
+    # def __split_data1(self, file_name):
+    #     text_splitter = RecursiveCharacterTextSplitter(
+    #             chunk_size = 1000,
+    #             chunk_overlap = 20,
+    #             length_function = len,
+    #             add_start_index = True
+    #         )
         
-        if file_name[-4:] == ".csv" or file_name[-4:] == ".txt":
-            with open(file_name) as f:
-                csv = f.read()
+    #     base_dir = "C:\\Users\\Alexander\\Documents\\GPT_app\\Prompt_select_bot\\Prompt_Selector_Bot"
+        
+    #     file_name = os.path.join(base_dir, file_name)
+        
+    #     if file_name[-4:] == ".csv" or file_name[-4:] == ".txt":
+    #         with open(file_name) as f:
+    #             csv = f.read()
 
-            documents = text_splitter.create_documents([csv])
+    #         documents = text_splitter.create_documents([csv])
             
-        if file_name[-4:] == ".pdf":
-            loader = UnstructuredPDFLoader(file_name)
-            documents = loader.load()   # not sure if I should split this for larger pdfs
+    #     if file_name[-4:] == ".pdf":
+    #         loader = UnstructuredPDFLoader(file_name)
+    #         documents = loader.load()   # not sure if I should split this for larger pdfs
             
-        return documents
+    #     if file_name[-5:] == ".html":
+    #         loader = UnstructuredHTMLLoader(file_name)
+    #         documents = loader.load()
+            
+    #     return documents
     
     def __create_new_tool(self, db_name, qa, description):
         self.tools.append(Tool(
@@ -83,11 +93,34 @@ class ContextAgent():
         ))
         
     # Provided file, name and description, loads the file and creates a new tool:
-    def load_new_data(self, uploaded_file, db_name, description):
-        split = self.__split_data(uploaded_file.name)
+    def load_new_data(self, uploaded_file, db_name, description):  
+        text_splitter = RecursiveCharacterTextSplitter(
+                chunk_size = 1000,
+                chunk_overlap = 20,
+                length_function = len,
+                add_start_index = True
+            )
+        
+        with tempfile.TemporaryDirectory() as temp_dir:
+            if uploaded_file.name[-4:] == ".csv" or uploaded_file.name[-4:] == ".txt":
+                documents = text_splitter.create_documents([uploaded_file.read().decode()])
+            if uploaded_file.name[-4:] == ".pdf":
+                file_tempfile = tempfile.NamedTemporaryFile(suffix='.pdf', dir=temp_dir, delete=False)
+                file_tempfile.write(uploaded_file.getvalue())
+                loader = UnstructuredPDFLoader(file_tempfile.name)
+                documents = loader.load()
+                file_tempfile.close()
+                os.unlink(file_tempfile.name)
+            if uploaded_file.name[-5:] == ".html":
+                file_tempfile = tempfile.NamedTemporaryFile(suffix=".html", dir=temp_dir, delete=False)
+                file_tempfile.write(uploaded_file.getvalue())
+                loader = UnstructuredHTMLLoader(file_tempfile.name)
+                documents = loader.load()
+                file_tempfile.close()
+                os.unlink(file_tempfile.name)
 
         # create the vectorstore:
-        db = Weaviate.from_documents(split, embeddings, weaviate_url=WEAVIATE_URL, by_text=False)
+        db = Weaviate.from_documents(documents, embeddings, weaviate_url=WEAVIATE_URL, by_text=False)
         
         qa = RetrievalQA.from_chain_type(
                 llm=self.llm,
