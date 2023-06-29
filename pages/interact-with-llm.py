@@ -99,7 +99,7 @@ def escape_nested_braces(input_string):
 
 # Initialises/updates the llm and the prompt it uses:
 def update_interactive_llm(final_prompt):
-    template = "You MUST NEVER generate a 'User' response yourself. Only answer the provided user input!" + final_prompt + """\nUse the following information to answer the question if its not empty: "{context}"\n Chat History: {chat_history}\n\n Begin!\n""" + default_temp
+    template = "You MUST NEVER generate a 'User' response yourself. Only answer the provided user input!\n" + final_prompt + """\nUse the following information to answer the question if its not empty: "{context}"\n Chat History: {chat_history}\n\n Begin!\n""" + default_temp
 
     prompt = PromptTemplate(
         input_variables=["user_input", "context", "chat_history"],
@@ -210,4 +210,4 @@ if st.session_state['chat_interactions']:
             if st.session_state['chat_interactions'][i]["role"] == "user":
                 message(st.session_state["chat_interactions"][i]["content"], is_user=True, key=str(i) + '_user')
             else:
-                message(st.session_state["chat_interactions"][i]["content"], key=str(i))
+                message(st.session_state["chat_interactions"][i]["content"], key=str(i), allow_html=True)

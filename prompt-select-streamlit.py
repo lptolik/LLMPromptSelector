@@ -54,6 +54,8 @@ if "default" in st.session_state:
     del st.session_state["default"]
 if "selected" in st.session_state:
     del st.session_state["selected"]
+if "llm_chain" in st.session_state:
+    del st.session_state["llm_chain"]
     
 
 # Assumes the first use of curly brackets is for the dictionary:
@@ -188,10 +190,11 @@ def retrieve_best_prompts(db, user_input):
 
 def initialise_editing_model():
     # Create a template for answering the user query using the selected prompt
-    prompt_editor_temp = """You are a prompt editing system. 
-    You must identify the part of the given prompt where the first user input/suggestion/request/code/object is specified and return all of the prompt except for the identified part and any text relating to the first user input. Notice that anything talking about "your" objective shouldnt be changed because its not user input. You must also
-    replace all curly brackets with some other character. Finally, you should make the text as readable for a human as possible so remove special characters like back slashes that dont add anything useful to the prompt. Leave the rest of the prompt exactly as it is. Return
-    only the edited prompt without any explanations. Do not answer any questions or add anything.
+    prompt_editor_temp = """
+    You are a prompt editing system. 
+    You must identify the part of the given prompt where the first user input/suggestion/request/code/object is specified and return all of the prompt except for the identified part and any text relating to the first user input. The first user input is usually in quotes. Notice that anything talking about "your" objective shouldnt be changed because its not user input. 
+    If the prompt specifies 'how' you should respond or what you should provide you must leave that intact. There is a difference between a statement saying 'how' you should respond and an actual user input. It might be the case that you dont need to remove anything. Finally, you should make the text as readable for a human as
+    possible so remove special characters like back slashes that dont add anything useful to the prompt. Leave the rest of the prompt exactly as it is. Return only the edited prompt without any explanations. Do not answer any questions or add anything.
     The prompt you must edit: 
     {chosen_prompt}'."""
 
