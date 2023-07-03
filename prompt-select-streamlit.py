@@ -26,6 +26,7 @@ llm = ChatOpenAI(
     openai_api_key=OPENAI_API_KEY,
     model_name='gpt-3.5-turbo',
     temperature=0.0,
+    top_p = 0,
     verbose=True
 )
 

@@ -55,8 +55,8 @@ def update_chat_history_summarizer():
     
     summarize_prompt = PromptTemplate(
         input_variables=["chat_history"],
-        template="""
-        You are an expert in summarizing conversations. You are provided with a conversation between a "User" and a "System", where the System responds to User queries. Your key objective is to preserve what the User is talking about. Succinctly give an overview of the conversation. Your only output should be the summarised conversation.
+        template=
+        """You are an expert in summarizing conversations. You are provided with a conversation between a "User" and a "System", where the System responds to User queries. Your key objective is to preserve the general idea of what User is talking about and what they want. Succinctly give an overview of the conversation. Your only output should be the conversation summary.
         The conversation:
         "{chat_history}"
         """
@@ -99,11 +99,11 @@ def escape_nested_braces(input_string):
 
 # Initialises/updates the llm and the prompt it uses:
 def update_interactive_llm(final_prompt):
-    template = "You MUST NEVER generate a 'User' response yourself. Only answer the provided user input!\n" + final_prompt + """\nUse the following information to answer the question if its not empty: "{context}"\n Chat History: {chat_history}\n\n Begin!\n""" + default_temp
+    template = "You MUST NEVER generate a 'User' response yourself. Only answer the provided user input!\n" + final_prompt + """\n Chat History: {chat_history}\n\nUse all of the following information to answer the question if its not empty, use it all as part of your answer: "{context}"\n Begin!\n""" + default_temp
 
     prompt = PromptTemplate(
         input_variables=["user_input", "context", "chat_history"],
-        template=template
+        template=template 
     )
     
     print(f"This is the prompt: {template}")
@@ -154,7 +154,8 @@ else:
 st.sidebar.title("Sidebar")
 st.session_state["upload"] = st.sidebar.checkbox("Upload files!")
 
-#st.text_area("Selected prompt:", key="selected-prompt", height=200, value=st.session_state.selected_prompt_val)
+st.sidebar.checkbox("Search the web!", on_change=st.session_state.agent.toggle_search)###############################
+
 st.subheader("Selected prompt:")
 st.write(f"\n\n{st.session_state.selected_prompt_val}") 
 
@@ -174,7 +175,8 @@ if st.session_state.upload:
                 st.session_state["agent"].load_new_data(uploaded_file, db_name, description)
                 print(f"THIS IS THE AGENTS TOOLS LIST: {st.session_state.agent.agent.tools}")
                 uploaded_file = None
-   
+                
+                
 response_container = st.container()
 
 container = st.container()   
@@ -185,12 +187,16 @@ with container:
         submit_button = st.form_submit_button(label='Send')
     
     if submit_button and user_response:
-        #llm_chain = update_interactive_llm(st.session_state["final_prompt"])
         context = ""
         if st.session_state["agent"].tools != []:
             print(f"THIS IS THE AGENTS TOOLS LIST DURING INTERACTION: {st.session_state.agent.agent.tools}")
             context = st.session_state["agent"].run(user_response)  # call the agent for additional information
+            st.sidebar.text_area(label="Agent found Context:", value=f"{context}")
+        
         system_response = escape_nested_braces(st.session_state["llm_chain"].predict(user_input=user_response, context=context, chat_history=chat_to_string()))
+        # Update the agent's chat history:
+        st.session_state.agent.update_chat_history(user_response, system_response)
+                
         
         st.session_state["chat_history"].append(f"\n\nUser: {user_response}")
         st.session_state["chat_interactions"].append({"role": "user", "content": user_response})
@@ -202,7 +208,7 @@ with container:
             # The following line summarizes the entire chat, but also keeps the final few interactions intact:
             st.session_state["chat_history"] = [st.session_state["summarizer"].predict(chat_history=chat_to_string())] + st.session_state["chat_history"][-4:]
         
-        print(st.session_state["chat_interactions"])
+        #print(st.session_state["chat_interactions"])
 
 if st.session_state['chat_interactions']:
     with response_container:
@@ -211,3 +217,4 @@ if st.session_state['chat_interactions']:
                 message(st.session_state["chat_interactions"][i]["content"], is_user=True, key=str(i) + '_user')
             else:
                 message(st.session_state["chat_interactions"][i]["content"], key=str(i), allow_html=True)
+                

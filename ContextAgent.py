@@ -3,15 +3,18 @@ import tempfile
 import re
 OPENAI_API_KEY = "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"
 os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
+os.environ["SERPER_API_KEY"] = "0e061654f54d1acb6888ae6e8c7ef8356a64526d"
 
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import Weaviate
 WEAVIATE_URL = "https://prompt-selector-document-loader-8dgftetz.weaviate.network"
 embeddings = OpenAIEmbeddings()
 
+import tiktoken
 from langchain.agents import Tool
 from typing import List, Union
 from langchain.chat_models import ChatOpenAI
+from langchain.llms import OpenAI
 from langchain.chains import RetrievalQA
 from langchain.chains import LLMChain
 
@@ -24,6 +27,7 @@ from langchain.schema import AgentAction, AgentFinish, HumanMessage
 from langchain.agents import Tool, AgentExecutor, LLMSingleActionAgent, AgentOutputParser
 from langchain.prompts import BaseChatPromptTemplate
 
+from langchain.utilities import GoogleSerperAPIWrapper
 
 class ContextAgent():
     tools: List[Tool]
@@ -32,13 +36,25 @@ class ContextAgent():
     agent: AgentExecutor
     
     def __init__(self):
+        search = GoogleSerperAPIWrapper()        
+        self.web_tool = ({
+                        "Tool": Tool(
+                            name = "Search",
+                            func=search.run,
+                            description="useful for when no other tool can provide an answer to the question."
+                        ), 
+                        "On": False})
+    
         self.tools = []
+        
         self.chat_history = []
+        
+        self.tokenizer = tiktoken.get_encoding('cl100k_base')
         
         self.llm = ChatOpenAI(
             openai_api_key=OPENAI_API_KEY,
-            model_name='gpt-3.5-turbo',
-            temperature=0.0,
+            model_name='gpt-4',
+            temperature=0.8,
             verbose=True
         )
         
@@ -51,14 +67,24 @@ class ContextAgent():
             output += i
         return output
     
+    def __tiktoken_len(self, text):
+        tokens = self.tokenizer.encode(
+            text,
+            disallowed_special=()
+        )
+        return len(tokens)
+    
     # ---------------------- LOADING AND PROCESSING NEW DATA: ----------------------------------------
+    
+    from langchain.document_loaders import BSHTMLLoader    
     
     # Process the file into something an llm can use:
     def __split_data(self, file_name):
         text_splitter = RecursiveCharacterTextSplitter(
                 chunk_size = 1000,
-                chunk_overlap = 20,
-                length_function = len,
+                chunk_overlap = 200,
+                length_function = self.__tiktoken_len,
+                separators=['\n\n', '\n', ' ', ''],
                 add_start_index = True
             )
         
@@ -73,12 +99,14 @@ class ContextAgent():
             documents = text_splitter.create_documents([csv])
             
         if file_name[-4:] == ".pdf":
-            loader = UnstructuredPDFLoader(file_name)
-            documents = loader.load()   # not sure if I should split this for larger pdfs
+            loader = UnstructuredPDFLoader(file_name)#, mode="elements")
+            documents = loader.load()
+            documents = text_splitter.split_documents(documents)
             
         if file_name[-5:] == ".html":
-            loader = UnstructuredHTMLLoader(file_name)
+            loader = UnstructuredHTMLLoader(file_name)#, strategy="hi_res", mode="elements")
             documents = loader.load()
+            documents = text_splitter.split_documents(documents)
             
         return documents
     
@@ -94,12 +122,6 @@ class ContextAgent():
         
     # Provided file, name and description, loads the file and creates a new tool:
     def load_new_data(self, uploaded_file, db_name, description):  
-        text_splitter = RecursiveCharacterTextSplitter(
-                chunk_size = 1000,
-                chunk_overlap = 20,
-                length_function = len,
-                add_start_index = True
-            )
         
         # with tempfile.TemporaryDirectory() as temp_dir:
         #     if uploaded_file.name[-4:] == ".csv" or uploaded_file.name[-4:] == ".txt":
@@ -177,6 +199,7 @@ class ContextAgent():
             regex = r"Action\s*\d*\s*:(.*?)\nAction\s*\d*\s*Input\s*\d*\s*:[\s]*(.*)"
             match = re.search(regex, llm_output, re.DOTALL)
             if not match:
+                #return AgentAction(tool="", tool_input="", log=llm_output)
                 raise ValueError(f"Could not parse LLM output: `{llm_output}`")
             action = match.group(1).strip()
             action_input = match.group(2)
@@ -189,18 +212,18 @@ class ContextAgent():
         
         {tools}
         
-        If you use one of [{tool_names}], you must use the following format:
+        If you use one of [{tool_names}], you must use the following format for all responses or your response will be considered incorrect:
         
         Query: the input you must respond to
         Thought: you should always think about what to do
         Action: the action to take, should be one of [{tool_names}]
         Action Input: the input to the action, should be as close to the original user query as possible
         Observation: the result of the action
-        ... (this Thought/Action/Action Input/Observation can repeat N times)
+        ... (this Thought/Action/Action Input/Observation can repeat up to N times)
         Thought: I now know the final answer
         Final Answer: the final answer to the original input question
 
-        IF YOU DONT USE ANY TOOL YOUR OUTPUT SHOULD BE EMPTY!! YOUR ONLY OUTPUT SHOULD BE: "N/A"
+        IF YOU DONT USE ANY TOOLS OR YOU CANT FIND THE ANSWER YOUR ONLY OUTPUT SHOULD BE: "Final Answer: N/A"
 
         Chat history:
         {chat_history}
@@ -221,6 +244,8 @@ class ContextAgent():
     
     def __create_agent(self):
         prompt = self.__update_template()
+        
+        print(f"This is the newest prompt: {prompt}")
     
         output_parser = self.CustomOutputParser()
         
@@ -240,6 +265,25 @@ class ContextAgent():
     
     def run(self, user_input):
         response = self.agent.run({"input" : user_input, "chat_history": self.__list_to_string()})
+        # self.chat_history.append(f"User query: {user_input}\n")
+        # self.chat_history.append(f"Agent response: {response}\n")
+        return response
+    
+    def update_chat_history(self, user_input, response):
         self.chat_history.append(f"User query: {user_input}\n")
         self.chat_history.append(f"Agent response: {response}\n")
-        return response
+        # Truncate to the last 10 interactions:
+        if len(self.chat_history) > 10:
+            self.chat_history = self.chat_history[:-10]
+    
+    def toggle_search(self):
+        if not self.web_tool["On"]:
+            self.tools.append(self.web_tool["Tool"])    # add search to tools list
+            self.web_tool["On"] = True
+            self.agent = self.__create_agent()
+            print("Web search is now On")
+        else:
+            self.tools = [tool for tool in self.tools if tool.name != "Search"] # remove search from tools list
+            self.web_tool["On"] = False
+            self.agent = self.__create_agent()
+            print("Web search is now Off")
