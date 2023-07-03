@@ -164,8 +164,6 @@ if st.session_state.upload:
     if uploaded_file !=  None:
         with st.container():
             bytes_data = uploaded_file.read()
-            #st.session_state["agent"].load_new_data(uploaded_file.name)
-            #st.write(bytes_data)
             st.write("Please provide a name for the new knowledge base and a description of when it should be used:")
             db_name = st.text_input("Tool name", label_visibility="collapsed", placeholder="Tool name: e.g. University FAQ Knowledge Base")
             description = st.text_input("Description", label_visibility="collapsed", placeholder="Description: e.g. useful for answering frequently asked questions about University.")
@@ -210,6 +208,7 @@ with container:
         
         #print(st.session_state["chat_interactions"])
 
+# DISPLAYING THE CONVERSATION IN A CHAT-LIKE STYLE:
 if st.session_state['chat_interactions']:
     with response_container:
         for i in range(len(st.session_state['chat_interactions'])):
@@ -217,4 +216,18 @@ if st.session_state['chat_interactions']:
                 message(st.session_state["chat_interactions"][i]["content"], is_user=True, key=str(i) + '_user')
             else:
                 message(st.session_state["chat_interactions"][i]["content"], key=str(i), allow_html=True)
-                
+        
+
+# SAVING THE CHAT:
+if "save_chat" not in st.session_state:
+    st.session_state["save_chat"] = False
+
+if st.button("Save chat"):
+    st.session_state["save_chat"] = not st.session_state["save_chat"]
+    chat_name = ""
+    
+if st.session_state["save_chat"]:
+    chat_name = st.text_input(label="Chat Name", label_visibility="collapsed", placeholder="Chat name: e.g. Making a cheesecake")
+    if st.button("Submit"):
+        st.session_state["chat_archive"].append({"Chat name": chat_name, "conversation": chat_to_string()})
+        st.session_state["save_chat"] = not st.session_state["save_chat"]

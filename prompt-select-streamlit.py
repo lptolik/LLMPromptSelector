@@ -34,14 +34,17 @@ gpt4 = ChatOpenAI(
     openai_api_key=OPENAI_API_KEY,
     model_name='gpt-4',
     temperature=0.0,
+    top_p = 0,
     verbose=True
 )
 
 # Initialise session state variables:
 st.session_state["vectors"] = []
 st.session_state["prompt_chosen"] = False
-st.session_state["chat_history"] = []
-st.session_state["chat_interactions"] = []
+st.session_state["chat_history"] = []   # Keeps track of all user and system messages as a list of strings. Used to provide chat history to models. Probably should eventually be removed and replaced with "interactions"
+st.session_state["chat_interactions"] = []  # Keeps track of User/System messages as a list of dictionaries [{role: "", content: ""}]. Used to display messages in chat style.
+if "chat_archive" not in st.session_state:
+    st.session_state["chat_archive"] = []   # Keeps track of past chat conversations that are saved
 st.session_state["model"] = "gpt-3.5-turbo"
 st.session_state["final_prompt"] = ""
 st.session_state["settings"] = {"temperature": 0.0, "top_p": 1.0, "presence_penalty": 0.0, "frequency_penalty": 0.0}
@@ -121,73 +124,6 @@ def retrieve_best_prompts(db, user_input):
     
     return prompt_df
 
-# PROMPT EDITOR: edits the identified prompt to best use:
-# @st.cache_resource
-# def edit_prompt(chosen_prompt):
-#     progress_bar = st.progress(0, "Initialising editing model...")
-    
-#     # Create a template for answering the user query using the selected prompt
-#     prompt_editor_temp = """You are a prompt editing system. 
-#     You must identify the part of the given prompt where the first user input/suggestion/request/code/object is specified and return all of the prompt except for the identified part and any text relating to the first user input. Notice that anything talking about "your" objective shouldnt be changed because its not user input. You must also
-#     replace all curly brackets with some other character. Finally, you should make the text as readable for a human as possible so remove special characters like back slashes that dont add anything useful to the prompt. Leave the rest of the prompt exactly as it is. Return
-#     only the edited prompt without any explanations. Do not answer any questions or add anything.
-#     The prompt you must edit: 
-#     {chosen_prompt}'."""
-
-#     edit_prompt = PromptTemplate(
-#         input_variables=["chosen_prompt"],
-#         template = prompt_editor_temp
-#     )
-
-#     editing_chain = LLMChain(llm = gpt4,    # can be changed to 3.5 but Old Man gets through :/
-#                     prompt = edit_prompt,
-#                     verbose=True)
-    
-#     progress_bar.progress(25, "Editing in progress... Please wait...")
-    
-#     print(f"THIS IS CHOSEN PROMPT: {chosen_prompt}")
-#     final_prompt = editing_chain.run(chosen_prompt)
-#     progress_bar.progress(50, "Initializing settings model...")
-    
-#     print(f"This is the edited prompt: {final_prompt}")
-    
-#     settings_prompt_template = """
-#     Act as a GPT expert that chooses the best settings for a large language model based on a provided prompt 
-#     it will use. You must choose the best fitting temperature, top-p, presence penalty and frequency penalty 
-#     settings based on how creative, factual and relevant the answer to the provided prompt should be. For each parameter you must choose a value between 0.0 and 1.0 A high 
-#     temperature or top p value produces more unpredictable and interesting results, but also increases the 
-#     likelihood of errors or nonsense text. A low temperature or top p value can produce more conservative and 
-#     predictable results, but may also result in repetitive or uninteresting text. For text generation tasks, 
-#     you may want to use a high temperature or top p value. However, for tasks where accuracy is important, 
-#     such as translation tasks or question answering, a low temperature or top p value should be used to 
-#     improve accuracy and factual correctness. The presence penalty and frequency penalty settings are useful 
-#     if you want to get rid of repetition in your outputs. Do not be afraid of using the entire scale 
-#     for each parameter. Try to stay away from values in the middle of the scale unless you need to. Provide a succint explanation on why and how you chose each parameter. Provide
-#     the settings that you choose in a dictionary format.
-#     Your output should be the explanation of your choices followed by the dictionary of settings.
-    
-#     The provided prompt: 
-#     {final_prompt}
-#     """
-    
-#     settings_prompt = PromptTemplate(
-#         input_variables=["final_prompt"],
-#         template=settings_prompt_template
-#     )
-    
-#     settings_chain = LLMChain(
-#         llm = gpt4,
-#         prompt=settings_prompt,
-#         verbose=True
-#     )
-    
-#     progress_bar.progress(60, "Configuring settings...")
-#     explanation, settings = extract_dictionary(settings_chain.run(final_prompt))
-#     progress_bar.progress(100, "Done!")
-#     print(f"Settings reasoning:\n{explanation}")
-#     print(f"\n{settings}")
-    
-#     return final_prompt, explanation, settings
 
 def initialise_editing_model():
     # Create a template for answering the user query using the selected prompt
@@ -248,9 +184,16 @@ def initialise_settings_model():
 # Display the prompts table:
 display_prompts()
 
-st.sidebar.title("Sidebar")
+st.sidebar.title("Options:")
 st.session_state["model"] = st.sidebar.radio("Choose a model:", ("gpt-3.5-turbo", "gpt-4"))
 st.session_state["show_details"] = st.sidebar.checkbox("Show details!")
+print(f"There are {len(st.session_state['chat_archive'])} saved chats")
+if len(st.session_state["chat_archive"]) > 0:
+    # Truncate to most recent 3 chats:
+    if len(st.session_state["chat_archive"]) > 3:
+        st.session_state["chat_archive"] = st.session_state["chat_archive"][-3:]
+    st.sidebar.title("Previous chats:")
+    st.sidebar.write(pd.DataFrame.from_dict(st.session_state["chat_archive"]))
 
 if "already_displayed" not in st.session_state:
     st.session_state["already_displayed"] = False
@@ -271,7 +214,8 @@ def edit_and_configure_prompt(chosen_prompt):
     progress_bar.progress(50, "Initializing settings model...")
     settings_chain = initialise_settings_model()
     progress_bar.progress(60, "Configuring settings...")
-    settings_explanation, settings = extract_dictionary(settings_chain.run(final_prompt))
+    #settings_explanation, settings = extract_dictionary(settings_chain.run(final_prompt))
+    settings_explanation, settings = extract_dictionary(settings_chain.run(chosen_prompt))
     progress_bar.progress(100, "Done!")
     
     #final_prompt, settings_explanation, settings = edit_prompt(chosen_prompt)
