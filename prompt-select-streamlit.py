@@ -34,7 +34,7 @@ gpt4 = ChatOpenAI(
     openai_api_key=OPENAI_API_KEY,
     model_name='gpt-4',
     temperature=0.0,
-    top_p = 0,
+    top_p = 0.0,
     verbose=True
 )
 
@@ -60,6 +60,10 @@ if "selected" in st.session_state:
     del st.session_state["selected"]
 if "llm_chain" in st.session_state:
     del st.session_state["llm_chain"]
+if "agent_enabled" in st.session_state:
+    del st.session_state["agent_enabled"]
+if "saved_chat" not in st.session_state:
+    st.session_state["saved_chat"] = ""
     
 
 # Assumes the first use of curly brackets is for the dictionary:
@@ -124,6 +128,33 @@ def retrieve_best_prompts(db, user_input):
     
     return prompt_df
 
+def initialise_linking_model():
+    linker_temp = """
+    You are an expert linking system, acting as the link between two large language models. You are given the chat history of a user with the first llm and the prompt the second llm will be using for interaction with the same user. Your goal is to alter the provided chat history so it can be provided to the second llm to use as additional information. This alteration could involve summarizing the chat, removing every part of the chat other than the first/last sections, or even extracting specific information from the chat. 
+    For example: suppose you are given the chat history of a user planning a trip to London, the chat history has mention of different locations, dates and other relevant information to planning a trip. You are then given the prompt the second llm will use and it is a python developer prompt. You should extract all the important trip information and present it in a clear format so the Python llm can use it to perform its actions such as visualising the locations/routes on a map.
+    Another example: suppose you are given the chat history of a user that is asking for an overview of a topic or a summarization of some text, you are then given the prompt the second llm will use which is a "Translator" prompt. You would want to only keep the system responses that are the answers to the users questions. Most likely only the final system response containing the final answer should be kept.
+    Dont summarise things like essays or reports.
+    Your output is only the altered chat history.
+
+    Chat history: 
+    {chat_history}
+    
+    Second llm prompt:
+    {prompt}
+    """
+    
+    linker_prompt = PromptTemplate(
+        input_variables=["chat_history", "prompt"],
+        template=linker_temp
+    )
+    
+    linker_chain = LLMChain(
+        llm=llm,
+        prompt=linker_prompt,
+        verbose=True
+    )
+    
+    return linker_chain
 
 def initialise_editing_model():
     # Create a template for answering the user query using the selected prompt
@@ -150,16 +181,18 @@ def initialise_settings_model():
     settings_prompt_template = """
     Act as a GPT expert that chooses the best settings for a large language model based on a provided prompt 
     it will use. You must choose the best fitting temperature, top-p, presence penalty and frequency penalty 
-    settings based on how creative, factual and relevant the answer to the provided prompt should be. For each parameter you must choose a value between 0.0 and 1.0 A high 
+    settings based on how creative, factual and relevant the answer to the provided prompt should be. For each parameter you must choose a value between 0.0 and 1.0. A high 
     temperature or top p value produces more unpredictable and interesting results, but also increases the 
     likelihood of errors or nonsense text. A low temperature or top p value can produce more conservative and 
     predictable results, but may also result in repetitive or uninteresting text. For text generation tasks, 
     you may want to use a high temperature or top p value. However, for tasks where accuracy is important, 
     such as translation tasks or question answering, a low temperature or top p value should be used to 
     improve accuracy and factual correctness. The presence penalty and frequency penalty settings are useful 
-    if you want to get rid of repetition in your outputs. Do not be afraid of using the entire scale 
-    for each parameter. Try to stay away from values in the middle of the scale unless you need to. Provide a succint explanation on why and how you chose each parameter. Provide
-    the settings that you choose in a dictionary format.
+    if you want to get rid of repetition in your outputs. You can think of Frequency Penalty as a way to prevent word repetitions, 
+    and Presence Penalty as a way to prevent topic repetitions. You can use the entire scale 
+    for each parameter. Consider your choices carefully and perform multiple iterations before deciding on a final answer. 
+    The settings you choose should be the most likely settings so that if run again you would select the same exact settings again. 
+    Provide a succint explanation on why and how you chose each parameter. Provide the settings that you choose in a dictionary format.
     Your output should be the explanation of your choices followed by the dictionary of settings.
     
     The provided prompt: 
@@ -181,25 +214,46 @@ def initialise_settings_model():
 #-------------------------------------------------------------------------------------
 #---------------------DISPLAY STREAMLIT OBJECTS:--------------------------------------
 #-------------------------------------------------------------------------------------
+st.title("Prompt Selector")
+
 # Display the prompts table:
 display_prompts()
 
 st.sidebar.title("Options:")
 st.session_state["model"] = st.sidebar.radio("Choose a model:", ("gpt-3.5-turbo", "gpt-4"))
 st.session_state["show_details"] = st.sidebar.checkbox("Show details!")
-print(f"There are {len(st.session_state['chat_archive'])} saved chats")
+
+# Display saved chats:
 if len(st.session_state["chat_archive"]) > 0:
     # Truncate to most recent 3 chats:
     if len(st.session_state["chat_archive"]) > 3:
         st.session_state["chat_archive"] = st.session_state["chat_archive"][-3:]
     st.sidebar.title("Previous chats:")
-    st.sidebar.write(pd.DataFrame.from_dict(st.session_state["chat_archive"]))
+    archive_df = pd.DataFrame.from_dict(st.session_state["chat_archive"])
+    st.sidebar.write(archive_df)
+    new_row = {"Chat name": "None", "Conversation": ""}
+    new_archive_df = archive_df.append(pd.DataFrame([new_row], index=['0'], columns=archive_df.columns))
+    saved_chat_name = st.sidebar.selectbox("Use chat", options=(new_archive_df["Chat name"][::-1]))
+    if saved_chat_name != "None":
+        st.session_state["saved_chat"] = new_archive_df.loc[new_archive_df["Chat name"] == saved_chat_name].conversation.values[0]
+    else:
+        st.session_state["saved_chat"] = "" 
 
-if "already_displayed" not in st.session_state:
-    st.session_state["already_displayed"] = False
+async def async_generate(chain, chosen_prompt):
+    resp = await chain.arun(chosen_prompt)
+    print(resp)
+    return resp
 
-if not st.session_state["show_details"] and st.session_state["already_displayed"]:
-    st.session_state["already_displayed"] = False
+async def run_concurrent(chosen_prompt, settings_chain, editing_chain):
+    tasks = [async_generate(editing_chain, chosen_prompt), async_generate(settings_chain, chosen_prompt)]
+    return await asyncio.gather(*tasks)
+
+#@st.cache_resource
+def link_chat(final_prompt):
+    linker_chain = initialise_linking_model()
+    altered_chat = linker_chain.run(chat_history=st.session_state["saved_chat"], prompt=final_prompt)
+    final_prompt = f"{final_prompt} \n\nYou also have the following information from a previous interaction with the user. You may use this when responding: '{altered_chat}'"
+    return final_prompt
 
 @st.cache_resource
 def edit_and_configure_prompt(chosen_prompt):
@@ -214,11 +268,18 @@ def edit_and_configure_prompt(chosen_prompt):
     progress_bar.progress(50, "Initializing settings model...")
     settings_chain = initialise_settings_model()
     progress_bar.progress(60, "Configuring settings...")
-    #settings_explanation, settings = extract_dictionary(settings_chain.run(final_prompt))
     settings_explanation, settings = extract_dictionary(settings_chain.run(chosen_prompt))
     progress_bar.progress(100, "Done!")
     
-    #final_prompt, settings_explanation, settings = edit_prompt(chosen_prompt)
+    # progress_bar = st.progress(0, "Initialising editing model...")
+    # editing_chain = initialise_editing_model()
+    # progress_bar.progress(15, "Initialising settings model...")
+    # settings_chain = initialise_settings_model()
+    # progress_bar.progress(40, "Running editing and settings model...")
+    # final_prompt, settings_chain_res = asyncio.run(run_concurrent(chosen_prompt, settings_chain, editing_chain))
+    # progress_bar.progress(75, "Extracting dictionary...")
+    # settings_explanation, settings = extract_dictionary(settings_chain_res)
+    # progress_bar.progress(100, "Done!")
         
     return final_prompt, settings, settings_explanation
 
@@ -236,6 +297,8 @@ with st.container():
     if query_submit:
         st.write("Now head on over to the 'Interact-with-the-llm' page to interact with the LLM using the selected prompt.")
 
+import asyncio
+
 # Display form to select prompt:
 with st.form("form"):
     prompt_df = retrieve_best_prompts(db, user_input)
@@ -243,15 +306,21 @@ with st.form("form"):
     # Allow the user to select what prompt to use:
     chosen_act = st.selectbox("Prompt", (prompt_df["act"]))
     chosen_prompt = prompt_df.loc[prompt_df.act == chosen_act].prompt.values[0]
+    
+    # final_prompt, settings, settings_explanation = "", "", ""
+    # async def retrieve_prompt_and_settings():
+    #     final_prompt, settings, settings_explanation = await edit_and_configure_prompt(chosen_prompt)
 
     # Submit user selection:
     submit = st.form_submit_button("Submit choice")
     if submit:    
         # Display chosen prompt og and edited version to user:
-        st.session_state["chosen prompt"] = chosen_prompt
         st.session_state["prompt_chosen"] = True
-        
         final_prompt, settings, settings_explanation = edit_and_configure_prompt(chosen_prompt)
+        
+        if st.session_state["saved_chat"] != "":
+            final_prompt = link_chat(final_prompt)
+        
         st.session_state["final_prompt"] = final_prompt
         st.session_state["settings"] = json.loads(settings)
         

@@ -207,19 +207,20 @@ class ContextAgent():
             return AgentAction(tool=action, tool_input=action_input.strip(" ").strip('"'), log=llm_output)
     
     def __update_template(self):
-        template = """You must respond to the input to the best of your ability.
-        You have access to the following tools to get relevant information/context to the question: 
+        template = """You have access to the following tools to get relevant information/context to the question: 
         
         {tools}
         
-        If you use one of [{tool_names}], you must use the following format for all responses or your response will be considered incorrect:
+        You should return "Final Answer: N/A" and stop all execution if you believe none of the tools are applicable or directly related to the task.
+        
+        You must use the following format for all responses or your response will be considered incorrect:
         
         Query: the input you must respond to
         Thought: you should always think about what to do
         Action: the action to take, should be one of [{tool_names}]
         Action Input: the input to the action, should be as close to the original user query as possible
         Observation: the result of the action
-        ... (this Thought/Action/Action Input/Observation can repeat up to N times)
+        ... (this Thought/Action/Action Input/Observation can repeat up to 5 times)
         Thought: I now know the final answer
         Final Answer: the final answer to the original input question
 
@@ -287,3 +288,4 @@ class ContextAgent():
             self.web_tool["On"] = False
             self.agent = self.__create_agent()
             print("Web search is now Off")
+    

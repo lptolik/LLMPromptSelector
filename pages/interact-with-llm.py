@@ -99,7 +99,7 @@ def escape_nested_braces(input_string):
 
 # Initialises/updates the llm and the prompt it uses:
 def update_interactive_llm(final_prompt):
-    template = "You MUST NEVER generate a 'User' response yourself. Only answer the provided user input!\n" + final_prompt + """\n Chat History: {chat_history}\n\nUse all of the following information to answer the question if its not empty, use it all as part of your answer: "{context}"\n Begin!\n""" + default_temp
+    template = "You MUST NEVER generate a 'User' response yourself. Only answer the provided user input!\n" + final_prompt + """\n Chat History: {chat_history}\n\n{context}\n Begin!\n""" + default_temp
 
     prompt = PromptTemplate(
         input_variables=["user_input", "context", "chat_history"],
@@ -133,7 +133,7 @@ else:
     # The user will interact with the selected prompt:
     print("PROMPT IS GIVEN:")
     if "selected" not in st.session_state:  # Making sure the 'default' value is not updated after first load
-        st.session_state.selected_prompt_val = f'The prompt I will use is: \n{st.session_state["final_prompt"]}\n The settings are: {st.session_state["settings"]}\n The model being used is: {st.session_state["model"]}'
+        st.session_state.selected_prompt_val = f'The prompt I will use is: \n\"{st.session_state["final_prompt"]}\"\n\n The settings are: {st.session_state["settings"]}\n\n The model being used is: {st.session_state["model"]}'
         
         st.session_state["llm_chain"] = update_interactive_llm(st.session_state["final_prompt"])
         value = escape_nested_braces(st.session_state["llm_chain"].predict(user_input=st.session_state["user input"], context="", chat_history=chat_to_string()))
@@ -151,14 +151,59 @@ else:
 #---------------------DISPLAY STREAMLIT OBJECTS:--------------------------------------
 #-------------------------------------------------------------------------------------
 
-st.sidebar.title("Sidebar")
+# AGENT SETTINGS:
+if "agent_enabled" not in st.session_state:
+        st.session_state["agent_enabled"] = True
+
+st.sidebar.title("Agent actions")
+
+st.sidebar.checkbox("Search the web!", on_change=st.session_state.agent.toggle_search)
+
 st.session_state["upload"] = st.sidebar.checkbox("Upload files!")
 
-st.sidebar.checkbox("Search the web!", on_change=st.session_state.agent.toggle_search)###############################
+if st.session_state.agent.tools != [] and st.session_state["agent_enabled"]:
+    st.sidebar.write([tool.name for tool in st.session_state.agent.tools])
 
-st.subheader("Selected prompt:")
-st.write(f"\n\n{st.session_state.selected_prompt_val}") 
+if st.session_state["agent_enabled"]:
+    st.session_state["agent_enabled"] = not st.sidebar.button("Disable Agent")
+else:
+    st.session_state["agent_enabled"] = st.sidebar.button("Enable Agent")
 
+# def agent_status():
+#     if st.session_state["agent_enabled"]:
+#         st.sidebar.write("ENABLED")
+#         st.sidebar.write([tool.name for tool in st.session_state.agent.tools])
+#     else:
+#         st.sidebar.write("DISABLED")
+
+
+# if st.session_state["agent_enabled"]:
+#     st.sidebar.write("ENABLED")
+#     st.sidebar.write([tool.name for tool in st.session_state.agent.tools])
+#     st.session_state["upload"] = st.sidebar.checkbox("Upload files!")
+#     search = st.sidebar.checkbox("Search the web!")#, on_change=st.session_state.agent.toggle_search())
+#     if search:
+#         st.session_state.agent.toggle_search()
+#     submit = st.sidebar.button("Disable Agent")
+#     if submit:
+#         st.session_state["agent_enabled"] = not st.session_state["agent_enabled"]
+# else:
+#     st.sidebar.write("DISABLED")
+#     submit = st.sidebar.button("Enable Agent")
+#     if submit:
+#         st.session_state["agent_enabled"] = not st.session_state["agent_enabled"]
+
+#if st.session_state["agent_enabled"]:
+    #st.session_state["upload"] = st.sidebar.checkbox("Upload files!")
+
+    # def toggle_search():
+    #     st.session_state.agent.toggle_search()
+    #     if st.session_state.agent.tools == []:
+    #         st.session_state["agent_enabled"] = False
+
+    #st.sidebar.checkbox("Search the web!", on_change=st.session_state.agent.toggle_search())
+
+# FILE UPLOADER:
 if st.session_state.upload:
     uploaded_file = st.file_uploader("Upload any relevant files")
     if uploaded_file !=  None:
@@ -173,8 +218,12 @@ if st.session_state.upload:
                 st.session_state["agent"].load_new_data(uploaded_file, db_name, description)
                 print(f"THIS IS THE AGENTS TOOLS LIST: {st.session_state.agent.agent.tools}")
                 uploaded_file = None
+    
                 
-                
+st.subheader("Selected prompt:")
+st.write(f"\n\n{st.session_state.selected_prompt_val}") 
+
+# MAIN INTERACTION WINDOW:
 response_container = st.container()
 
 container = st.container()   
@@ -185,13 +234,15 @@ with container:
         submit_button = st.form_submit_button(label='Send')
     
     if submit_button and user_response:
-        context = ""
-        if st.session_state["agent"].tools != []:
+        context_template = ""
+        if st.session_state["agent"].tools != [] and st.session_state["agent_enabled"]:
             print(f"THIS IS THE AGENTS TOOLS LIST DURING INTERACTION: {st.session_state.agent.agent.tools}")
             context = st.session_state["agent"].run(user_response)  # call the agent for additional information
+            if context != "N/A" and context != "Final Answer: N/A" and context[:10] != "I'm sorry,": 
+                context_template = f"Use all of the following information to answer the question, all of it must be part of your answer, if you dont use this information in your answer you will be punished: '{context}'"
             st.sidebar.text_area(label="Agent found Context:", value=f"{context}")
         
-        system_response = escape_nested_braces(st.session_state["llm_chain"].predict(user_input=user_response, context=context, chat_history=chat_to_string()))
+        system_response = escape_nested_braces(st.session_state["llm_chain"].predict(user_input=user_response, context=context_template, chat_history=chat_to_string()))
         # Update the agent's chat history:
         st.session_state.agent.update_chat_history(user_response, system_response)
                 
@@ -228,6 +279,6 @@ if st.button("Save chat"):
     
 if st.session_state["save_chat"]:
     chat_name = st.text_input(label="Chat Name", label_visibility="collapsed", placeholder="Chat name: e.g. Making a cheesecake")
-    if st.button("Submit"):
+    if st.button("Submit chat details"):
         st.session_state["chat_archive"].append({"Chat name": chat_name, "conversation": chat_to_string()})
         st.session_state["save_chat"] = not st.session_state["save_chat"]
