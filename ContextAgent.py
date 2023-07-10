@@ -1,5 +1,4 @@
 import os
-import tempfile
 import re
 OPENAI_API_KEY = "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"
 os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
@@ -67,7 +66,7 @@ class ContextAgent():
             output += i
         return output
     
-    def __tiktoken_len(self, text):
+    def tiktoken_len(self, text):
         tokens = self.tokenizer.encode(
             text,
             disallowed_special=()
@@ -83,7 +82,7 @@ class ContextAgent():
         text_splitter = RecursiveCharacterTextSplitter(
                 chunk_size = 1000,
                 chunk_overlap = 200,
-                length_function = self.__tiktoken_len,
+                length_function = self.tiktoken_len,
                 separators=['\n\n', '\n', ' ', ''],
                 add_start_index = True
             )
@@ -122,24 +121,6 @@ class ContextAgent():
         
     # Provided file, name and description, loads the file and creates a new tool:
     def load_new_data(self, uploaded_file, db_name, description):  
-        
-        # with tempfile.TemporaryDirectory() as temp_dir:
-        #     if uploaded_file.name[-4:] == ".csv" or uploaded_file.name[-4:] == ".txt":
-        #         documents = text_splitter.create_documents([uploaded_file.read().decode()])
-        #     if uploaded_file.name[-4:] == ".pdf":
-        #         temp_file = tempfile.NamedTemporaryFile(suffix='.pdf', dir=temp_dir, delete=False)
-        #         temp_file.write(uploaded_file.getvalue())
-        #         loader = UnstructuredPDFLoader(temp_file.name)
-        #         documents = loader.load()
-        #         temp_file.close()
-        #         os.unlink(temp_file.name)
-        #     if uploaded_file.name[-5:] == ".html":
-        #         temp_file = tempfile.NamedTemporaryFile(suffix=".html", dir=temp_dir, delete=False)
-        #         temp_file.write(uploaded_file.getvalue())
-        #         loader = UnstructuredHTMLLoader(temp_file.name)
-        #         documents = loader.load()
-        #         temp_file.close()
-        #         os.unlink(temp_file.name)
         
         documents = self.__split_data(uploaded_file.name)
 

@@ -10,14 +10,13 @@ from streamlit_chat import message
 
 import ContextAgent
 
-
 # Initialize keys, models and prompt templates:
 OPENAI_API_KEY = "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"
 WEAVIATE_URL = "https://first-test-cluster-dw7v1rzb.weaviate.network"
 
 os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
 
-#llm = OpenAI(temperature=0, verbose=True)
+# Define models used:
 llm = ChatOpenAI(
     openai_api_key=OPENAI_API_KEY,
     model_name=st.session_state["model"],
@@ -35,13 +34,11 @@ summarizer = ChatOpenAI(
     verbose=True
 )
 
+# Initialise custom agent as a session variable:
 if "agent" not in st.session_state or st.session_state["chat_history"] == []:
     st.session_state["agent"] = ContextAgent.ContextAgent()
 
-default_temp = """
-
-User: {user_input}
-System:"""
+#---------------------------------------CHAT HELPER FUNCTIONS:---------------------------------
 
 # Helper function to convert list of strings that serve as the chat history into a large string:
 def chat_to_string():
@@ -49,27 +46,6 @@ def chat_to_string():
     for i in st.session_state["chat_history"]:
         output += i
     return output
-
-def update_chat_history_summarizer():
-    chat_history = chat_to_string()
-    
-    summarize_prompt = PromptTemplate(
-        input_variables=["chat_history"],
-        template=
-        """You are an expert in summarizing conversations. You are provided with a conversation between a "User" and a "System", where the System responds to User queries. Your key objective is to preserve the general idea of what User is talking about and what they want. Succinctly give an overview of the conversation. Your only output should be the conversation summary.
-        The conversation:
-        "{chat_history}"
-        """
-    )
-    
-    summarize_chat_chain = LLMChain(
-        llm = summarizer,
-        prompt = summarize_prompt,
-        verbose = True
-    )
-    
-    return summarize_chat_chain
-    
 
 # This stops the program from crashing, but might lead to wrong results
 def escape(input_string):
@@ -97,8 +73,35 @@ def escape_nested_braces(input_string):
                 offset += 2
     return input_string
 
-# Initialises/updates the llm and the prompt it uses:
+#-------------------------------------MODEL CHAIN DEFINITIONS:------------------------------------------------
+
+# Initialises/updates the summarizer llm:
+def update_chat_history_summarizer():
+    
+    summarize_prompt = PromptTemplate(
+        input_variables=["chat_history"],
+        template=
+        """You are an expert in summarizing conversations. You are provided with a conversation between a "User" and a "System", where the System responds to User queries. Your key objective is to preserve the general idea of what User is talking about and what they want. Succinctly give an overview of the conversation. Your only output should be the conversation summary.
+        The conversation:
+        "{chat_history}"
+        """
+    )
+    
+    summarize_chat_chain = LLMChain(
+        llm = summarizer,
+        prompt = summarize_prompt,
+        verbose = True
+    )
+    
+    return summarize_chat_chain
+
+# Initialises/updates the main llm and the prompt it uses:
 def update_interactive_llm(final_prompt):
+    default_temp = """
+
+    User: {user_input}
+    System:"""
+    
     template = "You MUST NEVER generate a 'User' response yourself. Only answer the provided user input!\n" + final_prompt + """\n Chat History: {chat_history}\n\n{context}\n Begin!\n""" + default_temp
 
     prompt = PromptTemplate(
@@ -120,7 +123,9 @@ if "llm_chain" not in st.session_state:
     st.session_state["llm_chain"] = update_interactive_llm("")
     st.session_state["summarizer"] = update_chat_history_summarizer()
 
-# Setting the settings of the llm, depending on whether a prompt has been selected or not
+#----------------------------------CHOOSE HOW MAIN MODEL BEHAVES:------------------------------------
+
+# Setting the configuration of the llm, depending on whether a prompt has been selected or not
 if not st.session_state["prompt_chosen"]:
     # If a prompt has not been selected then the user will interact with default llm:
     print("PROMPT NOT CHOSEN:")
@@ -169,40 +174,6 @@ if st.session_state["agent_enabled"]:
 else:
     st.session_state["agent_enabled"] = st.sidebar.button("Enable Agent")
 
-# def agent_status():
-#     if st.session_state["agent_enabled"]:
-#         st.sidebar.write("ENABLED")
-#         st.sidebar.write([tool.name for tool in st.session_state.agent.tools])
-#     else:
-#         st.sidebar.write("DISABLED")
-
-
-# if st.session_state["agent_enabled"]:
-#     st.sidebar.write("ENABLED")
-#     st.sidebar.write([tool.name for tool in st.session_state.agent.tools])
-#     st.session_state["upload"] = st.sidebar.checkbox("Upload files!")
-#     search = st.sidebar.checkbox("Search the web!")#, on_change=st.session_state.agent.toggle_search())
-#     if search:
-#         st.session_state.agent.toggle_search()
-#     submit = st.sidebar.button("Disable Agent")
-#     if submit:
-#         st.session_state["agent_enabled"] = not st.session_state["agent_enabled"]
-# else:
-#     st.sidebar.write("DISABLED")
-#     submit = st.sidebar.button("Enable Agent")
-#     if submit:
-#         st.session_state["agent_enabled"] = not st.session_state["agent_enabled"]
-
-#if st.session_state["agent_enabled"]:
-    #st.session_state["upload"] = st.sidebar.checkbox("Upload files!")
-
-    # def toggle_search():
-    #     st.session_state.agent.toggle_search()
-    #     if st.session_state.agent.tools == []:
-    #         st.session_state["agent_enabled"] = False
-
-    #st.sidebar.checkbox("Search the web!", on_change=st.session_state.agent.toggle_search())
-
 # FILE UPLOADER:
 if st.session_state.upload:
     uploaded_file = st.file_uploader("Upload any relevant files")
@@ -225,16 +196,16 @@ st.write(f"\n\n{st.session_state.selected_prompt_val}")
 
 # MAIN INTERACTION WINDOW:
 response_container = st.container()
-
 container = st.container()   
-
 with container:
     with st.form(key='my_form', clear_on_submit=True):
         user_response = escape_nested_braces(st.text_area("You:", key='input', height=100))
         submit_button = st.form_submit_button(label='Send')
     
+    # Upon message submission:
     if submit_button and user_response:
         context_template = ""
+        # If any agent tools are defined then we call the agent:
         if st.session_state["agent"].tools != [] and st.session_state["agent_enabled"]:
             print(f"THIS IS THE AGENTS TOOLS LIST DURING INTERACTION: {st.session_state.agent.agent.tools}")
             context = st.session_state["agent"].run(user_response)  # call the agent for additional information
@@ -242,22 +213,23 @@ with container:
                 context_template = f"Use all of the following information to answer the question, all of it must be part of your answer, if you dont use this information in your answer you will be punished: '{context}'"
             st.sidebar.text_area(label="Agent found Context:", value=f"{context}")
         
+        # Generate response:
         system_response = escape_nested_braces(st.session_state["llm_chain"].predict(user_input=user_response, context=context_template, chat_history=chat_to_string()))
+        
         # Update the agent's chat history:
         st.session_state.agent.update_chat_history(user_response, system_response)
                 
-        
+        # Update main models chat history:
         st.session_state["chat_history"].append(f"\n\nUser: {user_response}")
         st.session_state["chat_interactions"].append({"role": "user", "content": user_response})
         st.session_state["chat_history"].append(f"\nSystem: {system_response}")
         st.session_state["chat_interactions"].append({"role": "system", "content": system_response})
         
         # If the chat history becomes too long, summarize it:
-        if len(st.session_state["chat_history"]) > 14:#10:
+        if len(st.session_state["chat_history"]) > 14 or st.session_state.agent.tiktoken_len(chat_to_string()) > 2700: 
             # The following line summarizes the entire chat, but also keeps the final few interactions intact:
             st.session_state["chat_history"] = [st.session_state["summarizer"].predict(chat_history=chat_to_string())] + st.session_state["chat_history"][-4:]
-        
-        #print(st.session_state["chat_interactions"])
+            
 
 # DISPLAYING THE CONVERSATION IN A CHAT-LIKE STYLE:
 if st.session_state['chat_interactions']:

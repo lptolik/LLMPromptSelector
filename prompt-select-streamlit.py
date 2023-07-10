@@ -3,6 +3,7 @@ import pandas as pd
 import os
 import re
 import json
+import asyncio
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import Weaviate
 from langchain.document_loaders.csv_loader import CSVLoader
@@ -38,6 +39,10 @@ gpt4 = ChatOpenAI(
     verbose=True
 )
 
+#-------------------------------------------------------------------------------------
+#---------------------DEFINE STREAMLIT SESSION VARIABLES:-----------------------------
+#-------------------------------------------------------------------------------------
+
 # Initialise session state variables:
 st.session_state["vectors"] = []
 st.session_state["prompt_chosen"] = False
@@ -69,10 +74,8 @@ if "saved_chat" not in st.session_state:
 # Assumes the first use of curly brackets is for the dictionary:
 def extract_dictionary(text):
     stack = []
-
     for m in re.finditer(r'[{}]', text):
         pos = m.start()
-
         if m.group() == '{':
             stack.append(pos)
         elif stack:
@@ -81,6 +84,10 @@ def extract_dictionary(text):
                 return (text[:start_pos], text[start_pos:pos + 1])
     return ""
     
+#-------------------------------------------------------------------------------------
+#----------------------STORED PROMPT PROCESSING:--------------------------------------
+#-------------------------------------------------------------------------------------
+
 # display the prompts in a table:
 @st.cache_data
 def display_prompts():
@@ -99,15 +106,14 @@ def load_prompts():
     st.session_state["vectors"] = Weaviate.from_documents(documents, embeddings, weaviate_url=WEAVIATE_URL, by_text=False)
     return st.session_state["vectors"]
 
+# As above function, but using Pinecone DB
 @st.cache_resource
 def load_pinecone_prompts():
     pinecone.init(
         api_key=PINECONE_API_KEY,  # find at app.pinecone.io
         environment=PINECONE_ENV  # next to api key in console
     )
-
     index_name="promptsvectors"
-    
     st.session_state["vectors"] = Pinecone.from_existing_index(index_name, embeddings)
     return st.session_state["vectors"]
 
@@ -128,32 +134,87 @@ def retrieve_best_prompts(db, user_input):
     
     return prompt_df
 
-def initialise_linking_model():
-    linker_temp = """
-    You are an expert linking system, acting as the link between two large language models. You are given the chat history of a user with the first llm and the prompt the second llm will be using for interaction with the same user. Your goal is to alter the provided chat history so it can be provided to the second llm to use as additional information. This alteration could involve summarizing the chat, removing every part of the chat other than the first/last sections, or even extracting specific information from the chat. 
-    For example: suppose you are given the chat history of a user planning a trip to London, the chat history has mention of different locations, dates and other relevant information to planning a trip. You are then given the prompt the second llm will use and it is a python developer prompt. You should extract all the important trip information and present it in a clear format so the Python llm can use it to perform its actions such as visualising the locations/routes on a map.
-    Another example: suppose you are given the chat history of a user that is asking for an overview of a topic or a summarization of some text, you are then given the prompt the second llm will use which is a "Translator" prompt. You would want to only keep the system responses that are the answers to the users questions. Most likely only the final system response containing the final answer should be kept.
-    Dont summarise things like essays or reports.
-    Your output is only the altered chat history.
+#-------------------------------------------------------------------------------------
+#-----------------------------DEFINE LLM CHAINS:--------------------------------------
+#-------------------------------------------------------------------------------------
 
-    Chat history: 
-    {chat_history}
+# Defines the chain that judges the relevance of a chat_history message to a new conversation
+def initialise_relevance_rating_model():
+    rating_temp = """
+    You are an AI system specializing in relevance analysis. Your task is to assess the relevance of a past message exchange between a User and a System in relation to a new conversation. For instance, if the past conversation was about writing an essay and the new conversation is about translation, the message exchange containing the essay would likely be most relevant as that is probably what the user wants to translate. Similarly, if a previous conversation was about creating and refining an itinerary and a new conversation is about visualising a route on a map using some tool, then the final itinerary created in the past conversation is likely the most relevant to the new conversation.
+    For the new conversation, you will be given the initial User query and the System's response prompt. Based on these inputs, you are required to rate the relevance of the past message exchange on a scale of 1 to 10. A rating of 1 signifies that the past exchange is completely irrelevant or not at all useful to the new conversation, while a rating of 10 indicates that the past exchange is highly relevant or extremely useful to the new conversation.
+    Notice, messages dont need to be related to the new conversation topic or query to be relevant because past messages were created without any knowledge of the new prompt or new query. You must instead consider if the content of the past message exchange contains information that could be useful to the new conversation.
+    Here are the details you need to consider:
+
+        Past Message Exchange:
+        {message}
+        
+        New Conversation Query:
+        {query}
+        
+        System's Response Prompt for the New Conversation:
+        {prompt}
+        
+    Please provide your relevance rating in square brackets and include a brief explanation for your rating.
+    Your output format must be: 
+    "[rating]
     
-    Second llm prompt:
-    {prompt}
+    Explanation..."
     """
     
-    linker_prompt = PromptTemplate(
-        input_variables=["chat_history", "prompt"],
-        template=linker_temp
+    rating_prompt = PromptTemplate(
+        input_variables=["message", "query", "prompt"],
+        template=rating_temp
     )
     
-    linker_chain = LLMChain(
+    rating_chain = LLMChain(
         llm=llm,
-        prompt=linker_prompt,
+        prompt=rating_prompt,
         verbose=True
     )
     
+    return rating_chain
+
+# Defines the LLM chain that alters relevant messages to best fit a new prompt
+def initialise_linking_model():
+    linker_temp = """
+    You are an expert linking system, acting as the link between two large language models. You are given the most relevant messages from a past conversation of a User with the first llm, a new User query and the prompt the second llm will be using for interaction with the same User. Your goal is to edit the provided chat history so it can be provided to the second llm to use as additional information when answering the new User query. This editing could involve removing parts of the chat or extracting specific information from the chat. 
+    For example: suppose you are given the chat history of a user planning a trip to London, the chat history has mention of different locations, dates and other relevant information to planning a trip. You are then given the new User query "I want to visualise my route using python" and the prompt the second llm will use is a python developer prompt. You should extract all the important trip information and present it in a clear format so the second llm can use it to perform its actions such as visualising the locations/routes on a map.
+    Another example: suppose you are given the chat history of the User that is asking for an overview of a topic, the User then enters a query "I want to translate my overview", you are then given the prompt the second llm will use which is a "Translator" prompt. You would want to only keep the the topic overview from the chat so that it can then be immediately translated.
+    Another example: suppose you are given the chat history of the User that is writing an essay, the new User query is "I want to summarize my essay", and the prompt for the second llm is a "Summarizer" prompt. You MUST NOT summarise yourself. You must only take the essay itself from the chat history (while dropping User messages) so that the second llm can immediately summarise it.
+    Some prompts will require you to extract information/summarise information from the chat history to provide as context, while others, like an essay writer prompt or a translator prompt, will require you to keep the System messages answering User requests intact and unaltered. It is up to you to decide what you do to the chat history, but carefully consider all the angles of how the chat history could be useful for the next prompt before changing any information.
+    
+    Relevant messages: 
+    {chat_history}
+    
+    User query:
+    {query}
+    
+    Second llm prompt:
+    {prompt}
+    
+    Consider first what the User is trying to achieve based on their query.
+    Next, consider what the aim of the provided prompt is.
+    You must then consider what information from the relevant messages can help the User achieve their goal, using the provided prompt.
+    
+    NEVER EVER DO THE JOB OF THE SECOND LLM PROMPT YOURSELF!!!
+    
+    Your only output is the information you extract from the relevant messages, without the original messages themselves.
+    Place the information that should be provided to the second llm into square brackets.
+    """
+    
+    linker_prompt = PromptTemplate(
+        input_variables=["chat_history", "query", "prompt"],
+        template=linker_temp
+    )
+    
+    
+    linker_chain = LLMChain(
+        llm=gpt4,
+        prompt=linker_prompt,
+        verbose=True
+    )
+       
     return linker_chain
 
 def initialise_editing_model():
@@ -211,9 +272,12 @@ def initialise_settings_model():
     )
     return settings_chain
     
+    
+    
 #-------------------------------------------------------------------------------------
 #---------------------DISPLAY STREAMLIT OBJECTS:--------------------------------------
 #-------------------------------------------------------------------------------------
+
 st.title("Prompt Selector")
 
 # Display the prompts table:
@@ -226,7 +290,7 @@ st.session_state["show_details"] = st.sidebar.checkbox("Show details!")
 # Display saved chats:
 if len(st.session_state["chat_archive"]) > 0:
     # Truncate to most recent 3 chats:
-    if len(st.session_state["chat_archive"]) > 3:
+    if len(st.session_state["chat_archive"]) > 6:
         st.session_state["chat_archive"] = st.session_state["chat_archive"][-3:]
     st.sidebar.title("Previous chats:")
     archive_df = pd.DataFrame.from_dict(st.session_state["chat_archive"])
@@ -239,65 +303,82 @@ if len(st.session_state["chat_archive"]) > 0:
     else:
         st.session_state["saved_chat"] = "" 
 
-async def async_generate(chain, chosen_prompt):
-    resp = await chain.arun(chosen_prompt)
+async def async_generate(chain, message, final_prompt):
+    resp = await chain.arun(message=message, query=st.session_state["user input"], prompt=final_prompt)
     print(resp)
-    return resp
+    return (message, resp)
 
-async def run_concurrent(chosen_prompt, settings_chain, editing_chain):
-    tasks = [async_generate(editing_chain, chosen_prompt), async_generate(settings_chain, chosen_prompt)]
+async def run_concurrent_rating(rating_chain, messages, final_prompt):
+    tasks = [async_generate(rating_chain, message, final_prompt) for message in messages]
     return await asyncio.gather(*tasks)
 
-#@st.cache_resource
-def link_chat(final_prompt):
+# Processes the chat history to provide context to new conversation:
+@st.cache_resource
+def link_chat(final_prompt, context_strictness):
+    progress_bar = st.progress(0, "Initialising relevance detection model...")
+    rating_chain = initialise_relevance_rating_model()
+    messages = st.session_state["saved_chat"].split("User:")[1:]
+    
+    progress_bar.progress(25, "Finding most relevant messages...")
+    ratings = asyncio.run(run_concurrent_rating(rating_chain, messages, final_prompt))
+    
+    # Display message relevance:
+    with st.container():
+        st.write("Most relevant messages identified:")
+        st.write(pd.DataFrame.from_records(ratings))
+    
+    # Helper function
+    def extract_number(text):
+        number = text.partition("[")[2].partition("]")[0]
+        if number == "":
+            number = "0"
+        return int(number)
+    
+    # If relevance cut-off too high - pick the maximum relevance messages:
+    max_rating = max(extract_number(rating) for (message, rating) in ratings)
+    if context_strictness > max_rating:
+        context_strictness = max_rating
+    
+    messages_to_keep = [message for (message, rating) in ratings if extract_number(rating) >= context_strictness]
+    
+    progress_bar.progress(50, "Initialising linking model...")
     linker_chain = initialise_linking_model()
-    altered_chat = linker_chain.run(chat_history=st.session_state["saved_chat"], prompt=final_prompt)
-    final_prompt = f"{final_prompt} \n\nYou also have the following information from a previous interaction with the user. You may use this when responding: '{altered_chat}'"
-    return final_prompt
+    
+    progress_bar.progress(60, "Running linking model...")
+    final_context = linker_chain.run(chat_history=messages_to_keep, prompt=final_prompt, query=st.session_state["user input"])
+    final_prompt = f"{final_prompt} \n\n#CONTEXT: '{final_context}' Use this if the user refers to #CONTEXT"
+
+    progress_bar.progress(100, "Finished linking chat!")
+    return final_prompt, ratings
 
 @st.cache_resource
 def edit_and_configure_prompt(chosen_prompt):
     progress_bar = st.progress(0, "Initialising editing model...")
-        
-    # EDIT THE PROMPT:
     editing_chain = initialise_editing_model()
+    
+    # EDIT THE PROMPT:
     progress_bar.progress(25, "Editing in progress... Please wait...")
     final_prompt = editing_chain.run(chosen_prompt)
     
-    # CONFIGURE SETTINGS:
     progress_bar.progress(50, "Initializing settings model...")
     settings_chain = initialise_settings_model()
+    
+    # CONFIGURE SETTINGS:
     progress_bar.progress(60, "Configuring settings...")
     settings_explanation, settings = extract_dictionary(settings_chain.run(chosen_prompt))
-    progress_bar.progress(100, "Done!")
     
-    # progress_bar = st.progress(0, "Initialising editing model...")
-    # editing_chain = initialise_editing_model()
-    # progress_bar.progress(15, "Initialising settings model...")
-    # settings_chain = initialise_settings_model()
-    # progress_bar.progress(40, "Running editing and settings model...")
-    # final_prompt, settings_chain_res = asyncio.run(run_concurrent(chosen_prompt, settings_chain, editing_chain))
-    # progress_bar.progress(75, "Extracting dictionary...")
-    # settings_explanation, settings = extract_dictionary(settings_chain_res)
-    # progress_bar.progress(100, "Done!")
-        
+    progress_bar.progress(100, "Finished loading prompt!")
     return final_prompt, settings, settings_explanation
 
 # Display the container to enter prompt query:
 with st.container():
     db = load_pinecone_prompts()
-    #db = load_prompts()
+    #db = load_prompts()    # alternative option using weaviate
+    
     user_input = st.text_input("Enter query", key="query")
     if user_input == "":    # Upon first load stop here
-        st.stop()
-        
+        st.stop()   
     st.session_state["user input"] = user_input
-    
-    query_submit = st.button("Submit Query")
-    if query_submit:
-        st.write("Now head on over to the 'Interact-with-the-llm' page to interact with the LLM using the selected prompt.")
-
-import asyncio
 
 # Display form to select prompt:
 with st.form("form"):
@@ -306,11 +387,10 @@ with st.form("form"):
     # Allow the user to select what prompt to use:
     chosen_act = st.selectbox("Prompt", (prompt_df["act"]))
     chosen_prompt = prompt_df.loc[prompt_df.act == chosen_act].prompt.values[0]
-    
-    # final_prompt, settings, settings_explanation = "", "", ""
-    # async def retrieve_prompt_and_settings():
-    #     final_prompt, settings, settings_explanation = await edit_and_configure_prompt(chosen_prompt)
 
+    if st.session_state["saved_chat"] != "":
+        strictness = st.slider("Relevance cut-off:", 1, 10, 6)
+    
     # Submit user selection:
     submit = st.form_submit_button("Submit choice")
     if submit:    
@@ -319,7 +399,7 @@ with st.form("form"):
         final_prompt, settings, settings_explanation = edit_and_configure_prompt(chosen_prompt)
         
         if st.session_state["saved_chat"] != "":
-            final_prompt = link_chat(final_prompt)
+            final_prompt, ratings = link_chat(final_prompt, strictness)
         
         st.session_state["final_prompt"] = final_prompt
         st.session_state["settings"] = json.loads(settings)
@@ -335,3 +415,5 @@ with st.form("form"):
             st.subheader(f"Settings reasoning:")
             st.write(f"\n{settings_explanation}")
             st.write(f"{json.loads(settings)}")
+            st.subheader(f"Messages ratings:")
+            st.write(pd.DataFrame.from_records(ratings))
