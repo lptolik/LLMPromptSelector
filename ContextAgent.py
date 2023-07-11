@@ -6,7 +6,7 @@ os.environ["SERPER_API_KEY"] = "0e061654f54d1acb6888ae6e8c7ef8356a64526d"
 
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import Weaviate
-WEAVIATE_URL = "https://prompt-selector-document-loader-8dgftetz.weaviate.network"
+WEAVIATE_URL = "https://context-vectorizer-tzbfsn92.weaviate.network"
 embeddings = OpenAIEmbeddings()
 
 import tiktoken
