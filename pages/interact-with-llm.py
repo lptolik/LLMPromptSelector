@@ -2,13 +2,14 @@ import streamlit as st
 import pandas as pd
 import os
 import re
+
 from langchain import PromptTemplate
 from langchain.chains import LLMChain
 from langchain.llms import OpenAI
 from langchain.chat_models import ChatOpenAI
 from streamlit_chat import message
 
-import ContextAgent
+import ContextAgent # Custom defined agent class
 
 # Initialize keys, models and prompt templates:
 OPENAI_API_KEY = "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"
@@ -38,7 +39,7 @@ summarizer = ChatOpenAI(
 if "agent" not in st.session_state or st.session_state["chat_history"] == []:
     st.session_state["agent"] = ContextAgent.ContextAgent()
 
-#---------------------------------------CHAT HELPER FUNCTIONS:---------------------------------
+#------------------------------CHAT HELPER FUNCTIONS:-------------------------------------
 
 # Helper function to convert list of strings that serve as the chat history into a large string:
 def chat_to_string():
@@ -47,31 +48,18 @@ def chat_to_string():
         output += i
     return output
 
-# This stops the program from crashing, but might lead to wrong results
-def escape(input_string):
-    input_string = input_string.replace("{", "{{")
-    input_string = input_string.replace("}", "}}")
-    print(input_string)
-    return input_string
+# Escapes nested braces in any user or system output which could be misinterpreted by a format string as input.
+# Note: strange behaviour when inputting "{}{}"
+def escape_nested_braces(s):
+    # First, we detect all singly enclosed curly brackets
+    # that are not already escaped.
+    matches = re.findall(r"(?<!\{)\{[^{}]*\}(?!\})", s)
 
-# This doesnt quite work, if it meets a double brace {{ it will add a third which will negate the escape:
-def escape_nested_braces(input_string):
-    stack = []
-    offset = 0
+    # For each match, we replace it in the string with its escaped version.
+    for match in matches:
+        s = s.replace(match, "{{" + match[1:-1] + "}}")
 
-    for m in re.finditer(r'[{}]', input_string):
-        pos = m.start()
-
-        if m.group() == '{':
-            stack.append(pos)
-        elif stack:
-            start_pos = stack.pop()
-            if not stack:
-                start_pos += offset
-                pos += offset
-                input_string = input_string[:start_pos] +'{'+ input_string[start_pos:pos + 1] + '}' + input_string[pos + 1:]
-                offset += 2
-    return input_string
+    return s
 
 #-------------------------------------MODEL CHAIN DEFINITIONS:------------------------------------------------
 
@@ -161,9 +149,7 @@ if "agent_enabled" not in st.session_state:
         st.session_state["agent_enabled"] = True
 
 st.sidebar.title("Agent actions")
-
 st.sidebar.checkbox("Search the web!", on_change=st.session_state.agent.toggle_search)
-
 st.session_state["upload"] = st.sidebar.checkbox("Upload files!")
 
 if st.session_state.agent.tools != [] and st.session_state["agent_enabled"]:
@@ -200,6 +186,7 @@ container = st.container()
 with container:
     with st.form(key='my_form', clear_on_submit=True):
         user_response = escape_nested_braces(st.text_area("You:", key='input', height=100))
+        print(f"This is user response: {user_response}")
         submit_button = st.form_submit_button(label='Send')
     
     # Upon message submission:
@@ -215,6 +202,7 @@ with container:
         
         # Generate response:
         system_response = escape_nested_braces(st.session_state["llm_chain"].predict(user_input=user_response, context=context_template, chat_history=chat_to_string()))
+        print(f"This is system response: {system_response}")
         
         # Update the agent's chat history:
         st.session_state.agent.update_chat_history(user_response, system_response)

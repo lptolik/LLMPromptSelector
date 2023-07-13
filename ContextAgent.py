@@ -1,32 +1,41 @@
 import os
 import re
-OPENAI_API_KEY = "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"
-os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
-os.environ["SERPER_API_KEY"] = "0e061654f54d1acb6888ae6e8c7ef8356a64526d"
+from typing import List, Union
 
+# VectorStore libraries
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import Weaviate
-WEAVIATE_URL = "https://context-vectorizer-tzbfsn92.weaviate.network"
-embeddings = OpenAIEmbeddings()
 
-import tiktoken
-from langchain.agents import Tool
-from typing import List, Union
+# Model libraries
 from langchain.chat_models import ChatOpenAI
 from langchain.llms import OpenAI
 from langchain.chains import RetrievalQA
 from langchain.chains import LLMChain
 
+# Document processing libraries:
+import tiktoken
 from langchain.document_loaders import CSVLoader
 from langchain.document_loaders import UnstructuredPDFLoader
 from langchain.document_loaders import UnstructuredHTMLLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
+# Agent libraries
 from langchain.schema import AgentAction, AgentFinish, HumanMessage
 from langchain.agents import Tool, AgentExecutor, LLMSingleActionAgent, AgentOutputParser
 from langchain.prompts import BaseChatPromptTemplate
 
+# Library to search the web:
 from langchain.utilities import GoogleSerperAPIWrapper
+
+# API Keys
+OPENAI_API_KEY = "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"
+os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
+os.environ["SERPER_API_KEY"] = "0e061654f54d1acb6888ae6e8c7ef8356a64526d"
+
+# URL to Weaviate Cluster. Expires every 14 days.
+WEAVIATE_URL = "https://document-vectorstore-ui5n0nz7.weaviate.network"
+
+embeddings = OpenAIEmbeddings()
 
 class ContextAgent():
     tools: List[Tool]
@@ -34,6 +43,7 @@ class ContextAgent():
     llm: ChatOpenAI()   # Brain behind all the agent operations
     agent: AgentExecutor
     
+    # Contructor:
     def __init__(self):
         search = GoogleSerperAPIWrapper()        
         self.web_tool = ({
@@ -66,6 +76,7 @@ class ContextAgent():
             output += i
         return output
     
+    # Get the length of a chunk of text in tiktokens:
     def tiktoken_len(self, text):
         tokens = self.tokenizer.encode(
             text,
@@ -73,9 +84,7 @@ class ContextAgent():
         )
         return len(tokens)
     
-    # ---------------------- LOADING AND PROCESSING NEW DATA: ----------------------------------------
-    
-    from langchain.document_loaders import BSHTMLLoader    
+    # ---------------------- LOADING AND PROCESSING NEW DATA: ---------------------------------------- 
     
     # Process the file into something an llm can use:
     def __split_data(self, file_name):
@@ -119,7 +128,7 @@ class ContextAgent():
             return_direct=True
         ))
         
-    # Provided file, name and description, loads the file and creates a new tool:
+    # Provided file, name and description, loads the file and creates a new tool (File still needs to be in same directory):
     def load_new_data(self, uploaded_file, db_name, description):  
         
         documents = self.__split_data(uploaded_file.name)
@@ -135,16 +144,14 @@ class ContextAgent():
         
         self.__create_new_tool(db_name, qa, description)
         
-        self.agent = self.__create_agent()  ## update the agent with the new tool
+        self.agent = self.__create_agent()  # update the agent with the new tool
     
     # ----------------------------- DEFINING AGENT ---------------------------------------
     
     # Set up a prompt template
     class CustomPromptTemplate(BaseChatPromptTemplate):
-        # The template to use
-        template: str
-        # The list of tools available
-        tools: List[Tool]
+        template: str       # The template to use
+        tools: List[Tool]   # The list of tools available
         
         def format_messages(self, **kwargs) -> str:
             # Get the intermediate steps (AgentAction, Observation tuples)
@@ -160,8 +167,7 @@ class ContextAgent():
             kwargs["tools"] = "\n".join([f"{tool.name}: {tool.description}" for tool in self.tools])
             # Create a list of tool names for the tools provided
             kwargs["tool_names"] = ", ".join([tool.name for tool in self.tools])
-            # # Format chat historyL
-            # kwargs["chat_history"] = list_to_string()
+            
             formatted = self.template.format(**kwargs)
             return [HumanMessage(content=formatted)]
         
@@ -247,8 +253,6 @@ class ContextAgent():
     
     def run(self, user_input):
         response = self.agent.run({"input" : user_input, "chat_history": self.__list_to_string()})
-        # self.chat_history.append(f"User query: {user_input}\n")
-        # self.chat_history.append(f"Agent response: {response}\n")
         return response
     
     def update_chat_history(self, user_input, response):
@@ -265,7 +269,7 @@ class ContextAgent():
             self.agent = self.__create_agent()
             print("Web search is now On")
         else:
-            self.tools = [tool for tool in self.tools if tool.name != "Search"] # remove search from tools list
+            self.tools = [tool for tool in self.tools if tool.name != "Search"]     # remove search from tools list
             self.web_tool["On"] = False
             self.agent = self.__create_agent()
             print("Web search is now Off")

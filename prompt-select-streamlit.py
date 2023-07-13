@@ -15,7 +15,7 @@ from langchain.vectorstores import Pinecone
 import pinecone
 
 OPENAI_API_KEY = "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"
-WEAVIATE_URL = "https://first-test-cluster-dw7v1rzb.weaviate.network"
+#WEAVIATE_URL = "https://first-test-cluster-dw7v1rzb.weaviate.network"
 
 PINECONE_API_KEY = "cf10ee0c-8558-45e2-82b2-864bea80d179"
 PINECONE_ENV = "us-west4-gcp-free"
@@ -26,7 +26,7 @@ embeddings = OpenAIEmbeddings()
 llm = ChatOpenAI(
     openai_api_key=OPENAI_API_KEY,
     model_name='gpt-3.5-turbo',
-    temperature=0.0,
+    temperature=0.0, 
     top_p = 0,
     verbose=True
 )
@@ -52,7 +52,7 @@ if "chat_archive" not in st.session_state:
     st.session_state["chat_archive"] = []   # Keeps track of past chat conversations that are saved
 st.session_state["model"] = "gpt-3.5-turbo"
 st.session_state["final_prompt"] = ""
-st.session_state["settings"] = {"temperature": 0.0, "top_p": 1.0, "presence_penalty": 0.0, "frequency_penalty": 0.0}
+st.session_state["settings"] = {"temperature": 0.0, "top_p": 1.0, "presence_penalty": 0, "frequency_penalty": 0}
 st.session_state["user input"] = ""
 st.session_state.selected_prompt_val = f"I will use my default settings to answer your questions."
 if 'sys_msgs' not in st.session_state:
@@ -155,7 +155,7 @@ def initialise_relevance_rating_model():
         System's Response Prompt for the New Conversation:
         {prompt}
         
-    Please provide your relevance rating in square brackets and include a brief explanation for your rating.
+    Please provide your relevance rating in square brackets "[]" and include a brief explanation for your rating.
     Your output format must be: 
     "[rating]
     
@@ -314,7 +314,7 @@ async def run_concurrent_rating(rating_chain, messages, final_prompt):
 
 # Processes the chat history to provide context to new conversation:
 @st.cache_resource
-def link_chat(final_prompt, context_strictness):
+def link_chat(final_prompt, context_strictness, saved_chat):
     progress_bar = st.progress(0, "Initialising relevance detection model...")
     rating_chain = initialise_relevance_rating_model()
     messages = st.session_state["saved_chat"].split("User:")[1:]
@@ -388,6 +388,7 @@ with st.form("form"):
     chosen_act = st.selectbox("Prompt", (prompt_df["act"]))
     chosen_prompt = prompt_df.loc[prompt_df.act == chosen_act].prompt.values[0]
 
+    strictness = 6
     if st.session_state["saved_chat"] != "":
         strictness = st.slider("Relevance cut-off:", 1, 10, 6)
     
@@ -399,7 +400,7 @@ with st.form("form"):
         final_prompt, settings, settings_explanation = edit_and_configure_prompt(chosen_prompt)
         
         if st.session_state["saved_chat"] != "":
-            final_prompt, ratings = link_chat(final_prompt, strictness)
+            final_prompt, ratings = link_chat(final_prompt, strictness, st.session_state["saved_chat"])
         
         st.session_state["final_prompt"] = final_prompt
         st.session_state["settings"] = json.loads(settings)
@@ -415,5 +416,3 @@ with st.form("form"):
             st.subheader(f"Settings reasoning:")
             st.write(f"\n{settings_explanation}")
             st.write(f"{json.loads(settings)}")
-            st.subheader(f"Messages ratings:")
-            st.write(pd.DataFrame.from_records(ratings))
