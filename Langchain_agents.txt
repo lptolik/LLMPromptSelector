@@ -1,0 +1,368 @@
+Agents
+Some applications require a flexible chain of calls to LLMs and other tools based on user input. The Agent interface provides the flexibility for such applications. An agent has access to a suite of tools, and determines which ones to use depending on the user input. Agents can use multiple tools, and use the output of one tool as the input to the next.
+
+There are two main types of agents:
+
+Action agents: at each timestep, decide on the next action using the outputs of all previous actions
+Plan-and-execute agents: decide on the full sequence of actions up front, then execute them all without updating the plan
+Action agents are suitable for small tasks, while plan-and-execute agents are better for complex or long-running tasks that require maintaining long-term objectives and focus. Often the best approach is to combine the dynamism of an action agent with the planning abilities of a plan-and-execute agent by letting the plan-and-execute agent use action agents to execute plans.
+
+For a full list of agent types see agent types. Additional abstractions involved in agents are:
+
+Tools: the actions an agent can take. What tools you give an agent highly depend on what you want the agent to do
+Toolkits: wrappers around collections of tools that can be used together a specific use case. For example, in order for an agent to interact with a SQL database it will likely need one tool to execute queries and another to inspect tables
+Action agents
+At a high-level an action agent:
+
+Receives user input
+Decides which tool, if any, to use and the tool input
+Calls the tool and records the output (also known as an "observation")
+Decides the next step using the history of tools, tool inputs, and observations
+Repeats 3-4 until it determines it can respond directly to the user
+Action agents are wrapped in agent executors, which are responsible for calling the agent, getting back an action and action input, calling the tool that the action references with the generated input, getting the output of the tool, and then passing all that information back into the agent to get the next action it should take.
+
+Although an agent can be constructed in many ways, it typically involves these components:
+
+Prompt template: Responsible for taking the user input and previous steps and constructing a prompt to send to the language model
+Language model: Takes the prompt with use input and action history and decides what to do next
+Output parser: Takes the output of the language model and parses it into the next action or a final answer
+Plan-and-execute agents
+At a high-level a plan-and-execute agent:
+
+Receives user input
+Plans the full sequence of steps to take
+Executes the steps in order, passing the outputs of past steps as inputs to future steps
+The most typical implementation is to have the planner be a language model, and the executor be an action agent. Read more here.
+
+Get started
+from langchain.agents import load_tools
+from langchain.agents import initialize_agent
+from langchain.agents import AgentType
+from langchain.llms import OpenAI
+
+First, let's load the language model we're going to use to control the agent.
+
+llm = OpenAI(temperature=0)
+
+Next, let's load some tools to use. Note that the llm-math tool uses an LLM, so we need to pass that in.
+
+tools = load_tools(["serpapi", "llm-math"], llm=llm)
+
+Finally, let's initialize an agent with the tools, the language model, and the type of agent we want to use.
+
+agent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True)
+
+Now let's test it out!
+
+agent.run("Who is Leo DiCaprio's girlfriend? What is her current age raised to the 0.43 power?")
+
+    
+    
+    > Entering new AgentExecutor chain...
+     I need to find out who Leo DiCaprio's girlfriend is and then calculate her age raised to the 0.43 power.
+    Action: Search
+    Action Input: "Leo DiCaprio girlfriend"
+    Observation: Camila Morrone
+    Thought: I need to find out Camila Morrone's age
+    Action: Search
+    Action Input: "Camila Morrone age"
+    Observation: 25 years
+    Thought: I need to calculate 25 raised to the 0.43 power
+    Action: Calculator
+    Action Input: 25^0.43
+    Observation: Answer: 3.991298452658078
+    
+    Thought: I now know the final answer
+    Final Answer: Camila Morrone is Leo DiCaprio's girlfriend and her current age raised to the 0.43 power is 3.991298452658078.
+    
+    > Finished chain.
+
+
+
+
+
+    "Camila Morrone is Leo DiCaprio's girlfriend and her current age raised to the 0.43 power is 3.991298452658078."
+
+
+Agent types
+Action agents
+Agents use an LLM to determine which actions to take and in what order. An action can either be using a tool and observing its output, or returning a response to the user. Here are the agents available in LangChain.
+
+Zero-shot ReAct
+This agent uses the ReAct framework to determine which tool to use based solely on the tool's description. Any number of tools can be provided. This agent requires that a description is provided for each tool.
+
+Note: This is the most general purpose action agent.
+
+Structured input ReAct
+The structured tool chat agent is capable of using multi-input tools. Older agents are configured to specify an action input as a single string, but this agent can use a tools' argument schema to create a structured action input. This is useful for more complex tool usage, like precisely navigating around a browser.
+
+OpenAI Functions
+Certain OpenAI models (like gpt-3.5-turbo-0613 and gpt-4-0613) have been explicitly fine-tuned to detect when a function should to be called and respond with the inputs that should be passed to the function. The OpenAI Functions Agent is designed to work with these models.
+
+Conversational
+This agent is designed to be used in conversational settings. The prompt is designed to make the agent helpful and conversational. It uses the ReAct framework to decide which tool to use, and uses memory to remember the previous conversation interactions.
+
+Self ask with search
+This agent utilizes a single tool that should be named Intermediate Answer. This tool should be able to lookup factual answers to questions. This agent is equivalent to the original self ask with search paper, where a Google search API was provided as the tool.
+
+ReAct document store
+This agent uses the ReAct framework to interact with a docstore. Two tools must be provided: a Search tool and a Lookup tool (they must be named exactly as so). The Search tool should search for a document, while the Lookup tool should lookup a term in the most recently found document. This agent is equivalent to the original ReAct paper, specifically the Wikipedia example.
+
+Plan-and-execute agents
+Plan and execute agents accomplish an objective by first planning what to do, then executing the sub tasks. This idea is largely inspired by BabyAGI and then the "Plan-and-Solve" paper.
+
+Conversational
+This walkthrough demonstrates how to use an agent optimized for conversation. Other agents are often optimized for using tools to figure out the best response, which is not ideal in a conversational setting where you may want the agent to be able to chat with the user as well.
+
+This is accomplished with a specific type of agent (conversational-react-description) which expects to be used with a memory component.
+
+from langchain.agents import Tool
+from langchain.agents import AgentType
+from langchain.memory import ConversationBufferMemory
+from langchain import OpenAI
+from langchain.utilities import SerpAPIWrapper
+from langchain.agents import initialize_agent
+
+search = SerpAPIWrapper()
+tools = [
+    Tool(
+        name = "Current Search",
+        func=search.run,
+        description="useful for when you need to answer questions about current events or the current state of the world"
+    ),
+]
+
+
+memory = ConversationBufferMemory(memory_key="chat_history")
+
+llm=OpenAI(temperature=0)
+agent_chain = initialize_agent(tools, llm, agent=AgentType.CONVERSATIONAL_REACT_DESCRIPTION, verbose=True, memory=memory)
+
+
+agent_chain.run(input="hi, i am bob")
+
+    > Entering new AgentExecutor chain...
+    
+    Thought: Do I need to use a tool? No
+    AI: Hi Bob, nice to meet you! How can I help you today?
+    
+    > Finished chain.
+
+
+    'Hi Bob, nice to meet you! How can I help you today?'
+
+agent_chain.run(input="what's my name?")
+
+    > Entering new AgentExecutor chain...
+    
+    Thought: Do I need to use a tool? No
+    AI: Your name is Bob!
+    
+    > Finished chain.
+
+
+    'Your name is Bob!'
+
+agent_chain.run("what are some good dinners to make this week, if i like thai food?")
+
+    > Entering new AgentExecutor chain...
+    
+    Thought: Do I need to use a tool? Yes
+    Action: Current Search
+    Action Input: Thai food dinner recipes
+    Observation: 59 easy Thai recipes for any night of the week · Marion Grasby's Thai spicy chilli and basil fried rice · Thai curry noodle soup · Marion Grasby's Thai Spicy ...
+    Thought: Do I need to use a tool? No
+    AI: Here are some great Thai dinner recipes you can try this week: Marion Grasby's Thai Spicy Chilli and Basil Fried Rice, Thai Curry Noodle Soup, Thai Green Curry with Coconut Rice, Thai Red Curry with Vegetables, and Thai Coconut Soup. I hope you enjoy them!
+    
+    > Finished chain.
+
+
+    "Here are some great Thai dinner recipes you can try this week: Marion Grasby's Thai Spicy Chilli and Basil Fried Rice, Thai Curry Noodle Soup, Thai Green Curry with Coconut Rice, Thai Red Curry with Vegetables, and Thai Coconut Soup. I hope you enjoy them!"
+
+
+agent_chain.run(input="tell me the last letter in my name, and also tell me who won the world cup in 1978?")
+
+    > Entering new AgentExecutor chain...
+    
+    Thought: Do I need to use a tool? Yes
+    Action: Current Search
+    Action Input: Who won the World Cup in 1978
+    Observation: Argentina national football team
+    Thought: Do I need to use a tool? No
+    AI: The last letter in your name is "b" and the winner of the 1978 World Cup was the Argentina national football team.
+    
+    > Finished chain.
+
+
+    'The last letter in your name is "b" and the winner of the 1978 World Cup was the Argentina national football team.'
+
+
+agent_chain.run(input="whats the current temperature in pomfret?")
+
+    > Entering new AgentExecutor chain...
+    
+    Thought: Do I need to use a tool? Yes
+    Action: Current Search
+    Action Input: Current temperature in Pomfret
+    Observation: Partly cloudy skies. High around 70F. Winds W at 5 to 10 mph. Humidity41%.
+    Thought: Do I need to use a tool? No
+    AI: The current temperature in Pomfret is around 70F with partly cloudy skies and winds W at 5 to 10 mph. The humidity is 41%.
+    
+    > Finished chain.
+
+
+    'The current temperature in Pomfret is around 70F with partly cloudy skies and winds W at 5 to 10 mph. The humidity is 41%.'
+
+
+Using a chat model
+The chat-conversational-react-description agent type lets us create a conversational agent using a chat model instead of an LLM.
+
+from langchain.memory import ConversationBufferMemory
+from langchain.chat_models import ChatOpenAI
+
+memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
+llm = ChatOpenAI(openai_api_key=OPENAI_API_KEY, temperature=0)
+agent_chain = initialize_agent(tools, llm, agent=AgentType.CHAT_CONVERSATIONAL_REACT_DESCRIPTION, verbose=True, memory=memory)
+
+
+agent_chain.run(input="hi, i am bob")
+
+    > Entering new AgentExecutor chain...
+    {
+        "action": "Final Answer",
+        "action_input": "Hello Bob! How can I assist you today?"
+    }
+    
+    > Finished chain.
+
+
+    'Hello Bob! How can I assist you today?'
+
+agent_chain.run(input="what's my name?")
+
+    > Entering new AgentExecutor chain...
+    {
+        "action": "Final Answer",
+        "action_input": "Your name is Bob."
+    }
+    
+    > Finished chain.
+
+
+    'Your name is Bob.'
+
+agent_chain.run("what are some good dinners to make this week, if i like thai food?")
+
+    > Entering new AgentExecutor chain...
+    {
+        "action": "Current Search",
+        "action_input": "Thai food dinner recipes"
+    }
+    Observation: 64 easy Thai recipes for any night of the week · Thai curry noodle soup · Thai yellow cauliflower, snake bean and tofu curry · Thai-spiced chicken hand pies · Thai ...
+    Thought:{
+        "action": "Final Answer",
+        "action_input": "Here are some Thai food dinner recipes you can try this week: Thai curry noodle soup, Thai yellow cauliflower, snake bean and tofu curry, Thai-spiced chicken hand pies, and many more. You can find the full list of recipes at the source I found earlier."
+    }
+    
+    > Finished chain.
+
+
+    'Here are some Thai food dinner recipes you can try this week: Thai curry noodle soup, Thai yellow cauliflower, snake bean and tofu curry, Thai-spiced chicken hand pies, and many more. You can find the full list of recipes at the source I found earlier.'
+
+
+agent_chain.run(input="tell me the last letter in my name, and also tell me who won the world cup in 1978?")
+
+    > Entering new AgentExecutor chain...
+    {
+        "action": "Final Answer",
+        "action_input": "The last letter in your name is 'b'. Argentina won the World Cup in 1978."
+    }
+    
+    > Finished chain.
+
+
+    "The last letter in your name is 'b'. Argentina won the World Cup in 1978."
+
+agent_chain.run(input="whats the weather like in pomfret?")
+
+    > Entering new AgentExecutor chain...
+    {
+        "action": "Current Search",
+        "action_input": "weather in pomfret"
+    }
+    Observation: Cloudy with showers. Low around 55F. Winds S at 5 to 10 mph. Chance of rain 60%. Humidity76%.
+    Thought:{
+        "action": "Final Answer",
+        "action_input": "Cloudy with showers. Low around 55F. Winds S at 5 to 10 mph. Chance of rain 60%. Humidity76%."
+    }
+    
+    > Finished chain.
+
+
+    'Cloudy with showers. Low around 55F. Winds S at 5 to 10 mph. Chance of rain 60%. Humidity76%.'
+
+OpenAI functions
+Certain OpenAI models (like gpt-3.5-turbo-0613 and gpt-4-0613) have been fine-tuned to detect when a function should to be called and respond with the inputs that should be passed to the function. In an API call, you can describe functions and have the model intelligently choose to output a JSON object containing arguments to call those functions. The goal of the OpenAI Function APIs is to more reliably return valid and useful function calls than a generic text completion or chat API.
+
+The OpenAI Functions Agent is designed to work with these models.
+
+Install openai,google-search-results packages which are required as the langchain packages call them internally
+
+pip install openai google-search-results
+
+from langchain import LLMMathChain, OpenAI, SerpAPIWrapper, SQLDatabase, SQLDatabaseChain
+from langchain.agents import initialize_agent, Tool
+from langchain.agents import AgentType
+from langchain.chat_models import ChatOpenAI
+
+llm = ChatOpenAI(temperature=0, model="gpt-3.5-turbo-0613")
+search = SerpAPIWrapper()
+llm_math_chain = LLMMathChain.from_llm(llm=llm, verbose=True)
+db = SQLDatabase.from_uri("sqlite:///../../../../../notebooks/Chinook.db")
+db_chain = SQLDatabaseChain.from_llm(llm, db, verbose=True)
+tools = [
+    Tool(
+        name = "Search",
+        func=search.run,
+        description="useful for when you need to answer questions about current events. You should ask targeted questions"
+    ),
+    Tool(
+        name="Calculator",
+        func=llm_math_chain.run,
+        description="useful for when you need to answer questions about math"
+    ),
+    Tool(
+        name="FooBar-DB",
+        func=db_chain.run,
+        description="useful for when you need to answer questions about FooBar. Input should be in the form of a question containing full context"
+    )
+]
+
+
+agent = initialize_agent(tools, llm, agent=AgentType.OPENAI_FUNCTIONS, verbose=True)
+
+agent.run("Who is Leo DiCaprio's girlfriend? What is her current age raised to the 0.43 power?")
+
+    > Entering new  chain...
+    
+    Invoking: `Search` with `{'query': 'Leo DiCaprio girlfriend'}`
+    
+    
+    Amidst his casual romance with Gigi, Leo allegedly entered a relationship with 19-year old model, Eden Polani, in February 2023.
+    Invoking: `Calculator` with `{'expression': '19^0.43'}`
+    
+
+    > Entering new  chain...
+    19^0.43```text
+    19**0.43
+    ```
+    ...numexpr.evaluate("19**0.43")...
+    
+    Answer: 3.547023357958959
+    > Finished chain.
+    Answer: 3.547023357958959Leo DiCaprio's girlfriend is reportedly Eden Polani. Her current age raised to the power of 0.43 is approximately 3.55.
+    
+    > Finished chain.
+
+
+    "Leo DiCaprio's girlfriend is reportedly Eden Polani. Her current age raised to the power of 0.43 is approximately 3.55."

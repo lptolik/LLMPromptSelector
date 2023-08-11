@@ -1,0 +1,1022 @@
+ 
+System: Hello! How can I assist you today? 
+
+User: Act as a transcript summarizer. You are provided with a large interview transcript and you must extract all the most important exchanges while removing irrelevant information. The interview is on the subject of user experience using the "Digimaps" software product developed by EDINA. You must not change the actual contents of the conversation, only reduce the size to only include the most useful information. USE EXACT QUOTES.
+Conversation transcript:
+"1
+Some information, but just so you know.
+1
+OK, so.
+2
+OK.
+1
+Let me just I have a list of questions you don't have to answer any of them if you don't want to, OK.
+1
+And you can stop this at any time.
+1
+OK.
+1
+And then if you don't want your answers to be recorded, uh, we can also take that out from the final results.
+1
+OK.
+1
+So first of all, are you accessing digit map through University of Edinburgh?
+1
+Yeah. OK. Is it like?
+1
+So you are undergraduate student.
+1
+Like what?
+1
+What course gives you that app?
+3
+So there were a few courses that I used this for and one was.
+3
+It's like architectural heritage, like related costs and we need it kind of like old maps study.
+3
+And also there was some.
+3
+Like technology related goals, but also like architecture and.
+3
+Well, no, actually not.
+3
+It was like actual design course.
+3
+I mean like information of the site, OK, of the buildings that we designed, yeah.
+1
+So from my understanding the first part the did you use historic for the first?
+3
+Yeah, a historic.
+3
+And also I think.
+3
+Like a new one, I think.
+1
+Ohh, nice.
+1
+You wanted that survey.
+1
+OK, so it's actually the focus on this interview.
+2
+OK.
+1
+So that's great that you use that so.
+1
+Ohh what year are you in?
+3
+Finished second, yes, I guess.
+1
+So in coming third year for architecture.
+1
+Architecture history.
+1
+OK.
+1
+So that's your.
+1
+Name the major.
+3
+Well, it's actually called architecture, history and heritage, but same thing.
+1
+OK, OK, got it. So.
+1
+Have you had, like, research projects that you've requires you to use it?
+1
+Or is it majority like assignments for labs, etcetera?
+3
+So it was kind of.
+3
+Kind of an independent like project.
+3
+So I did like my individual project for the.
+3
+Course yeah.
+3
+So it.
+3
+So it's like we got assigned like a one note, we have like several sides to choose from to focus on and then?
+3
+We did like individual research on the site, so yeah.
+1
+I see.
+1
+So it's like an assignment, but then the process of the assignment is research.
+3
+Yeah, yeah.
+1
+I see so.
+1
+Were there any like clear instructions for like OK step?
+1
+One open the step two.
+1
+Do that and that.
+3
+Let me think.
+1
+Or it was just like completely?
+1
+Exploratory on your own.
+3
+It actually so like when I did that course, I already used this map my first year course on actual design.
+1
+Ohh nice.
+3
+So I don't think I have some kind of very like clear step by step instruction for my like heritage course for the year 2.
+3
+Yeah, I don't think there was like very like clear structure for that.
+3
+But when I was in year one, yeah, I think there was some kind of instruction.
+
+OK.
+3
+Yeah, I think that was online because it was still like 8 years ago.
+1
+Yeah, right.
+3
+Yeah, but there was something that, yeah, helped us, like, setting up the account and, yeah, go to this spot.
+3
+But still I felt like I needed to explore a bit like by myself to like find out like.
+3
+How I can like download things and yeah.
+1
+OK.
+1
+How would you describe the process?
+1
+Was it like OK to use?
+1
+Was it confusing?
+1
+Were there anything that in particular that you couldn't find?
+3
+I guess I was like, OK to do like what I wanted to do.
+3
+So at first it was a bit like I felt confusing because there are like so many functions that I can use.
+3
+How to?
+3
+So like.
+3
+Do exactly what I want.
+3
+To do, yeah, but.
+3
+I guess I just like explode and that was OK.
+3
+It might feel a bit like difficult for some people, I guess, and.
+3
+Yeah, well, I guess.
+3
+Because there are just so many functions, it's very difficult to like make it.
+1
+Right.
+3
+Like somehow, like.
+1
+More straightforward.
+3
+Yeah, yeah.
+1
+OK, sorry that has been a very abstract question, but like so for example, what specific task were you asked to do?
+3
+So I needed to download a map from the survey, OK and.
+
+OK.
+3
+For like specific.
+3
+Like the like 1 to like, right? Yeah. 5000 or like whatever and.
+
+OK.
+1
+Is it OK if you like show me the process?
+3
+OK, I I will try because that's.
+3
+You do?
+3
+I will try, yeah.
+1
+Yeah, just like, imagine this is your.
+1
+Laptop you're starting from scratch completely right?
+1
+So first.
+1
+Of all search.
+1
+OK.
+1
+Could you just like talk?
+3
+Me through. Ohh yeah so.
+
+Thank you.
+3
+If I opened like this, show them up right and I think I usually check.
+1
+Wait, I'll do a screen recording, yeah.
+1
+OK. Thank you.
+3
+And I think I usually like, I don't remember like which part like includes like which function, but I just like move through those things and then see.
+1
+So it's like every time you do something new, you still have to go back to every.
+3
+Ohh, maybe maybe if when I'm doing like 1 project I remember well.
+1
+Of these functions.
+3
+But like yeah because it's been like a few months, right?
+1
+Uh, so there are the drawing tools, yeah.
+3
+So I so I did stuff about like Edinburgh, so I'll just like from the area.
+2
+OK.
+1
+OK, OK.
+1
+And so basically zoom into the area and then?
+3
+Yeah, I think I've used uh.
+3
+This one before.
+3
+I don't really remember.
+
+Take your time.
+1
+Yeah, there's too many like tools to select.
+
+Right.
+
+From this.
+3
+Yeah, I think I did this thing before.
+3
+Yeah, I just.
+3
+This kind of shape and stuff like the side that I.
+1
+OK.
+3
+Want to focus on?
+3
+OK.
+3
+Does it have to?
+3
+Be exact.
+3
+OK, just make OK.
+3
+OK.
+1
+We're trying to like redo or undo.
+3
+It changed like I was just thinking if I can change the thickness of the line.
+1
+Oh, thickness.
+3
+Yeah, I forgot how.
+3
+To do it I.
+3
+Just like explode.
+3
+And then I know how to do it.
+2
+OK.
+3
+Then I remember I we do things.
+3
+But yeah, how did I do?
+3
+No boy.
+2
+OK.
+1
+Oh, yes. OK, nice.
+1
+Nice, all cleared.
+3
+And what should I do?
+3
+I think I didn't really use.
+3
+These kind of things.
+3
+Yeah, download.
+3
+Yeah, I usually print from this and.
+2
+OK.
+3
+Just yeah, check the scale here I guess.
+1
+OK.
+3
+Then generate print file.
+3
+Can I generate it now or?
+1
+Yeah, yeah, of course, of course.
+1
+OK, so it's downloaded.
+1
+So basically I'm trying to like paraphrase what you just did there.
+1
+So first of all, you zoom into the area that you wanted to download and then you selected it and like threw out and during the process you had some like figure out to do.
+3
+Hmm yeah.
+1
+Yeah, but then basically.
+1
+You try to print.
+1
+The picture?
+1
+Yeah, because I noticed that you came here for download.
+1
+So, like, did you did you any of the tasks ever included, like downloading the actual data instead of the map?
+3
+No, I was always just downloading the map, not the data.
+3
+OK, so that's why I.
+3
+Felt unfamiliar with the thing.
+3
+When I fix it, yeah.
+1
+Right, right.
+1
+Right.
+1
+Also because there's a lot of functions here, as you said, there's like all sorts of face maps and all sorts of overlays.
+3
+Oh yeah, yeah.
+1
+Did you ever use these kind of functions during?
+1
+Any of your accounts.
+3
+I might have checked this one, it's not maybe like full like specific purposes.
+3
+I was just like trying to explore what kind of maps they have and maybe some other maps looks they look better than others.
+1
+Right.
+3
+And I've, yeah, I've used like historic months before, but that's I think in a different.
+1
+OK.
+1
+Right section, right.
+1
+So so basically you export the base masks on your own, but there is no clear instruction in terms of like school assignments or projects which maps you should use.
+3
+As far as I can remember, like there was a.
+3
+Like instruction about like how to get to like this part like all the registration and stuff right, but not too much about the map itself.
+3
+OK and.
+1
+So it didn't specify like whatever map worked.
+3
+I think so, yeah, especially.
+3
+For like the work that I.
+3
+That was like focus was more on, like using historic maps.
+3
+So like they're using phrasing.
+1
+Ohh I see.
+3
+Map was just like kind of referenced.
+3
+So they didn't really specify anything and so like my year one like architecture design course, they might have specified like some.
+2
+OK.
+3
+No, this one maybe.
+3
+Maybe it was like this one, but it was, I think, more kind of like design rather.
+1
+OK.
+3
+Like some specific function of each map.
+1
+OK.
+1
+Yeah, I see.
+1
+I see.
+1
+OK, great.
+1
+You for showing me.
+1
+Just some general questions now so.
+1
+So so overall, if you think of like all the tasks that was that were requiring you.
+1
+To use the app.
+1
+Could you give me a summary of like the category of tasks?
+1
+Because you mentioned historic right and you mentioned design, yeah.
+1
+And you mentioned some maps are just for comparison.
+3
+So all the tasks that I've done are all related to like buildings.
+3
+So architecture.
+3
+So we need like information on where it like.
+3
+So that's usually the reason that we need maps.
+3
+So for location.
+3
+And also when I was using historic maps maps that was to see the change of the site over time, I guess so yeah, that was a.
+1
+Like main purpose to use them up.
+1
+And what?
+1
+What was the rest of the question?
+1
+Just like what what categories and tasks would you think like what are the purposes of those tasks?
+1
+So you mentioned comparisons, yeah you mentioned.
+1
+Just to view the location.
+3
+So maybe the context of like all the things that I study about, like buildings.
+3
+OK.
+1
+OK. OK, great. So.
+1
+So from your experience of using it.
+1
+Have you found?
+1
+Because I've noticed the drawing took of you were confusing.
+3
+Yeah, yeah.
+1
+What other difficulties have you faced?
+1
+Was there this really frustrating moment that you were?
+1
+Just like can't.
+1
+Figure out for like an hour straight.
+3
+Don't remember in that particular moment.
+3
+I feel like I really want to.
+3
+Do something but.
+3
+I can't, but I just.
+3
+Kind of like felt like there must be like, more functions that I can make use of, right?
+3
+But because just like, there are so many things there, I can't really figure out like what I can.
+3
+Do right to like do something better so.
+3
+Yeah, it would be useful if, like there's.
+3
+Like nicely clear introductory video or something like kind of go through like all the things that.
+3
+I can do but just.
+1
+Like training.
+3
+So yeah, it's like nothing like particular that I struggled.
+3
+But I just feel like I'm not like making the.
+3
+Most of it, yeah.
+1
+So it's just like a.
+1
+Iceberg a.
+1
+OK.
+1
+Because I feel the same.
+1
+Honestly, I didn't know anything about.
+1
+This time and I have to like.
+1
+Explore on yeah, so.
+1
+I feel.
+1
+I I I can feel from.
+1
+Your description that there.
+1
+Are so many personalities to this man.
+3
+Yeah, yeah.
+3
+And I'm only seeing this part.
+
+Right.
+1
+So what's your sense of the other functionalities that may be able to achieve?
+1
+So what do you think is the purpose of this digimap.
+3
+I guess that.
+3
+Would be like mainly for like research purposes right of like places so.
+3
+I guess maybe like extracting like some like specific like things about them up and then?
+3
+Putting like specific things together onto like warm up and then like create your own like thing that you can use to illustrate your point or I don't know.
+3
+Like maybe that kind of thing can be possible I.
+3
+Don't really know.
+1
+So you're feeling like it's more for research than for, like undergraduate assignments?
+3
+Well, yeah, I guess.
+3
+Well, maybe because like my assignment like.
+3
+Like that many times.
+3
+So it's not, it's.
+3
+This car, like a lot of the room, right, like can like, explore freely so.
+3
+Yeah, and.
+3
+Maybe like for like dissertation or those kind?
+3
+Of like big works.
+3
+That like you need to.
+3
+Like Expo information, rather than like getting things possibly so like, I think it's very it's really like useful to to like find out something.
+3
+Is not.
+3
+Like already there.
+3
+And I don't know like in like.
+3
+Where they made.
+3
+Like image or something on the Internet cause you can like really explore stuff so yeah.
+3
+So basically we.
+1
+Pick because it's such a huge iceberg.
+3
+Yeah, yeah.
+1
+There's so many things you can just like play.
+3
+Around I think, and not only for like maybe like studies, maybe you can just use like explore things and then use for?
+3
+I don't know when you like, be there somewhere or it can be quite useful because you help lift them up.
+2
+OK.
+3
+Like with maps, yeah.
+1
+Yeah, yeah, I see.
+1
+So you you mentioned the part where you think that like a introduction video would be helpful.
+1
+Have you ever tried to look at the help pages?
+3
+Not for this map, only this map side or like on like University of Edinburgh.
+1
+Yeah. Yeah, like on.
+1
+The website ohh.
+3
+I might have like a long time ago, but not recently and.
+3
+You know.
+1
+Where it is.
+3
+I don't know.
+3
+Oh yeah.
+3
+Help page.
+3
+Oh, that's a very, like, sleek, nice page.
+1
+Yeah, it is.
+1
+It actually looks like.
+3
+Learning materials.
+1
+To never realize that that's.
+3
+No, I didn't realize because it looked.
+3
+Like very tiny.
+3
+I thought it's.
+3
+It's like, it's not like that important but.
+2
+Exactly the same.
+3
+But it's like it's actually really like nicely treated and wow.
+2
+OK.
+3
+I should I should have.
+2
+OK.
+2
+OK.
+2
+Interesting to hear that.
+2
+OK.
+1
+I think there just be some final questions left.
+1
+So if you were to rate on this sheet, could you give me a rating for each of the questions and then explain why?
+1
+You gave the.
+3
+Rating would like to use this system.
+3
+Yeah, I think so.
+3
+Because I.
+3
+Wow, that's a win for.
+3
+You think it's really like, nice, like, great service.
+3
+Uh, you can, like, use for free.
+3
+OK, so.
+3
+I found the system unnecessarily.
+3
+It's not unnecessarily complex.
+3
+It's complex, but it's, I guess like it's reasonable.
+3
+OK, I thought the system was easy to use.
+3
+I'll go for neutral because.
+1
+OK.
+3
+It's not like so unnecessarily difficult, but yeah.
+1
+It's difficult.
+
+Cuz there's so.
+1
+Much stuff.
+3
+Yeah, OK, I think that I would need the support of a technical person to be able to use this system.
+3
+Well, because now I know that there are some materials available, maybe I can do it by myself.
+3
+OK, yeah.
+1
+But before you didn't.
+3
+Uh, no, I well.
+3
+I I you shouldn't even be like just like.
+3
+Explore, but that does take time, so I will go for.
+1
+OK, makes.
+3
+Sense I found the various functions in the system were well integrated.
+3
+I'm not that expert in the system, so I thought there was too much inconsistency.
+3
+In this system.
+3
+I don't think there are too many, but maybe it's just because I.
+3
+They didn't know like that much.
+1
+So there was some.
+1
+Because you like giving out.
+3
+Ah, no, I.
+3
+Didn't really find it, so yeah, there might have been, but I didn't really notice.
+3
+I was like very beginner user.
+1
+Is it because they're hard to notice?
+1
+Or is it because you just haven't used it that much to notice?
+3
+I think it's because I've only used like a few functions.
+3
+I guess if you use like more and the various functions.
+3
+I might have like noticed ohh this and this are like very similar kind of in the same.
+3
+Oh but I yeah, I didn't really.
+3
+OK, yeah, I know that much.
+3
+So I will just put it in neutral, you know.
+2
+OK.
+3
+I would imagine.
+3
+That most people would learn to use this.
+3
+System very quickly.
+3
+I'm not sure.
+2
+I I would completely agree.
+1
+Because it took me like 3 days.
+3
+Like so.
+3
+Like when I did the.
+3
+My second year course right I used like I used this before any one so I kind of knew.
+3
+What it looks like and stuff and other people were like asking me like, oh, how can I like go in?
+3
+So it might be just like.
+1
+Right.
+3
+Like very surface, like, very beginning.
+3
+Part I'm not sure but.
+3
+I wouldn't say like most people.
+3
+Yeah, so, but that also.
+1
+So it's hard to like grasp it, yeah.
+3
+I guess it's just difficult because it just has so many functions and you know I found the system very cumbersome to use.
+1
+I see.
+3
+What is cumbersome.
+1
+I can I actually have to Google that as well?
+1
+So this is larger, heavy and therefore difficult to carry or use.
+3
+Ah, OK. Uh huh?
+
+A little bit.
+3
+But it's just because of the nature of.
+3
+The system OK.
+3
+I feel very confident using the system.
+3
+No really.
+3
+Wow, that's true.
+3
+Yeah, I'll put it in too.
+3
+I needed to learn a lot of things before I could get going with this system.
+3
+I guess I kind of try to use it.
+3
+Well, like learning how to use it so.
+1
+So like you.
+3
+Wouldn't say yeah.
+3
+I needed a close of.
+3
+Like in for before starting uh.
+3
+But then I wouldn't say that like my.
+3
+It got like that high in like high like level when I'm.
+1
+OK.
+1
+So it's completely, it's not completely impossible, but there you have to learn along.
+3
+Using this stuff.
+3
+The way, yeah, I think so.
+3
+OK, good.
+3
+Explode right?
+3
+So yeah, I guess.
+3
+Yeah, like either just, like, learn along the way or what's those helpful resources?
+3
+OK and yeah, because.
+3
+It's very specific like service and it's difficult like different from maybe.
+
+Right.
+3
+Like different uh.
+3
+Like thing that you you can find on the Internet like other services.
+3
+So I guess you just need to get.
+3
+Used to it but.
+3
+For example, so I'm sometimes use like universities like for this internship I use like universities collection.
+3
+All those kind of things.
+3
+That database is much easier for me to.
+3
+Make use and get used to, but I think it's just because.
+3
+It was. It's like.
+3
+Quite intuitive on how to use it.
+3
+It's kind of similar to maybe other things that you find right.
+3
+Like it's similar to like how you find images on Google and like how you find images on.
+3
+Yeah, like collection like database website Bob.
+3
+This is like specifically maps and I guess you just you just need to learn something.
+2
+OK.
+1
+Deal with it.
+1
+So you're saying that it's counterintuitive?
+1
+It's hard to grasp, it's.
+3
+Not I'm saying.
+1
+But because it's so special and unique, you are still willing.
+3
+To yeah, it's not counterintuitive, it's just like.
+3
+You need. You need to.
+3
+Get used to it.
+2
+But I guess you want to get used to.
+3
+It there is so much thing, so many things that you can do, I think, OK, yeah.
+3
+OK.
+3
+Got to that anymore?
+1
+Thank you so much.
+1
+One final question.
+1
+How often do you use it?
+1
+Is it just during the assignment?
+1
+And the second question, what are the average session lengths?
+3
+So far are you use it?
+3
+Mostly like only for my assignment.
+3
+I think I've just explored.
+3
+A few times like.
+3
+For no pups, I just wanted to like see what kind of.
+3
+Maps they are and stuff.
+3
+So there's not too much like, say.
+1
+Five around 5:00.
+1
+Maybe per semester or like the whole academic year?
+3
+Postmaster, but like for.
+3
+Like 1 project?
+3
+Yeah I guess because I only had like 1 project that.
+3
+I needed to use it.
+3
+This year, like this academic year and like this semester, and also like 1 semester in the first year.
+1
+Right.
+3
+So it's like it's per semester, but also like.
+3
+The first one I.
+3
+Didn't like yeah, either because I didn't have.
+1
+OK, OK, got it.
+1
+And how long does it take for you to?
+1
+Complete the task like.
+3
+Maybe like 10 minutes or around that.
+3
+I think for.
+1
+Like 8 session, right?
+1
+OK 10 or 15.
+1
+And does it differ in terms of is it for assignment or is it on your own exploring?
+
+UM.
+3
+Well, full assignment.
+2
+UM.
+3
+I I think they are like.
+3
+Mostly the same for some.
+3
+I sometimes need to like do it again and again to get like the map with the thing that I want in like a center like because I sometimes like.
+1
+Although the printing part doesn't work as.
+3
+Yeah, yeah.
+3
+And then I try to do.
+3
+And then.
+3
+Yeah, I need to figure out like how to.
+3
+Like put them up on like a sheet of paper.
+3
+OK, then, like, download.
+3
+OK, but.
+3
+Yeah, I think that's like the.
+1
+Session thanks.
+1
+OK.
+1
+Got it.
+1
+Well, thank you so much.
+1
+And that's exactly.
+3
+Your choice. That was health.
+1
+It was so helpful. It's.
+3
+OK, it was really helpful.
+
+OK.
+3
+Thank you so much.
+1
+And sorry to take your entire like 30 minutes, but it's, yeah, if you wanna end this and like, go home, we can completely just end it there.
+2
+Ohh, no worries, no worries at all.
+1
+OK."
+System: The interview transcript includes various exchanges about the use of the "Digimaps" software product developed by EDINA. The user mentions using the software for their architecture and history courses, particularly for studying old maps and architectural heritage. They also mention using the software for research projects and individual assignments. The user found the software to have many functions, which made it confusing at times, but they were able to explore and figure things out. They suggest that an introductory video or clear instructions would be helpful. The user primarily used the software for downloading maps and printing them for their assignments. They found the system to be complex but reasonable, and they felt that it was more suitable for research purposes rather than undergraduate assignments. The user didn't find any major difficulties but felt that there were many functions to explore. They suggest that the system could be overwhelming for beginners and that more training materials would be helpful. The user also mentions that they didn't notice any inconsistencies in the system, but they were not an expert user. They rated the system as okay in terms of ease of use and confidence in using it. They noted that they needed to learn a lot before getting started with the system, but they didn't find it impossible. The user mentioned the need for support from a technical person and suggested that the system could be cumbersome at times due to its complexity. They also mentioned that the system could be more intuitive with clearer instructions and resources. The user mentioned that they mostly used the software for assignments, with an average session length of around 10 minutes. They sometimes explored the software on their own as well. Overall, the user found the interview helpful and appreciated the opportunity to provide feedback.

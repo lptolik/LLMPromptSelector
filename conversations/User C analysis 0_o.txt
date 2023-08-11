@@ -1,0 +1,2158 @@
+ 
+System: Hello! How can I assist you today? 
+
+User: Summarize the below conversation. Make sure to keep the main points made by the speakers. The speakers are denoted by a number on a previous line (Note in this conversation there are only 2 speakers but the transcript makes the mistake of denoting 3 speakers).
+
+Conversation transcript:
+"1
+So basically I'm working on the user experience side of digimap and we're still at the early stage, so I'm 
+trying to identify the different user groups and their goals in terms of using.
+
+For Penn.
+1
+Yeah, freeze.
+
+So are you.
+2
+Interested in you say in space.
+
+Design or you put that.
+
+Here, broadly yes.
+3
+So you're interested in interface design.
+1
+Not quite the design part yet.
+1
+So we're just.
+1
+We have looked at the log analysis part of it and then we're trying to have a qualitative.
+1
+Insights from like.
+1
+Actual users who can tell us about their experience in terms of what functionality.
+1
+Are they mainly using?
+1
+If that makes sense, it does.
+1
+So yeah, personally, because I've.
+1
+Had like a bit of reading on your profile page and I see that you're basically focusing on like data 
+visualization for maps and like generalization.
+
+That's right.
+1
+So I don't quite know a lot about geographic information system yet.
+1
+But could you just tell me more about, like your focus?
+1
+What's your interesting research please?
+
+Hang. We're gonna.
+3
+Let the kettle boil.
+3
+Because that's too noisy.
+3
+I'm interested.
+3
+In the role that maps play.
+3
+In in various tasks.
+3
+So the task might be to climb to the top of a mountain.
+3
+Or the task might be to navigate to Scott's monument, right. And you can think of many different tasks it 
+might be trying to.
+3
+Design AA plan for your holiday right? Or it might be to think about the best way to get to Glasgow from 
+Edinburgh.
+3
+But all of these require us to think about geography.
+3
+And often maps.
+3
+Are used as part of that process.
+3
+So I'm interested in the cognitive.
+3
+Processes through which people reach to make decisions about those sorts of activities.
+1
+I see.
+1
+So it's more like the practical use of it instead of like research academic ways.
+3
+If you like.
+1
+I mean yeah, because like from my perspective, did you map is mostly open to like for the education and 
+higher education.
+1
+So for academic like research.
+1
+So does that play in your like daily research?
+1
+So like how what's like your typical scenario in using like digit maps side of maps?
+3
+UM, so I very rarely use digimap. OK Digimap is in my view. Yeah, a.
+3
+Filing cabinet.
+3
+It's a filing cabinet and in the drawers of the filing cabinet is contained.
+3
+Different thematic.
+3
+Data types, yes.
+3
+So it provides Lidar gathered from remotely sensed technology.
+3
+It contains geological data.
+3
+It contains topographic data, so it contains a whole range of different.
+3
+Data types and.
+3
+It for different levels of detail, so different scales and at different levels of coverage, yes.
+3
+So in that sense.
+3
+You could argue that it's just like a filing cabinet, right?
+3
+And so for most people, I would imagine the context of use is that they have some project.
+3
+It yes.
+3
+So recently somebody wants to do a project looking at calculating the speed of humans walking up and 
+down hills.
+3
+OK, so when the hill gets steeper?
+3
+You walk more slowly.
+3
+And so we can argue that there's a relationship between slope.
+3
+And or gradient right and speed, right?
+3
+Yeah, there does come a point at which as people get to walk up something very steep, they start to 
+zigzag.
+3
+Right.
+3
+And then they walk slower still.
+3
+So this person needed very detailed 3 dimensional data.
+3
+So they would go to digimap, they would go to the service provider, Edina and they would log on.
+3
+They would generate an account.
+3
+They would select the geographic area, which in our case was the pentlands.
+3
+And then they would download that data.
+1
+Right.
+1
+So yeah, I see.
+1
+So would that be mostly?
+1
+Because we have a lot of collections within digimap, so we have ordinary survey, we have lighter as you 
+mentioned we have like geographic information, what part like which collection.
+1
+Do you think it's like the most used one in terms of within the Department of Geoscience?
+3
+No idea.
+1
+Oh, OK.
+1
+So what about you personally?
+1
+Although you said that you rarely use.
+2
+It you never use it.
+3
+Yeah, I never use it.
+3
+Like well, with the exception of this PhD student, OK.
+1
+So for this particular project, then, like measuring the sleep of the health, what collection do you think 
+he was using or?
+3
+Well, there would be two there would be two places they could go to.
+
+They were using.
+3
+So Lidar will give you 3 dimensional data, right?
+3
+And also the Ordinance survey provides also its own height.
+3
+Model as well, so you could look at both of those.
+3
+OK, some of the height model data is collected at quite fine scale, right?
+3
+In which case the data volumes are quite large and the data has to be interpreted carefully, and the 
+ordinance survey data it depending on how it's been stored.
+3
+And the resolution of the data will affect the data.
+3
+Volume and the way in.
+3
+Which it's stored will also govern the type.
+3
+Of analysis that you want to perform on the database right on the data set, right?
+3
+So the student might take both data sets and then they'll then import them into some kind of a 
+information system like a like a GIS.
+3
+And they will start to analyse the data to see what kinds of things they can do with that data.
+1
+I see.
+1
+So it's mainly like at the beginning of the stage of the research that they're like coming into this and then 
+get data and then they'll look at it like in another, probably another system and then like, do more 
+analysis elsewhere.
+3
+Yes, it would be more than.
+3
+I don't think that.
+3
+Digimap provides any form of analysis.
+1
+Right.
+3
+No, no, it's it's just like a filing cabinet.
+1
+OK.
+1
+I see.
+1
+So basically like you view the data, you download it and you transfer them elsewhere to do the analysis.
+3
+Then you say you'd import it into a whole range of different pieces of software to analyze.
+3
+So if you're interested in grade.
+3
+You would first of.
+3
+All have to you'd need height information, yes.
+3
+So you access LIDAR data and that will give you height and then you import it into a piece of GIS 
+software and it calculates gradient.
+3
+It calculates aspect.
+3
+Calculates the area of a.
+3
+Catchment, right.
+3
+Right.
+3
+So it's what you do with the data subsequently.
+3
+That is the interesting part from a research point.
+3
+Of view.
+3
+OK, so did you map?
+
+Let's see.
+3
+Yes is that's why I refer to it as a filing cabinet.
+3
+It's it's.
+3
+It's it is just that.
+1
+I see.
+1
+So so from my understanding so far you've said so the major functionality that you're using is, first of all 
+viewing and downloading.
+1
+So what else?
+1
+If you had any interaction with it, what else is your perception of this?
+1
+Other functionalities besides being a drawing cabinet that you might not using it now, but like you see 
+the potential of it to be.
+3
+I can't think of any, OK.
+2
+So it is just a falling covenant.
+3
+Yes, I can't see.
+3
+I couldn't see a context in which I'd want it to be anything else.
+1
+OK.
+1
+And is this sufficient enough to just be a filing cabinet for you?
+1
+OK.
+3
+OK.
+3
+Yeah, definitely.
+3
+I mean, if it was to be anything more than a filing cabinet.
+3
+Then it would simply be stepping on the toes of bespoke software that's already been built.
+3
+Ohh I see.
+3
+So for example, imagine if in digimap you could ask it.
+3
+To calculate slope well, that's functionality that already exists in open source GIS systems, so it would be 
+a a duplication of of of functionality.
+1
+I see.
+1
+See, so the.
+1
+Functionality is necessary, but it could be achieved elsewhere and it's better to be elsewhere.
+1
+Because it already does.
+3
+I think it's better to be some.
+3
+Yeah, because let's imagine the digimap does enable you to calculate slope, right?
+3
+Or aspect uh.
+3
+Well, if you then wanted to that you would very quickly reach a point where it couldn't do a whole lot of 
+other things, right that I could do if I had.
+1
+A GIS.
+1
+OK, so it's better to let them say.
+3
+Yes, OK, yes, definitely.
+3
+I can't imagine you could invest time and effort.
+3
+In increasing the functionality of.
+3
+Digi map but I can't imagine for one second that anybody would want.
+3
+To utilize that functionality.
+2
+OK, I see.
+2
+I understand that.
+1
+So you mentioned measuring.
+1
+Slope and we do have other than measuring slope, we have like the simple drawing tools and measuring 
+tools for areas.
+1
+Do you think that is necessary and do you think it's good to use like?
+1
+Do you ever do you?
+1
+Have you ever used it and do you feel like it's handy?
+3
+I think in the context of, if you were a.
+3
+A school teacher.
+3
+Right.
+3
+And you had very little limited time and very limited space in the curriculum then maybe a school 
+teacher would just simply say to the children we're today, we're going to.
+3
+Look at our school.
+3
+Right.
+3
+And we're going to download a map showing you the.
+3
+Area around the school.
+3
+And we're going to measure, we're going to show how you can use the computer to measure distances, 
+and then we're going to go out into the playground and we're going to measure the distances using a 
+tape measure.
+3
+And we can see if the computer is.
+3
+Right, right, right.
+3
+So I think in in there would be context, some educational context in which.
+3
+In which?
+3
+Schools would utilize digimap.
+1
+Right.
+3
+More than just a filing cabinet, they would use it for that for using that kind of analysis.
+1
+I see.
+3
+But I would never in a practical if I was running a practical for students here at the university, I would 
+never say to them or experiment using the functionality.
+3
+That's available through digimap.
+3
+I'd say to them.
+3
+Right.
+3
+Grab the data you need and then just import it into arc.
+1
+I see.
+1
+So for like, how would you draw the distinction?
+1
+Because you mentioned school versus like in research and undergraduates be able to like use that?
+1
+Or is it better for them as well to import it to Arcgis?
+3
+You want?
+3
+That's interesting question.
+3
+Many schools are now being offered at GIS as a free educational support tools.
+3
+So I guess increasingly even within a school environment, they wouldn't even bother to use the 
+functionality that's provided through digital.
+1
+Wow. OK, that's.
+3
+Because they would have free software that was specially designed to enable you to do those kind of 
+things and many, many, many, many other things as well.
+1
+OK.
+1
+I see. I see.
+3
+So I think in a limited context where you just wanted to do something very simple, you just wanted to 
+just there's real value in this.
+3
+But if you.
+3
+Just want to print a map out then.
+3
+Digimap would be perfectly good for that.
+1
+OK, I see.
+1
+OK, thank you.
+1
+And so.
+1
+Just wanted to double check this because you said that you don't really use digimap, but have you ever 
+like put out an assignment for students for your undergraduate students, for example to like a task or in 
+a lab to let them do a task in digimap?
+3
+Other than other other than saying to them, here's a filing cabinet and all you have to do is just pull on 
+the little that there's a little thing there.
+3
+You just pull on that and the the drawer will open.
+3
+OK, so I wouldn't bother to spend any time on that.
+3
+I'd say Digimap is a fantastic.
+3
+Resource and it's a great place for being able to.
+3
+Find the data that you might need for your dissertation projects.
+
+Right.
+3
+So I would more just sort of point them at the filing cabinet and I'd say it's pretty easy to use.
+3
+You just put your fingers under the drawer and so I wouldn't devote much time to.
+3
+It to explain to them.
+3
+I see that it's pretty intuitive, I would argue, so I wouldn't need to set them an assignment.
+3
+To say, practice opening and closing the.
+1
+Wow, that's really interesting because we had interviewed the day before and she was like a student in 
+architecture, yeah.
+1
+And she actually found it, like, really hard to get.
+1
+Get started to using it.
+1
+And it's interesting that you would think that it's really intuitive instead of like you have to figure it out 
+before you can actually use it.
+3
+I really understand what you're asking.
+3
+Yeah. So the the.
+3
+Difference would be that the architect does has no exposure to geography, spatial modelling, spatial 
+analysis, the use of software that's specific to using.
+3
+To analyzing geographic data.
+3
+Right.
+3
+She probably would have little they would probably have very little understanding of notions of scale 
+and concepts of mapping, of satellite imagery, and how it varied from vector based ordinance survey.
+3
+So there's a whole load of missing pieces in in her puzzle.
+3
+I see.
+3
+So I think in those contexts.
+3
+For her to just simply open up digimap.
+3
+It is going to be something where you just go.
+3
+Wow, I don't.
+3
+Know what any of these buttons mean?
+3
+I don't know what these icons mean.
+3
+I don't know why I have to select an area or something.
+3
+I don't understand why it seems.
+3
+To be available.
+3
+At different scales.
+3
+Why is that?
+3
+Why isn't there just one scale?
+3
+It doesn't seem to cover the whole country for some data sets.
+3
+What? Why is that?
+3
+So I think enormous complexity would be apparent to somebody that had nothing that had no 
+geography.
+3
+Whereas here we've got undergraduates that are looking at this stuff at a level and then they right from 
+the very first courses they run, we're expecting them to handle maps, to understand how the 
+information they contain, to interpret that information.
+3
+And they're exposed to using particular pieces of software.
+3
+Some of them are.
+3
+Related to GIS and we run them through practicals so when they come to use.
+3
+Edina Digimap then they have a preconceived ideas which more or less fit.
+1
+I see.
+1
+So within like the geography realm of like maps and softwares, did you map is fairly consistent and 
+intuitive as like?
+3
+Intuitive is a strong word.
+3
+It's it's what was I trying to do the other day?
+3
+I I don't know.
+3
+I was trying to send a I was.
+3
+Trying to.
+3
+I don't know, I'll.
+3
+Give you an example.
+3
+I'm I've bought something and I now want to send it back.
+3
+And I go and click on the website and I know where can I find a a menu item that enables me to know 
+how to send this item back.
+3
+I just look and look and look and then it says contact, but there's nothing under there.
+3
+And it has a help.
+3
+I think that'll be the one to click on help.
+3
+Yes, I need help and it goes.
+3
+Yes, if you need help read this document.
+3
+You know and it tells you about the interface, but it doesn't actually help you.
+3
+So then sometimes things are deliberately obscured depending upon the ambition of the designer.
+1
+I see.
+3
+And then sometimes they what they think is very intuitive.
+3
+Is actually very.
+3
+Difficult to understand, the university has invested millions in a new system called people and money.
+3
+Have you heard?
+2
+Of it not really sorry.
+3
+So people and money enables you to record when you're on holiday, what skills you're developing to 
+look at your accounts to.
+3
+Ohh, it just covers everything, but when I go and I won't show you the interface, but when you see the 
+interface I just stare at it and I all I want to do.
+1
+OK.
+3
+Is what I want to do.
+3
+I was going on training to learn how.
+3
+To be a.
+3
+Fire warden, OK.
+3
+And I and I had scheduled this event and I said, oh, I wonder where it's taking place, right?
+3
+And I.
+3
+Had scheduled the event through people and money, so I thought, well, it must be there and I was 
+clicking on all these different things.
+3
+I didn't know whether it was under personal skills or whether it was under events.
+3
+I thought ohh events and I clicked on events and it was telling me about all these things going on in the 
+unit.
+3
+And it took me, I think, about half an hour to.
+3
+Work out.
+3
+Wow, that's the ohh it's dreadful.
+3
+It's an awful system.
+3
+But anyway, it's the whole challenge of interface design.
+3
+Is for me it wasn't intuitive, but am I going to spend time using people and money?
+3
+No, I've got better things to do with my life.
+3
+I just need to get.
+3
+On so it.
+3
+Didn't tell me what I wanted, so I just swore and then I just.
+3
+You know, look back through my emails or I think I emailed a friend.
+
+OK.
+3
+I said, are you going to this training?
+3
+And they said yes, I said.
+3
+Ohh great, where is it?
+3
+And they.
+3
+Went ohh yeah, I tried to find out as well.
+1
+So sometimes it could be overcomplicated that is unnecessary and going to the.
+2
+Well, that's an.
+3
+Interesting question too, because the greater the functionality of something inherently the it's greater, 
+the greater its complexity.
+3
+So Digimap is wonderfully simple.
+3
+But it has very limited functionality.
+1
+I see.
+3
+And that's the trade off.
+3
+Isn't it?
+3
+Right.
+3
+If you you you could, I guess design A spaceship that just.
+3
+Had one button.
+3
+So they're all sitting there, right?
+3
+And the rocket is about to take off, and it's about to go.
+3
+To Mars and they could have one great big huge.
+3
+Button, you know? And they could sit there and the guy goes 54321 and.
+3
+The astronaut goes, you know, and this thing just rumbles out of the sky and and heads off to Mars.
+3
+And you'd say, well, this is the best interface ever.
+3
+It's really easy to use.
+3
+You just.
+3
+Press that button.
+3
+Don't do anything else.
+3
+You can't do anything else.
+3
+Press that button and it will take you to Mars.
+3
+But we know that we can't do that because going.
+3
+To Mars is a.
+3
+Multi stage process.
+3
+It takes months.
+3
+You need to use the toilet.
+3
+There's just all sorts of.
+3
+Really complex interactions that need to take place and so to train an astronaut.
+3
+Takes years.
+3
+But you can't.
+3
+You can't take me and say [name] just sitting there.
+3
+And when I count to one hit that button.
+3
+So you can't simplify the task of interacting with the system if it's inherently complex, so the same 
+challenge is with digimap that you can't just expect people to waltz into a geographical database and 
+treat it as if it's just like a filing cabinet.
+1
+I see.
+3
+You first of all that architectural student is a lovely example.
+3
+We're not going to do this, but I would need to sit with her.
+3
+Maybe we met up for a few weeks and I explained to her about scale, about granularity, about vectors, 
+about rasters, about.
+3
+Geographic extent about coordinate systems about.
+3
+Spherical coordinate systems, which is longitude and latitude.
+3
+People often think they're grid coordinates, but they're not, so I'd have to arm this student with all of 
+these fundamental concepts.
+3
+I see because Digimap is not.
+3
+A big red button.
+1
+I see.
+1
+So if I could say this, if I could make this comparison so you would think within Department of 
+geography?
+1
+So with the knowledge of geography, digimap is more like a vertical product where it just does one 
+thing, but then for other department for the architectural student it could be like a horizontal product.
+1
+Where it has like expanded feature of the details that she didn't necessarily know before coming to the 
+maps.
+3
+I suppose I'm arguing differently.
+3
+I'm arguing that.
+3
+The most beautifully designed interface.
+3
+Cannot be a substitute for.
+3
+A deeper understanding of the concepts that lie behind.
+3
+That system.
+1
+I see.
+3
+You can't get away from having to.
+3
+Train your astronaut.
+3
+No matter how good your interface is.
+3
+You couldn't make such.
+3
+A brilliant interface that I could climb into that spaceship with no knowledge of how to fly it with.
+3
+We haven't got the red button anymore, but we have a whole load of drop down menus and they'd tell 
+you all about what to do, but I would just be sitting there going through hundreds of menus and I'd have 
+to learn.
+3
+Ohh it says here I can choose.
+3
+Different scales.
+3
+There's a button that says scale.
+3
+What is it?
+3
+Well, it's now turning into an educational tool.
+3
+It's having to then teach me.
+3
+All about scale.
+1
+I see. I see.
+3
+So I can't see how an interface can overcome.
+3
+Just as if I was to walk into a lecture in architecture and start talking about architecture, they'd say 
+[name].
+3
+No, no, no.
+3
+No, no, no, no.
+3
+No, you you don't know.
+3
+What you're talking about, and I'd go.
+3
+Ohh yeah, that's right, I don't.
+1
+I see.
+1
+So you think a tool is, so the knowledge behind it is necessary, but it doesn't affect how good the tool is 
+because you will have to learn the knowledge to use the tool in the 1st place anyway.
+3
+Yeah, yeah. I mean, what's?
+3
+She gonna.
+3
+So let's imagine that she manages.
+3
+To download this data from.
+3
+Or what's she going to?
+3
+Do with it.
+1
+Well, she hasn't she.
+1
+Well from the interview so far, she said that all that she needed to do was just print the map out instead 
+of downloading the data.
+
+All right.
+1
+So that was hard enough for her, obviously so.
+3
+It would be, yeah.
+3
+Big, big, big.
+3
+Even something as simple as printing out a map.
+3
+What's its geographic extent?
+3
+Are you going to stick?
+3
+It on a piece.
+3
+Of paper or.
+3
+Are you going to stick it on a piece of paper the size of that table, right?
+3
+What's the context of use?
+3
+Are you taking it on a?
+3
+Boat out to sea.
+3
+Are you going to make it waterproof?
+3
+Are you going to use it to navigate by?
+3
+What if it doesn't show the names of mountains?
+3
+Does that matter?
+3
+Oh my God, there are so many questions that you'd need to answer to the simple question of make me 
+a map.
+1
+I see.
+1
+So you think that Digimap is capable to have that functionality of like such detailed selections of what 
+you want to?
+1
+Be on the map.
+3
+No, it doesn't have that.
+3
+We gotta be careful about the word functionality.
+3
+I think it's not so much that it has that functionality.
+3
+It provides you an affordance.
+3
+It provides you the means by which.
+3
+You can access data.
+1
+I see.
+3
+So if I want to access data at a particular scale then it will present me with an overview of the map and 
+then allow me to draw a marquee.
+3
+So I guess you could call that functionality, but it's really allowing the person to intuitively say.
+3
+I want that bit.
+1
+I see.
+3
+It won't let you do.
+3
+I want that bit.
+3
+It always generates a square.
+3
+Yeah, it works in squares, but if you want to just, you know, if you, if you sort of said I want a map of 
+Edinburgh.
+3
+But without the sea in it.
+3
+You can't do that.
+3
+Oh, you can't.
+1
+Map, I thought.
+1
+You should like select layers of your own.
+3
+You can select layers, you can select layers, yes, but it's always going to give you.
+3
+Output in a square.
+3
+It's going to ask you to define the top left and the bottom right.
+1
+OK.
+1
+OK.
+1
+OK.
+3
+But it doesn't enable you if you ask, you can't say.
+3
+To it, you can't talk.
+3
+To it, you can't.
+3
+So you could sit there, a really intuitive interface would be to say, uh, I'd like a map showing buildings 
+that are within half a mile of my house.
+1
+And then it just does.
+3
+It why not?
+1
+I see.
+3
+It but it doesn't let you do.
+3
+That does it it. Yeah.
+2
+No, definitely not yet.
+3
+You'd have to choose the layout you'd have to.
+3
+You'd have to define where.
+3
+Your house was.
+3
+You'd have to draw a square.
+3
+You wouldn't let you do a circle, and it would probably give you a whole lot of other data that you didn't 
+want.
+1
+But would you say it's a trade off that allows you to select so many things?
+3
+Yeah, every interface is a trade.
+1
+Other persons OK.
+3
+Off it's a trade off between the simplicity and ease of use and being.
+3
+Able to support.
+3
+And being able to support complex query is.
+3
+But if you make the query complex, then the functionality or the.
+3
+The affordance of the technology increases rapidly.
+3
+So suddenly instead of.
+3
+If you wanted to select if you wanted to say I want a map that includes buildings but doesn't include 
+street names, well now you're having to put together a complex spatial query, and for that you need 
+SQL.
+3
+Or some kind of language.
+3
+Or some interface that enables you to say, please give me buildings but don't give me street names.
+3
+I see that's very hard.
+1
+I see.
+1
+So there was actually another architectural student who mentioned the similar things.
+1
+So basically she, uh, I mean, he was trying to select only like the point of interest for education points.
+1
+So colleges.
+1
+But then it couldn't let him do that because education is tied to.
+1
+So would you think it should be more specified?
+1
+I know like for more specified selections you have to like put more effort into curating it, but do you 
+think now As for the overlays and the things they can select to be in there?
+1
+Is it like over integrated?
+1
+Or does it need to be like?
+3
+We're coming back.
+3
+To that same problem that effectively you're starting to.
+3
+Questions that you can do so much more easily in a GIS software.
+3
+I see.
+3
+So I would just.
+3
+Take all of that data.
+3
+Let's imagine their area of interest was education in Edinburgh.
+3
+Well, I would just download the topographic map sheet that covered Edinburgh.
+3
+It would include the level of attribution that showed.
+3
+Where schools were and and then I.
+3
+Would just filter it.
+3
+Once it was inside the GIS software.
+1
+I see.
+3
+So I wouldn't be bothering to filter it.
+3
+Within Digimap, it's just a nightmare.
+3
+Well, it doesn't exist so, but even if it did exist.
+3
+All you're starting to do is duplicate.
+3
+So the nice thing about a filing cabinet is we know what the filing cabinet does.
+3
+You can see from its functionality that I can lock it, that's handy.
+3
+And you can see that I'm able to store documents in it and I'm able to order those documents and I'm 
+able to put a little label so I know what is in each document.
+3
+And I I don't want a filing cabinet that that has an alarm.
+3
+Or tells me what the time is.
+3
+I got that I don't want a filing cabinet that says, oh, have you read this or or a filing cabinet that says?
+3
+I I can produce 50 different versions of this article by using pivot tables in Excel I go no.
+3
+No, no, no, no, no, just just, just just.
+3
+Just be a filing cabinet.
+1
+I see.
+2
+Thank you.
+3
+You know?
+3
+Don't overcook it.
+3
+Cause I've got excel on this machine and I've got scissors.
+3
+If I want to cut up an article and and I've got.
+3
+A watch so.
+3
+To let's keep it simple and I think the filing cabinet in its simple form is accessible to more people.
+3
+And if you do, try.
+3
+And get it to do anything more.
+3
+Like tell you the time?
+3
+Well, it's functionality that probably most people don't.
+1
+Need I see?
+1
+I see.
+1
+So I'm thinking that you think it's good already just to be a filing cabinet, but you haven't like?
+1
+Cause every problem that it can't solve it can be done elsewhere and it's.
+3
+Better done elsewhere, yeah.
+1
+OK.
+1
+So have you like had any difficulties in using the filing cabinet itself alone?
+1
+So is there any time that you couldn't?
+1
+Like it didn't.
+1
+Even meet the function of a filing cabinet.
+3
+Good question.
+3
+No, it it it just.
+3
+It just does what it needs to do.
+1
+OK.
+3
+Yeah, and and to that end, it's it's great.
+1
+So you don't think?
+1
+Like there's no, there's no necessary points of to improve as it to be a filing cabinet, so it's good so far as 
+the filing cabinet.
+3
+Was a good question.
+3
+I was thinking about, let's say you imagined, let's say you identified different user communities, so you 
+identified school teachers.
+3
+Who else could there be?
+3
+The general public?
+3
+Right.
+3
+Let's imagine anybody could access.
+3
+Did you map?
+3
+And academics.
+3
+So you design the interface and the first question the interface asks you is, are you a teacher or are you 
+the general public?
+3
+Or are you an academic?
+3
+And and then the filing cabinet, I guess.
+3
+I'm not keen on this idea, but the filing cabinet could could.
+3
+Its interface right to fit these different communities.
+1
+We're actually working towards that because there's about four, yeah.
+3
+Yes, I I thought you were.
+3
+Yes, yes.
+3
+So I guess you could.
+1
+Do that. OK, so for.
+3
+I don't.
+3
+I don't like it, but I understand your motivation.
+1
+But we actually have different products already, so there's the demand for schools.
+1
+Did you?
+1
+This is digimap for higher education and I think there's gonna be a digimap pro for like commercial 
+purposes.
+1
+OK.
+1
+But for within the higher education alone, what problems do you see if there is any?
+1
+As it being a file jar.
+3
+Well, because uh, it's not a it comes back.
+3
+Oh no, I can't.
+3
+Talk about that it it.
+3
+It depends how.
+3
+Distinct those 3 communities are and I don't think that they are as distinct as we would imagine them to 
+be.
+1
+I see.
+3
+Let's imagine, for example, that you had [name].
+3
+With his fingers.
+3
+And you had somebody else that had no arms.
+3
+Then you would say that these in terms of interacting with the filing cabinet, these are two very 
+different people for the person with no arms, we're going to have to design A filing cabinet that's maybe 
+operated through a series of pedals.
+3
+Maybe you have pedals 123 and four and you press pedal 4 and it opens drawer #4.
+3
+So what you've done is you've designed an interface specifically addressing the needs of that individual 
+who doesn't have the dexterity that I have.
+3
+So we can see real logic in that.
+3
+But what you're arguing?
+3
+Well, what's implicit in what you've just said is that you have a school teacher and you have the general 
+public, or you have a commercial entity or you have a academic, but in reality.
+3
+Somebody who is, say, a commercial entity.
+3
+May have just the same knowledge and expertise and time available, and also wants just to make a map 
+as the.
+3
+School teacher does.
+3
+So maybe the commercial person is better off just clicking on.
+3
+I'm a teacher because they get a really easy to use interface.
+1
+I see.
+1
+So it's not necessary.
+3
+So how distinct are the?
+3
+There's different communities of people.
+3
+What makes you think they are so different?
+3
+Maybe the researcher.
+3
+Just wants a.
+3
+Really simple map, because they're going to conduct a survey and they want to be able to show people 
+very quickly.
+3
+Where the fish?
+3
+Farm is so they just want a.
+3
+Real simple map fish farm in the middle of the picture.
+3
+And the buildings and they want to be able to say you live just here, the fish farm is going to be here.
+3
+How do you think it will impact on your life?
+3
+So well for that they may.
+3
+As well, just.
+3
+Have clicked on.
+3
+I'm a teacher.
+3
+Give me something real simple.
+3
+I think teacher equals simple because it doesn't.
+3
+I know teachers that have a very sophisticated understanding of GIS and and use GIS in a way that's far 
+more sophisticated than at university level.
+3
+So these classifications are premised on the idea that these are homogeneous groups.
+3
+And that they are distinct and I think they're neither.
+1
+So it doesn't depend on the community identity, but it depends on their specific tasks and goals they're 
+trying to achieve with the system.
+3
+I would say.
+3
+So then you end up with an interface where you have to ask 50 questions before you can decide what 
+interface to give them.
+3
+Yes, exactly so you say.
+3
+Are you this?
+3
+Do you have hands do.
+3
+You have knowledge of, you know you end up.
+3
+It's it's 50 questions before you can say, OK, the interface will now present itself to me.
+2
+I see.
+1
+So what would you say is the most important range of tasks in?
+1
+Higher education setting.
+1
+For example, we're breaking down into the tasks now instead of like the community, and but we still 
+have to, like, do it in steps so that every community's task is like covered.
+1
+If that makes any.
+3
+Sense. No, that's crazy.
+1
+No, I'm trying not.
+1
+I'm not trying to like branch it out to like those specifics.
+1
+I'm trying to like pinpoint or trying to get at the idea of like the end goals of users so.
+1
+Like for you personally, what is your most ultimate goal besides downloading the data?
+1
+Because I sense that it is one of the important goals that you're trying to achieve.
+3
+Well, I don't expect it to do anything other than enable me to download data.
+1
+OK.
+1
+So that's basically the most case, just to download it.
+
+Yeah, that's.
+3
+That's all there.
+3
+Is, yeah, but you can't say just.
+3
+You can't use that word.
+3
+Just I think you said it would be just to download it.
+3
+The word dust suggests that it's either limited or.
+3
+Is easy to do, but as we know from the architectural student, the word just is not appropriate.
+1
+I see.
+3
+It's incredibly difficult.
+3
+I see.
+3
+So, so I the the I think.
+3
+The the broader.
+3
+Is the degree to which technology?
+3
+In this case, facilitates access to data where the user community is very broad and has very diverse.
+3
+Requirements and very varying levels of knowledge and so in that sense I suppose you design an 
+interface that is kind of at the lowest common denominator.
+3
+It's working at the simplest level, so it doesn't actually accommodate people that have got no arms.
+1
+Right.
+1
+Right.
+3
+It just for the majority of people.
+3
+Enables you to.
+3
+Open the drawer with your.
+3
+Fingers and to gain access to the data that you need.
+1
+Right, so friendly to all at the most.
+1
+Sorry, like it should be something that is friendly to everyone.
+3
+Well, that's my point.
+3
+I don't think it can.
+1
+Be I mean the.
+3
+Most we're back to the argument around the we we're back to the argument about the astronaut.
+1
+Yeah, right.
+3
+Yeah, you know that that, that, that, that you can make it as simple as you like and just have a simple 
+red button that they have to press.
+3
+But the reality is that the nature of the task.
+3
+Means that that's not sufficient.
+
+I see.
+3
+And if you were to try and design the interface for for many different users that accommodated all the 
+range of users.
+3
+Then this can become a.
+3
+And then you start to create something that is inherently or fundamentally complex.
+3
+Complexity arises from trying to handle exceptions and deal with what if?
+3
+So in my rather silly example, you know what if the person does not have arms?
+3
+OK, we need to give them this interface.
+3
+Now that's a very simplistic example, but you can imagine, well, all of that's going to depend upon what 
+what's the nature of the task.
+3
+Do they know what they want?
+3
+Is a very interesting question, so that you'll see lots of well written papers around.
+3
+Ohh, don't ask the user.
+3
+I've been to so many conferences where people say, oh, don't ask the user.
+3
+They don't know what they want.
+1
+I I mean, from my perspective, it's the most important thing to ask the user what they want so that you 
+are not trying to like build something that is in your head that is not practical to anyone who's trying to 
+use it.
+3
+I don't agree with you.
+3
+Ohh, not at all.
+3
+No, you're.
+3
+I think the all of your ideas and all of your research is premised on the notion that user knows best.
+3
+I don't think I think Socrates argued that the.
+3
+That that's blatantly untrue.
+3
+Do you know what's best for you?
+1
+Well, I can't certainly see some problems while I'm using something, so I would like have specific 
+suggestions.
+1
+If I were like using it for like I don't know a month.
+3
+Do you think? Yeah.
+
+No, no, no, no, no.
+
+No, no, no, no.
+3
+No, I I think it's I I I.
+3
+Obviously respect your position, but I.
+3
+Think it's flawed.
+1
+Ohh OK.
+3
+Does I?
+3
+Even taking the example of your architectural student, do they know what they want?
+1
+Right.
+1
+Downloading maps I guess.
+3
+Do what and why do they want to?
+1
+Do that well practically, because they're like they're told to do.
+1
+There's assignment that yes.
+3
+Ohh Blimey.
+3
+Yeah, right.
+3
+So yeah, I think you've definitely agreed with me.
+3
+On that one then.
+3
+Ohh OK you they don't know what they want and they don't know how.
+3
+To do it, and they wouldn't know how to design an interface, you'd say, well, how do you want the 
+interface to look?
+3
+And they'd go.
+3
+What you'd say the interface, how do you?
+3
+Want it to look and they'd say easy.
+3
+OK.
+3
+Do you want to do?
+3
+Do you want to be able to?
+3
+Choose a square map.
+3
+Do you want your?
+3
+Map to be square they go.
+3
+So all you do is you'd give them a whole set of things and eventually.
+3
+They they'd say.
+3
+Yeah, I like that.
+1
+So you think it should be a top down approach instead of like focusing on specific problems that people 
+had.
+1
+Sorry, I feel like we're really getting.
+2
+Into the philosophical part of so.
+3
+We are getting we we are.
+3
+Getting to the.
+
+Philosophical. So so.
+2
+Sorry, I didn't mean to.
+3
+No, no, no, I mean it's.
+2
+Be going to this direction.
+3
+Even if we look.
+3
+Even if we look here, I.
+3
+I don't so so this is this is what people use now as a mouse.
+3
+I use this this this graphical user interface.
+3
+Yeah, but.
+3
+Before the mouse came along.
+3
+I don't.
+3
+I don't think anybody ever said or what I'd like is an arrow that I can move anywhere on the screen and 
+I'd like it that I could operate it through my hand.
+1
+Nobody ever said that.
+1
+I see.
+1
+So nothing.
+1
+Really can be wanted until it's like innovative.
+3
+I think you have to say.
+3
+These people this is.
+3
+A mouse and they go what?
+3
+And then you say, OK, try moving it around and they'd go.
+3
+OK.
+3
+And then you say right now, now look what happens when.
+3
+You click on.
+3
+It you go.
+3
+OK, hang on.
+3
+Oh, OK.
+3
+And it says password.
+3
+So type in your password.
+3
+How do I do that?
+3
+Well, you do that.
+3
+Use a keyboard so none of these things are they they haven't been in response to a user community that 
+has said you know what we really need is a mouse and a keyboard and a big screen.
+3
+None of that, that all of that has just come from people experimenting with ideas and the graphical user 
+interface, of course, has all has a whole set of constraints, but it's intuitive.
+3
+Well, it it's it's intuitive only to people that have had exposure or seen people using computers.
+3
+You know, there's there's there's a 20 million, 20 billion people in India that have never made a phone 
+call in their lives.
+3
+So the notion of what's intuitive and what is easy to use is premised on a whole set of.
+3
+Prior experience?
+3
+Yes, exactly.
+3
+And that's what's enabled this to become so popular.
+3
+So what's happened is people have come to use this.
+3
+And which has done away with this and this.
+3
+And now we are well.
+3
+We sort of have a keypad, a pod pad.
+3
+And now, now the fingers touch the screen and so now we pinch and zoom.
+3
+So pinch and you know this.
+3
+Feels like a very intuitive thing to do and now.
+3
+You see children?
+3
+Looking at magazines and.
+3
+Trying to pitch them to pinch them.
+
+Right.
+3
+So we borrow in fascinating ways and and and employ our understanding.
+3
+And now what's happening is peoples use of mobile phones is raising their Computer literacy and that 
+then impacts.
+3
+How they then see the relationship between these two devices and how they come to use computers?
+1
+I see.
+3
+But I don't think people ever ask the users.
+2
+OK, that's the interesting point.
+2
+I've never, yeah.
+3
+But the notion of user.
+3
+Knows best is, is, is, is.
+3
+Vacuous. Rather strong word.
+1
+I see, yeah.
+3
+So I know all about maps and I know how complex they are.
+3
+So as an expert, I think I would be better able to design an interface that.
+3
+People would intuitively be able to learn how to use I.
+3
+So in other words, I wouldn't say to people, well, you're going to have to specify in latitude and 
+longitude a top left and a bottom right.
+3
+I wouldn't get people to to specify these coordinates, although there's plenty of systems where you 
+used to have to do that, and then I will draw a square based on top left and bottom right and that will be 
+your region.
+3
+Most people don't know about spherical coordinates.
+3
+They don't even know that latitude and longitude is a meaningful way of representing space on the 
+surface of the Earth.
+3
+So what I would much rather do is simply present them.
+3
+So this is my computer screen.
+3
+I would present them first.
+3
+I'll give them a plus and A minus to zoom in and out and then I'll give them a simple mouse operated 
+instruction where they click, hold down the mouse and they just draw a square over the area that once.
+3
+It will capture that area, it will colour it red so they know that's the area of interest.
+3
+I'll come back with a question that says, is this the?
+3
+Area you want.
+3
+And they click on either yes or no.
+3
+If they say no, then they're allowed another go.
+3
+If they click yes, it exports it in a shape file.
+3
+And this shape file enables them to import it into Arcgis and they're happy bunnies.
+1
+Wow, OK.
+3
+But I can't imagine that a user is.
+3
+If I if I then sat 50 people in front of that and I said, does this work for you?
+3
+Their their answers might be.
+3
+I I don't really like it.
+3
+Well, is that my fault or is that because they have no understanding of maps?
+3
+Or do they find that it's not intuitive to draw us a marquee, or why have they said what they've said?
+3
+Do they know what?
+3
+What would they suggest?
+3
+Say OK, well, you didn't like [name]’s interface.
+3
+He'll be very upset, but what would you suggest as a, as an alternative?
+3
+And they might say, well, actually, all I want to do is I want to be able to type in the word Edinburgh.
+3
+I don't.
+3
+I don't like this stuff so.
+3
+I just want to be able to type in Edinburgh and it will then produce a map with Edinburgh at its center.
+3
+So then, so you go OK, we can do that.
+3
+So now you've got two modes.
+3
+You can either interact through [name]’s interface and draw a marquee, or you can interact through 
+named extent and you can type in the word Edinburgh.
+3
+So now you've just got two ways of.
+3
+Accessing the data.
+3
+The problem we've got now is you've got a map.
+3
+With Edinburgh in the middle.
+3
+But I don't know whether you want this to be a 1 to 500 scale. Very very detailed, or whether you want 
+it at one to half million because you want to use the map to travel to Glasgow so.
+3
+I'm gonna have to ask them another question.
+3
+Not where do you want the map to be centered on?
+3
+Which is Edinburgh.
+3
+OK, got that.
+3
+But I now know I want to now know what.
+3
+What detail do you want to show it at?
+3
+And people don't understand scale and they don't understand that.
+3
+What do you mean?
+3
+What detail?
+3
+So do you want to?
+3
+See buildings and.
+3
+They go, oh, I'd love to see buildings you say.
+3
+OK.
+3
+So I'll I'll zoom in and now you.
+3
+Can see lots.
+3
+Of buildings and what do you want to use it for?
+3
+Well, I want to use it because I'm thinking of travelling to Glasgow.
+3
+You know well, you can't do.
+3
+No, you can't do that.
+3
+But you this is far too detailed.
+3
+If you want to travel to Glasgow, you're gonna need a much bigger map at a much smaller scale.
+3
+What do you mean, smaller scale?
+3
+Ohh alright, let's think about this in terms of.
+3
+So you what do you wanna do?
+3
+You wanna go from Edinburgh to Glasgow?
+3
+Yes, please.
+3
+OK.
+3
+Can I do here Edinburgh to Glasgow?
+3
+Imagine you wanted to design them well.
+3
+I suppose it would be to see if I could somehow write an algorithm where you'd typed in, oh, a bit like 
+Google Maps.
+3
+You know how it says from and to.
+1
+Yes, and it shows you the one.
+3
+There you go.
+3
+So that's it.
+3
+So we'll have now a task based activity.
+3
+So no longer are we asking for a map with Edinburgh its centre, but basically what you're now wanting 
+to do is to go from AH, Now I can do it now that enables me to generate a map and this time we can see 
+the two cities and we can see the routes that you can take.
+3
+You can go this way by train.
+3
+This by car or you could walk.
+3
+Or you could cycle.
+3
+Why are you interested in any of these?
+3
+No, no, I'm not.
+3
+Oh, well, what do what is it you want to?
+3
+How do you how are you gonna get from Edinburgh to Glasgow?
+3
+Well, I was going to fly.
+3
+Fly alright, hang on a moment.
+3
+So we've got [name]’s marquee.
+3
+We've got a a named extent.
+3
+Now we've got A to B.
+3
+UM and now I need you to specify A to B, but also I need you to say that you want to fly. So, so now 
+we're focusing towards a more task based activity.
+3
+Well, these are all perfectly valid ways of interface, but we can immediately see the complexity that is 
+unravelling really quickly.
+3
+Really, we've just looked at some really simple examples.
+3
+Ohh and I didn't add this one in as well.
+3
+Just buying it typing in.
+3
+Coordinates. So you.
+3
+Could have you can type in coordinates.
+3
+You can use [name]’s marquee graphical user interface.
+3
+We can use named extent or we can use A to B.
+3
+And presumably each of these interfaces is going to require different levels of functionality, different 
+levels of knowledge and understanding of what you're trying to do.
+3
+So which of these would be most appropriate if I wanted to go?
+3
+From Edinburgh to Glasgow.
+3
+If I wants to fly from Edinburgh to Glasgow then maybe none of these ideas are any use to us.
+3
+I just need to know how often the planes fly from.
+3
+Edinburgh to Glasgow.
+1
+Are you seriously?
+3
+And I'm actually only interested in a map that gets me from here to the airport.
+3
+I'm not interested in a map between here and Glasgow.
+1
+So that's the problem with focusing on the user needs.
+3
+There I might this office must.
+3
+Be full of books.
+3
+On on interface design I'm trying to.
+3
+Think you know the the notion of affordance and ideas of interface design has been around for a very, 
+very long time.
+3
+I can't see any.
+3
+They're probably over there.
+3
+So, so so I think graph the design of interfaces is a fascinating topic.
+3
+How you go about?
+3
+It is, is is also very difficult.
+3
+If you try and accommodate every type of possible user that might use the system, then I think it 
+becomes inordinately complex.
+3
+I think you're better off saying before you use digimap.
+3
+Watch this 25 minute video by [name] and he in the video he explains to you the basic.
+3
+Concepts or underlying it? He gives you an introduction to maps and how they are used and designed 
+and explains why you need to have an understanding of scale and of thematic use. And once you've 
+watched his 25 minute video, you'll be able to use the.
+3
+Did you map into phase two?
+3
+He he will pose a set of questions that.
+3
+Hi, Edward.
+3
+Yeah, I'm just in a meeting.
+3
+Am I able?
+3
+To call you back in 5-10.
+3
+Minutes. Thanks evid. Bye bye.
+3
+I'm not trying to.
+3
+I would not dream to try and persuade you not to do what you're doing, that I it it it just.
+3
+I I think it's a really important thing to scope.
+3
+Exercise because I don't think it's meaningful to say or we're going to design an interface that will.
+3
+Everybody because we've got.
+3
+Our astronaut problem.
+3
+And we've also got, you know, most people do have have arms.
+3
+And so.
+3
+So the idea of designing A pedal operated filing cabinet.
+3
+Well, nobody's gonna use that functionality.
+1
+I see I.
+3
+So I think it's about narrowing it down.
+3
+It's about understanding the the tasks more than it is understanding whether.
+3
+It's a teacher.
+3
+A epidemic or a pro?
+3
+I think it's about saying or commercial.
+3
+Sorry organization.
+3
+I think it's about, it's about understanding the nature of the task and then thinking thinking through 
+what are the functional requirements to support that task.
+3
+So the task is to.
+3
+Be able to open that door in order to get through it.
+3
+The affordance or the functionality that enables you to open that door is afforded through the handle, 
+so a handle it becomes an integral part of the door because it's the mechanism by which you're able to 
+use it.
+3
+So I think that's the way to think about the problem I see rather than thinking about, well, who's going 
+to come through that door.
+2
+Right.
+3
+It's about the notion of what it is that you want the door to do, and it's to.
+3
+One of its functions it's to prevent fire spreading.
+3
+It's to prevent gives some privacy, and it also needs to be something you can open and close.
+3
+Ohh, and in the interests of security we can lock it.
+3
+And so that door does all of those things.
+3
+It's pretty amazing.
+3
+It's got a self closure on the top to make the door actually close fire.
+3
+It's got glass so that you don't open the door just as somebody's coming in and you bump into each 
+other, it's got a lock and.
+3
+It's got a handle.
+3
+And it takes 2 hours for the fire.
+3
+To burn through it.
+3
+And so these are all.
+3
+Affordances or design that relate to the functionality of to what it is you're trying to.
+3
+Do so. That's.
+1
+OK, I see.
+3
+How I would look at it?
+1
+So ultimately I think drawing it back to like the practical point for you and for your PhD student, the 
+ultimate task, it needs to do is to download data for later analysis.
+3
+That's right.
+3
+I'm just asking it to be a filing cabinet.
+3
+With with a normal conventional handle for the, you know, I know, I know all about filing cabinets and 
+how they work for somebody that looks at that.
+
+I see.
+3
+And goes. What is that?
+3
+Then they need to.
+3
+Watch the video.
+3
+Or maybe you made the filing cabinet out of glass so they can see what's in it without thinking.
+3
+Is it what?
+3
+What sort of thing is it so?
+3
+Yeah, I.
+3
+So you can ask your user community but I think ohh I can see a book there called human computer 
+interaction and there must be no there must be loads of.
+1
+Oh, nice.
+3
+Books that.
+3
+That's that's a kind of.
+3
+The that's a key text that.
+3
+That book, but there are loads of others.
+3
+Norman and Carol have written amazing stuff on on interface design.
+3
+So yeah, it's I think it's about us.
+3
+Yes, I'm not saying throw away your user, but it's about understanding the nature of their task.
+3
+I think that gives greater insight than necessarily saying, oh, we've got teachers, we've got academics, 
+we've got.
+1
+I see.
+1
+I see.
+1
+OK.
+1
+Yes, yes, it's so helpful.
+1
+Yes, thank you.
+3
+Much what's nice about these discussions is that of course, like all good things in academia, you can 
+either choose to do something with those ideas, or you can just quietly throw them away and nobody's 
+ever offended or upset by that.
+3
+So that's fine.
+1
+All right.
+1
+Thank you so much for.
+2
+Meeting with me.
+3
+Well, enjoy."
+System: The conversation transcript is about a discussion between two speakers (Speaker 1 and Speaker 3) regarding the use and functionality of Digimap, a digital mapping service. Speaker 1 is working on the user experience side of Digimap and is trying to identify the different user groups and their goals for using the service. Speaker 3 is interested in the role that maps play in various tasks and is conducting research on the cognitive processes involved in decision-making with maps. 
+
+The main points of the conversation include:
+- Speaker 1 is working on user experience and is trying to identify user groups and their goals for using Digimap.
+- Speaker 1 and Speaker 3 discuss the different tasks that can be performed with Digimap, such as downloading data, analyzing data, and creating maps.
+- Speaker 3 explains that Digimap is like a filing cabinet that provides access to different types of data and can be used for various levels of detail and coverage.
+- Speaker 3 mentions that Digimap is not used frequently and is typically used to download data and import it into other software for analysis.
+- Speaker 1 and Speaker 3 discuss the limitations of Digimap, including the lack of analysis functionalities and the need to use other software for more complex tasks.
+- Speaker 3 explains that the simplicity of Digimap is its strength, and adding more functionalities would make it more complex and redundant with existing software.
+- Speaker 3 discusses the importance of understanding the tasks and goals of users when designing the interface, rather than trying to accommodate different user groups.
+- Speaker 3 mentions that the concept of "intuitive" varies depending on the user's prior knowledge and experience with maps and spatial analysis.
+- Speaker 3 emphasizes the importance of user training and knowledge in using mapping software effectively.
+- Speaker 3 suggests that user needs and expectations should be considered, but the ultimate design decisions should be based on the expertise and understanding of the designer.
+- Speaker 3 explains that the design of the interface should focus on the specific tasks and goals of the users, rather than trying to accommodate all possible scenarios.
+- Speaker 3 mentions the challenges of designing a user interface that is simple and accessible to a broad range of users, considering their diverse needs and levels of knowledge.
+- Speaker 3 discusses the complexities of designing for different user communities, highlighting that user needs and preferences are not always clear or consistent.
+- Speaker 3 uses examples to illustrate the trade-offs and complexities involved in interface design, emphasizing the importance of understanding the nature of the tasks and the users' knowledge and expectations.
+- Speaker 3 argues against the notion that users always know what they want and that their preferences should be the sole basis for interface design, highlighting the role of expertise and understanding in the design process.
+- Speaker 3 suggests that a top-down approach, based on the designer's expertise and understanding, can lead to more effective and intuitive interfaces.
+- Speaker 3 concludes that the focus should be on designing interfaces that facilitate access to data and support specific tasks, rather than trying to accommodate all possible user preferences and expectations.
+
+User: Now perform a full thematic analysis of the conversation. Thematic analysis is defined here:
+"SIX PHASES OF THEMATIC ANALYSIS
+Familiarization: Data analysis is facilitated by an in-depth knowledge of, and engagement with, the data set. Familiarization - reading and rereading transcripts, listening to audio-recordings, making notes of any initial analytic observations - helps the researcher to move the analysis beyond a focus on the most obvious meanings.
+Coding: A systematic process of identifying and labelling relevant features of the data (in relation to the research question). Coding is the first step in the process of identifying patterns in the data because it groups together similar data segments.
+'Searching' for themes: The 'search' for themes is not simply one of 'discovery; the themes are not in the data waiting to be uncovered by an intrepid researcher. Rather, the researcher clusters together codes to create a plausible mapping of key patterns in the data.
+Reviewing themes: The researcher pauses the process of theme generation to check whether the candidate themes exhibit a good 'fit' with the coded data and with the entire data set, and each has a clear, distinct 'essence' - or central organizing concept. Reviewing may lead to no or few changes, or to discarding the candidate themes and restarting the previous phase.
+Defining and naming themes: Writing theme definitions (effectively a brief summary of each there/ and selecting a theme name ensure the conceptual clarity of each theme and provide a road map for the final write-up.
+Writing the report: The researcher weaves together their analytic narrative and vivid, compeling data extracts. Themes provide the organizing framework for the analysis, but analytic concur sions are drawn across themes."
+
+Perform qualitative thematic analysis on the presented conversation. Your goal is to 1) extract codes, 2) provide a list of quotes to each code, and 3) develop themes based on the extracted codes, to answer three research questions: 1) what are the user groups of EDINA Digimap, 2) what are their primary goals of using EDINA Digimap and, 3) are the features of Digimap positively or negatively contributing to their experience of achieving those goals?
+System: Codes:
+
+1. User Groups:
+   - School teachers
+   - General public
+   - Commercial entities
+   - Academics
+   - Undergraduates
+
+2. Primary Goals of Using EDINA Digimap:
+   - Downloading data for later analysis
+   - Creating maps
+   - Analyzing data
+   - Finding specific information
+   - Conducting research
+   - Completing assignments
+   - Teaching and learning purposes
+
+3. Features of Digimap:
+   - User-friendly interface
+   - Ability to download and import data
+   - Simple map creation
+   - Access to various types of data
+   - Different levels of detail and coverage
+   - Limited analysis functionalities
+   - Potential for customization and personalization
+
+Quotes:
+
+1. User Groups:
+   - "So basically I'm working on the user experience side of digimap and we're still at the early stage, so I'm trying to identify the different user groups and their goals in terms of using." (Speaker 1)
+   - "So the task might be to climb to the top of a mountain... Or it might be to think about the best way to get to Glasgow from Edinburgh." (Speaker 3)
+
+2. Primary Goals of Using EDINA Digimap:
+   - "We're trying to have a qualitative insights from like actual users who can tell us about their experience in terms of what functionality are they mainly using?" (Speaker 1)
+   - "I'm interested in the role that maps play in various tasks... I'm interested in the cognitive processes through which people make decisions about those sorts of activities." (Speaker 3)
+
+3. Features of Digimap:
+   - "It contains geological data... topographic data... a whole range of different data types and for different levels of detail, so different scales and at different levels of coverage." (Speaker 3)
+   - "It's just a filing cabinet... It's just like a filing cabinet." (Speaker 3)
+   - "It just does what it needs to do... It's about facilitating access to data." (Speaker 3)
+
+Themes:
+
+1. User Groups and Goals:
+   - School teachers using Digimap for teaching purposes and assignments
+   - General public using Digimap for personal interests and information
+   - Commercial entities using Digimap for specific projects and analyses
+   - Academics using Digimap for research and data analysis
+   - Undergraduates using Digimap for assignments and learning purposes
+
+2. Features of Digimap:
+   - User-friendly interface and accessibility
+   - Availability of various types of data and levels of detail
+   - Limited analysis functionalities and focus on data download and import
+   - Comparison to a filing cabinet for data storage and retrieval
+
+3. User Experience and Satisfaction:
+   - Positive perception of Digimap as a useful tool for accessing and downloading data
+   - Appreciation for the simplicity and ease of use of Digimap as a filing cabinet-like interface
+   - Variation in user needs and preferences, highlighting the importance of customization and personalization options

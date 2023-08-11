@@ -1,0 +1,959 @@
+ 
+System: Hello! How can I assist you today? 
+
+User: Act as a summarizer. Your aim is to summarize an interview transcript so it can then be used for qualitative thematic analysis. You must remove all irrelevant information and keep everything that could be useful for thematic analysis. 
+The interview is on the subject of user experience using the "Digimaps" software product developed by EDINA. 
+Interview transcript:
+
+"2
+If that's OK.
+1
+That's fine.
+2
+What is your name of the course again?
+1
+My like uni course.
+1
+Computational something.
+2
+Why it's like so weird.
+2
+OK, compilation, physics and have you had any prior experience with other geospatial systems?
+2
+So this is.
+2
+Digit mappings are for or have you used like other?
+1
+Just I've used Google.
+1
+If that helps.
+1
+Funny I used futures.
+2
+Because you mentioned like Huggins, yeah.
+1
+I've used QGIS a.
+1
+Bit before, but not much, yeah.
+2
+Like what have you used it for?
+2
+A how long?
+2
+Have you been using that?
+1
+I guess I've I'm I've used it since I started my internship. It's been about 2 1/2.
+
+Weeks. OK, great.
+1
+And that's been used for like visualization of point.
+1
+Like points of interest and like Council areas and such of Scotland.
+2
+So is that like user data like internally within the system or do you like import data?
+1
+I I import those into the QGIS system cause the QGIS is basically just reading the data for me.
+1
+It's not got like.
+2
+The data in there OK, OK.
+1
+So I basically import like different file types into and then it reads, it shows me what it.
+2
+Got OK so basically visualization.
+1
+Yeah, exactly.
+2
+Got it.
+2
+And like, what do you what what has the major function that you've been using for digit?
+1
+Uh, basically, data collection using it to.
+1
+Extrapolate kind of like positions of certain things like hospitals and supermarkets and then using that in 
+a data index.
+2
+OK.
+2
+So so extracting data and the data specifically is like point of interest.
+1
+At the specifically points of interest and they're like coordinates and.
+2
+Stuff and you've been using on global.
+1
+So no.
+1
+So I've used on ordinance, the ordinance survey way.
+
+Right.
+1
+But I also try to use the global one, but that's from a lot of the data in that is from Open Street map, 
+which is a different like.
+1
+Yeah, we stole it.
+1
+No, the steel is it's open source so that anyone can use it.
+1
+And I was like if I can get this to work, then I don't have to worry about.
+1
+Like light, light, light and like.
+1
+That's the word I don't have to worry about that with my data.
+1
+But you know, it wasn't as accurate.
+1
+So I had to get around that somewhere else.
+2
+OK.
+2
+Have you done any like visualization within digimap itself?
+1
+What do you mean by that?
+1
+Like using the map to make a map?
+1
+Yeah, no.
+2
+OK, so because we have like you can either download the data itself and.
+2
+I don't know or print the map out.
+2
+Have you ever used the printing?
+1
+A noise printing function because I need the actual number of numerical coordinates rather than just 
+like the visualization.
+1
+Of the map.
+2
+I see but like is there like a process before you actually download it?
+2
+Or do you like go straight in and?
+1
+I just. I just.
+1
+This is the the Polygon selection.
+1
+Select the arrows that I need for some problem and then download that data.
+2
+OK.
+2
+Can you show me on?
+2
+My laptop if that's OK.
+1
+Oh, sorry, I didn't realize I would have brought.
+1
+My laptop if you want to move.
+2
+No, no, because I have to do like a screen recording as well, so it's better.
+2
+OK.
+2
+And could you just talk me through every step you take?
+1
+Well, I clicked the ordinance.
+1
+And then I go to my little data download.
+2
+Oh, so you were not using the?
+2
+The like combined.
+1
+What one this one?
+2
+So yeah, this one.
+1
+So I used that initially to like scout it out and see what the datas got.
+
+OK.
+1
+Initially use this to like.
+1
+Scout out like the areas and stuff and what?
+1
+What it contains?
+2
+Right.
+1
+Because then like I was just double checking that it has the.
+1
+Stuff that I need.
+1
+And then since the data download doesn't really show you that, I then switch to the data download.
+2
+Have you realized that there's stated all here as well?
+1
+Well, that's good to know.
+1
+Well, now I.
+1
+Know that.
+2
+How do you?
+2
+How would you scout it?
+1
+Click that and then I would basically.
+1
+So initially it's a bit annoying because it doesn't tell you like what The thing is.
+2
+What do you mean the thing?
+1
+So you see how it's got like a symbol here.
+1
+I don't know what that is.
+2
+Ohh, so there's no legend.
+1
+There's no.
+1
+This I well, I don't know.
+1
+To my extents, I don't know those down data download but like I don't know if.
+1
+There's a legend anywhere that could tell me what the points.
+1
+Like I know that's parking and.
+1
+Stuff, right?
+2
+OK.
+1
+But things like this random like bloke here look.
+
+I don't know what.
+1
+That is right and like some of these symbols, I just like some of them are.
+1
+Intuitive some of them.
+1
+And you know, it would be good to know.
+1
+So like if I could.
+2
+Click on it and it'll tell you.
+1
+And like click on it.
+1
+So that's what we've QGIS it has that kind of feature has like the point and then it has information.
+1
+Of that point to what it is and like where.
+1
+It is and stuff like that.
+2
+OK.
+1
+Whereas this has like, it doesn't unless it's like some feature I'm missing.
+2
+Uh, I don't think so.
+2
+It it?
+1
+Yeah, this will work.
+2
+It just doesn't.
+2
+No, that's joy.
+1
+Yeah, it didn't.
+1
+That's drawing. Yeah, OK. Drawing.
+2
+So you never use drawing tools either.
+1
+No, because I haven't to draw anything.
+1
+How do I draw?
+1
+Free hand.
+2
+So like is it just that the work that you're doing doesn't?
+1
+Require you to be strong, you know?
+1
+What I'm doing?
+1
+What would you need drawing for?
+1
+What would it be like just showing people stuff?
+2
+Yeah. Basically outlining or measuring.
+1
+Measuring, yeah.
+1
+See, that's the problem measuring, I guess it's.
+1
+I guess if it doesn't have like a particular point that you're measuring it from, but usually you just get the 
+data from the coordinates of that point you're interested.
+1
+In and then.
+2
+Ohh yeah.
+1
+Get the coordinates from the other point that you're interested in, and then you calculate it using the 
+machine rather than just eyeballing it I guess.
+2
+So basically.
+2
+OK.
+1
+OK.
+1
+That's why it would be useful to have something that you like click on the point and think, oh, that's this 
+coordinate and then you click on another point and it's like this is a coordinate and then it would be fun 
+to have like a feature that you could have like.
+2
+Well, there, there is something that's called coordinate capture here you can like click and then it'll tell 
+you.
+1
+Actually that's good then.
+1
+OK, that's good to have.
+2
+But it's confusing that it's right here, right?
+2
+Like there's.
+1
+It's a bit, yeah, it's a bit like hidden behind everything, whereas rather you could have like a feature up 
+here that like lets you just send in issues, click on a point of interest and stuff and tells you.
+2
+Yeah. OK.
+2
+What it is OK, I see.
+2
+So I know that used used these layers and.
+2
+How do you think about these layers?
+2
+Are they integrated efficiently or intuitively, or do they need to be like more specific in terms of the 
+categories?
+1
+I think.
+1
+It's good.
+1
+Having the general category to filter from it cause like I know I don't want like transport for instance and 
+I know I don't want sports education attractions.
+1
+And like accommodation, eating and drinking, however, it would be good to have sub categories where 
+it would be like, for instance, health, education, health.
+2
+Right.
+2
+Right.
+1
+I for instance.
+1
+The stuff that I would want is like the GP's you know, and they're they're underneath education, health, 
+but that's also going to come up as like schools. And I've realized there's also comes up for, like 
+hairdressers and stuff like that.
+2
+Right.
+2
+OK.
+1
+Which means that the data has usually got a lot of noise in it.
+2
+Boy hairdressers under health.
+1
+Yep, hairdressers and I didn't realise.
+1
+That either for years.
+2
+Ohh actually OK so.
+2
+That would be a trade off though, because if you have like more subcategories it would be more process 
+for you to like so like through them, right?
+2
+Imagine there's like 10 sub categories where.
+1
+All these categories.
+1
+So there are subcategories for all these subcategories.
+1
+That's what the data has, but it doesn't show you in this in this.
+2
+User interface, does it matter to you that it doesn't show or can you?
+2
+Just like extract it later.
+1
+You can extract it, but then I'd have to.
+1
+I had to use like Python scripts to get the exact like set of data that I wanted.
+2
+OK.
+2
+So that's for viewing.
+2
+How about like downloading the data have.
+2
+You been able to select.
+1
+So did you bet it was good in terms of like the polygons selection?
+1
+But the only thing was you could.
+1
+Wait is there is there like a was there like a way?
+1
+To do just like Scotland.
+1
+Or do you just have to like draw the area?
+1
+That you like.
+1
+Because if that's the case, then having something that's like selected by country or selected by Council 
+area or something would be good.
+2
+I see. I see it.
+1
+Because otherwise I had to basically draw a Polygon that.
+1
+Contained most of Scotland's boundaries, but then in the end I managed to somehow get in like an extra 
+boundary of of England and they had to filter that out as well.
+2
+Matches exactly so. Ohh.
+2
+That's a great point because I never.
+
+If you had.
+2
+OK, yeah.
+1
+You gotta, like, buy like country or by like council there in that country.
+1
+I mean, they've been putting more data and bit more pain, but it would be.
+2
+I would imagine if you like select I don't know boundaries.
+2
+And you like draw on top of it, it would.
+2
+Be fine then so.
+1
+But that's like again, it's like drawing a couple of boundaries, even if like slight, it's gonna be slightly in 
+England, it might like, you know, download England stuff as well, which, you know, I don't.
+2
+I see.
+2
+Great point actually.
+2
+Thank you.
+2
+So OK.
+2
+So basically the functionality that you're using is just viewing.
+2
+Selecting overlays and downloading.
+2
+And what do you see as like other potential that you haven't been able to explore but you think there 
+might be something there?
+2
+Did you map like other than the stuff that you're using right now?
+1
+I'm using.
+1
+I don't really know I've I guess I haven't really used it enough to think.
+1
+About that.
+2
+OK.
+2
+Like, have you clicked on like every button for example?
+2
+OK.
+1
+I missed that.
+1
+Yeah, I think that's, yeah, I couldn't think of anything.
+2
+OK, great.
+1
+Just don't use it.
+
+I am.
+2
+So how long are your sessions last?
+2
+How long does?
+
+Your session last.
+2
+On average.
+1
+For Digimon like using it like.
+1
+Other than leaving it open cause I forgot about it.
+2
+OK.
+2
+Just like actively using power.
+1
+Probably not even like.
+1
+15 minutes 15 less than that?
+2
+13 minutes.
+2
+OK.
+1
+It probably take it probably takes longer, except I had to figure out how to.
+1
+Like download everything.
+2
+Right.
+2
+And including figuring out time how long?
+1
+Probably like probably like 10 to 15 minutes.
+2
+OK.
+1
+It's like figuring everything out, figuring where, first of all, what data I need.
+1
+Sorry, excuse me and.
+1
+Where where it is basically because a lot of the time.
+1
+I mean you have that help button, right?
+1
+But then I click on this and I'm like, where the **** do I go here if I want a particular thing?
+1
+Like for instance the legend like I was.
+
+Right, right.
+1
+Trying to find the legend just like.
+2
+Oh, you did look at this after, OK?
+1
+Yeah, I was looking for the legend and I.
+1
+Was like.
+1
+Where the **** do I go?
+2
+Oh, you haven't found it, OK?
+1
+UM.
+1
+So there's, like there's a lot here.
+2
+OK.
+1
+In this in this help section I mean it's good, right?
+1
+But again it's like.
+1
+For instance, you click on this and then.
+1
+It has even more.
+2
+Right.
+1
+Links to it and it's just like.
+1
+Is the same with Admiral Unis.
+1
+Like, you know, student website.
+1
+Where you like?
+1
+You click on the link and it takes you to another page and you click on another link, it takes you.
+1
+Another page and take another page.
+1
+Another thing.
+2
+It's like folded that you have to like go through so much.
+2
+Navigation to get to the.
+1
+You have to navigate through so many different links to eventually get to catch your information you 
+want.
+1
+And you have.
+1
+To kind of guess all the time.
+2
+Right and.
+1
+But I mean, that's kind of hard to like improve I guess though, but you know if you're one of the things 
+that maybe.
+
+Right.
+1
+Maybe I don't know.
+1
+I'm not an expert in UI design and stuff so.
+2
+Yeah, honestly, we moved.
+2
+So don't worry about it.
+2
+OK.
+2
+So I think now I'll just have you to read some questions.
+2
+And also explain your reason for giving those scores.
+2
+Which is good helped.
+2
+OK.
+2
+So this is the usability system usability scale.
+2
+It's nothing specific to digimap, but like overall, can you give me some?
+1
+Great, now give this.
+1
+Now what system is it talking about?
+2
+Digit map.
+1
+Well, so not you said.
+1
+OK, never mind.
+2
+Like this scale wasn't designed.
+
+Never mind.
+2
+For this.
+1
+OHS going, right.
+2
+Could you like? Yeah, yeah.
+1
+Right.
+1
+OK.
+1
+Right.
+1
+Right.
+1
+Right.
+1
+Right.
+1
+Right.
+1
+OK.
+2
+I don't think you can like annotate, so could you just like tell me?
+2
+I mean, yeah, if you'd rather draw or just tell me the number.
+2
+Either way, it's fine.
+1
+OK, never mind that was probably.
+1
+I mean it seems pretty good.
+1
+I don't know how frequently I would use it.
+1
+Outside of work, but.
+1
+Yeah, I'd say 4 for that one.
+2
+OK.
+2
+And how frequent is that going to be?
+1
+Well, I guess it depends what.
+1
+I'm doing.
+1
+What I need from it basically I guess printing out maps and all.
+1
+Yeah, maybe three. I was convinced by the 4/3.
+
+OK.
+1
+Yeah, maybe. Maybe like in.
+1
+The middle, yeah.
+2
+OK.
+1
+I'd probably use it occasionally to get stuff from it, but most of the time, but yeah.
+1
+Well, I can do more of quiche, I can.
+1
+Make my own things, OK?
+1
+I guess I didn't look at them making the map thing, but.
+2
+But you will have to get the data 1st to get it.
+2
+Into Q just.
+1
+Yeah, I had to get.
+1
+The data first, so that's when.
+1
+I would use it.
+2
+I see.
+2
+OK, makes sense.
+1
+Found the system unnecessarily complex.
+1
+I think it was good.
+1
+I think it was fairly simple I think.
+1
+I think a lot of the time there's like a lot of.
+1
+Things are hidden under more.
+1
+Is is hard I guess, but I think maybe.
+2
+Four. Ohh yeah.
+1
+I think maybe 4.
+2
+Is none unnecessarily complex, or just like complex out of four.
+1
+Maybe free?
+1
+Sorry, sorry.
+
+OK.
+
+OK.
+1
+Sorry I'm I'm bad at like doing these, OK.
+1
+I thought the system was easy to use.
+1
+I think, yeah, I think it was fairly easy.
+1
+I think there were some like things that could have been like make it easier.
+1
+To like like see what I'm doing for instance.
+1
+Like, you know, Scotland boundaries and points of interest and stuff like that.
+1
+Because the information is there for the points of interest like, I downloaded the points of interest and 
+they have information about them, but it's just not showing on the thing.
+1
+OK.
+1
+I think yeah, I think for I'd say it's fairly easy to use.
+1
+Once I got to the place that I.
+2
+OK.
+2
+But that getting to the place part was.
+1
+I think getting to the place was like the one that struggled a little bit.
+1
+I think we would need the support of tenant though.
+2
+Like a 12, OK.
+1
+I did have to ask James a little bit, but I was like just because I was very new to like myself.
+
+Right. OK.
+2
+What question were they?
+1
+It was the flu.
+1
+Where do I go to download the data and he's?
+1
+Like yeah, just there, ohh, he told.
+2
+You to go to a separate?
+2
+Yeah, he's told.
+1
+You OK?
+1
+That's what.
+1
+So he obviously doesn't know either.
+1
+I found the various functions in the system very well integrated.
+1
+What like they weren't buggy or anything.
+2
+I mean, just like, yeah, probably.
+2
+Or like they lay out the the the IT was it intuitive for you.
+1
+I think again though, it was like getting to the maybe some of the layout was a little less.
+1
+Intuitive and maybe.
+2
+So like coordinate capture for example.
+1
+Yeah, stuff like that.
+1
+I think maybe three.
+1
+OK, and for that.
+1
+Thought there was too much?
+1
+Nah, that was good.
+1
+Strongly disagree.
+1
+It was all very consistent, very vain and you know.
+1
+I did have things I needed would learn to use this very quickly.
+1
+Yeah, I'd say, I'd say I'd say 4.
+1
+You could probably sit down and learn it pretty easily.
+1
+And something comes into you.
+2
+Probably like a three.
+2
+Ohh really that's like a.
+1
+It's like in the middle because it it was like in the middle, there's like kind of.
+2
+Kind of bad.
+2
+Right.
+2
+OK.
+2
+I get your point.
+1
+How many are on either side, 1212?
+2
+But like.
+2
+So so this is like not cumbersome.
+1
+This is like this is like.
+1
+Is comes but also not.
+1
+It's kind of in the middle.
+1
+It's like it's like it's.
+2
+OK.
+2
+OK.
+2
+What part of it do you think is cumbersome besides the area?
+1
+I think you know like the the.
+1
+Area well, like the Polygon drawing the area and like you know the the stuff that I've talked about the 
+entire time.
+1
+Because I have.
+1
+Nothing else to.
+1
+Talk about having used it that much.
+2
+Makes sense?
+1
+UM.
+1
+Yeah, I think it's it's good.
+1
+Otherwise they're just those points would be like like pulling it down.
+1
+A bit felt very confident using the system, yeah.
+1
+I felt confident, but I felt like I.
+1
+Wasn't like, really.
+1
+Confused and didn't feel outdated or anything so.
+1
+I'd say 4.
+1
+I need to learn a lot of things before I could get going.
+1
+No, that's a that's a 2.
+2
+OK, So what things are you thinking?
+2
+When you're.
+1
+What I need to?
+1
+Learn or just like where everything.
+2
+Is ohh so within the system.
+2
+I mean like the actual like other kind of information for example like geographic information and like, 
+yeah, those kind of.
+1
+I guess like learning the definitions of like points of interest and stuff like that.
+1
+So like.
+1
+You'd think maybe.
+1
+Medical buildings would be in under buildings definition rather than like points of interest, which is like 
+wouldn't a point of interest be like a statue or something?
+
+Right.
+2
+Oh, like a statue.
+1
+Yeah, like, well, like, a tourist thing.
+1
+Or like a.
+2
+Ohh point of like interest tourists.
+1
+Point of interest, yeah, but like, but like instead of because you don't think hospitals a point of interest, 
+do you really think that's very interesting?
+2
+I feel like that's just like terminology in yeah.
+1
+Yeah, I know, but that's what I was saying.
+1
+That's the terminology you like.
+1
+View of stuff, you know, terminology.
+1
+That's a big part of things like.
+1
+That but you know.
+2
+Oh yeah, too.
+2
+OK, got it.
+2
+And one final question, what kind of like data type?
+2
+Do you use?
+2
+When you were done.
+1
+I think it was shape files, though I think it was like Geo package.
+2
+OK.
+1
+I think.
+1
+Yeah, I'm going with Geo.
+1
+Package. That's my final answer.
+2
+OK, got it.
+2
+Well, thank you for.
+
+No problem.
+2
+Taking part in my interview.
+"
+
+Begin!
+System: The interview transcript is focused on the user's experience with the "Digimaps" software product developed by EDINA. The user mentions their prior experience with other geospatial systems, such as Google and QGIS. They primarily use Digimaps for data collection and visualization, particularly for points of interest and coordinates. The user mentions the importance of having subcategories for filtering data and suggests improvements for easier navigation and access to information. Overall, the user finds the system fairly easy to use but highlights the need for better integration and clarity in certain features. They also mention their confidence in using the system and the need for additional learning regarding geographic information and terminology. The user primarily uses shape files and Geo packages as data types.

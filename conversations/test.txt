@@ -1,0 +1,103 @@
+ 
+System: Hello! How can I assist you today? 
+
+User: Im going to send you a string
+System: Sure, go ahead and send me the string.
+
+User: "User: Python  
+System: Are you referring to the Python programming language? 
+
+User: I have files which contain information like so:
+"PROMPT: [some prompt text]
+SETTINGS: [settings in curly brackets written like a dictionary]
+MODEL: [name of model text]"
+
+How would I extract each of the into separate variables, such that the settings variable is a dictionary and the model and prompt variables are strings?
+
+System: To extract the information from each file and store them in separate variables, you can use the following steps:
+
+1. Import the `os` module to work with files.
+2. Create an empty list to store the extracted data.
+3. Use `os.listdir()` to get a list of files in a specified folder.
+4. Iterate over each file in the list.
+5. Open each file using `open()` and read its contents using `.read()`.
+6. Extract the prompt, settings, and model information from each file by splitting the content based on specific patterns or delimiters.
+7. Store the prompt as a string variable, settings as a dictionary variable (you may need to parse it if it's not already in JSON format), and model as a string variable.
+8. Append these variables into a dictionary with keys 'Prompt', 'Settings', and 'Model'.
+9. Append this dictionary to your result_list.
+
+Here is an example code snippet that demonstrates these steps:
+
+```python
+import os
+
+result_list = []
+
+folder_path = "path/to/your/folder"
+
+for filename in os.listdir(folder_path):
+    if filename.endswith(".txt"):
+        with open(os.path.join(folder_path, filename), "r") as file:
+            content = file.read()
+            
+            # Extracting prompt
+            prompt_start_index = content.find("PROMPT: ") + len("PROMPT: ")
+            prompt_end_index = content.find("\n", prompt_start_index)
+            prompt = content[prompt_start_index:prompt_end_index]
+            
+            # Extracting settings
+            settings_start_index = content.find("SETTINGS: ") + len("SETTINGS: ")
+            settings_end_index = content.find("\n", settings_start_index)
+            settings_str = content[settings_start_index:settings_end_index]
+            
+            # Parsing settings into dictionary
+            try:
+                settings_dict = eval(settings_str)  # Assuming settings are in valid dictionary format
+            except SyntaxError:
+                # Handle invalid settings format
+                continue
+            
+            # Extracting model
+            model_start_index = content.find("MODEL: ") + len("MODEL: ")
+            model_end_index = content.find("\n", model_start_index)
+            model = content[model_start_index:model_end_index]
+            
+            result_dict = {{
+                'Prompt': prompt,
+                'Settings': settings_dict,
+                'Model': model
+            }}
+            
+            result_list.append(result_dict)
+```
+
+This code will iterate over all .txt files in the specified folder, extract the prompt, settings, and model information from each file, and store them in a list of dictionaries called `result_list`.
+
+User: Now imagine I have a string that looks like this:
+"User: Building  
+System: What kind of assistance are you looking for in building? 
+
+User: Arrange flowers for an office building
+System: Sure, I can help you with that. When it comes to arranging flowers for an office building, it's important to consider the overall aesthetic and the preferences of the people working there. Could you please provide more details about your specific requirements and preferences?
+
+User: Middle of the city, modern office building
+System: For a modern office building located in the middle of the city, you can consider incorporating sleek and contemporary floral arrangements. Here are some suggestions:
+
+1. Minimalistic Centerpieces: Opt for simple yet elegant centerpieces using flowers like orchids or calla lilies. Arrange them in clear glass vases with clean lines to complement the modern aesthetic.
+
+2. Vertical Flower Walls: Create a striking visual impact by installing vertical flower walls in the lobby or common areas. Choose flowers like roses or hydrangeas in various shades to add depth and dimension.
+
+3. Potted Plants: Incorporate potted plants with interesting foliage, such as snake plants or peace lilies, to bring a touch of greenery indoors. These low-maintenance plants will thrive in an office environment.
+
+4. Scented Flowers: To add pleasing fragrances, consider including scented flowers like lavender or jasmine in your arrangements. Their subtle scents can create a calming atmosphere for employees and visitors.
+
+5. Long-lasting Blooms: Select flowers that have a longer lifespan, such as carnations or alstroemerias, to ensure that the arrangements stay intact for a longer duration without wilting quickly.
+
+Remember to consult with professional florists who have experience in creating modern floral designs to ensure customer satisfaction and achieve the desired aesthetic appeal for your office building.
+
+User: Ok
+System: Thank you for your response. If you have any specific questions or need further assistance, feel free to ask!""
+System: Thank you for your response. If you have any specific questions or need further assistance, feel free to ask!
+
+User: What do you make of the string
+System: The string you provided appears to be a conversation between a user and a system. It contains information about the user's request to arrange flowers for an office building and the system's response with suggestions and recommendations.

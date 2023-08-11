@@ -1,0 +1,1350 @@
+ 
+System: Hello! How can I assist you today? 
+
+User: Act as a summarizer. Your aim is to summarize an interview transcript so it can then be used for qualitative thematic analysis. You must remove all irrelevant information and keep everything that could be useful for thematic analysis. Make sure to keep details like professions, names of software, exact times of use and so on. Your summary must be 3 paragraphs long.
+The interview is on the subject of user experience using the "Digimaps" software product developed by EDINA.
+Interview transcript:
+
+
+"1
+So the interview will involve like 3 parts of questions.
+1
+So the first part, could you tell me a bit about your research background and your experience with using
+the map in terms of like what's involved in your research process and on the second part, we'll talk
+about your typical test scenario.
+1
+So what?
+1
+Features with specific functions would be involved in your research process or teaching process.
+1
+And thirdly, I will ask you about something or thoughts and your experience or any difficulties faced in
+using digit map.
+1
+Does that sound?
+1
+OK.
+2
+Yes, absolutely.
+2
+Yes, I've not been using DG MAP.
+2
+On my research that much I've been using it maths more more often for for teaching purposes, more
+than research purposes.
+1
+I see.
+1
+Yeah, that's also great.
+1
+Teaching will also be great.
+1
+So could you tell me a bit more about how it is involved in your rotation process or is it like you give
+assignments to people or is it like in a lab setting that there are tasks that you instruct them to do?
+2
+So the way I use these map is quite basic.
+2
+Because I'm working at the at the.
+2
+School of architecture.
+2
+So normally in our design courses we normally have to choose a side where the.
+2
+Students are asked.
+2
+To to design whatever it.
+2
+Is a building kind of building might be so.
+
+
+The the the.
+2
+The first reason why we mostly most in most of the design courses in that most of the of the other
+teachers and and and customizes, we'll use these map.
+2
+As well is because.
+2
+We like.
+
+
+To ask.
+2
+Students to charge.
+2
+For asked them to download information as and most of the time well in my case I asked them to
+download information about the site and.
+2
+In the form of this ordinance, survey maps and also some vector data, so.
+2
+Maps that they can use in in AutoCAD or or any any vectors or or in illustrator and and post produce
+after that for doing site analysis.
+1
+I see.
+1
+So you mentioned that it will involve both them downloading the map itself as in like a print file and the
+original vector data.
+1
+Is that correct?
+3
+Well, that will involve also navigating.
+2
+Through the areas where they are working.
+1
+Right.
+2
+And then they will need to choose.
+2
+To to understand the.
+2
+Characteristics the urban characteristics of the areas.
+2
+Where they are working.
+1
+I see.
+1
+I see.
+1
+Thank you.
+1
+And for the data files, what specifically would you need like the format in because I know that we offer
+different data formats for like different types of data.
+1
+And have you?
+1
+Do you find it to be sufficient?
+1
+Is there like enough information that you can find?
+1
+Or is experience may be limited to the?
+1
+Data file types that we offer so far.
+2
+Well, it depends on the size.
+2
+On the geographical area where we are.
+2
+Working so for the cases when we've been working in locations which are based in the UK, the the the
+details of all the kinds of.
+2
+Data we can find out absolutely.
+2
+Whereas sometimes, especially in the in the in the courses I teach, sometimes we work with other
+locations outside, outside the UK, in in Europe or in other parts of the world.
+2
+And then it depends quite a lot.
+3
+On the location.
+2
+We are working so for example, last semester we've been working.
+2
+In in Paris, in France.
+2
+And the information for Paris is is quite good.
+2
+In any case.
+2
+One of the things we've missed for Paris, for example, is the control lines.
+1
+I see.
+2
+Understand a little bit better the topography in a more kind of accurate way, which is something that
+thing is normally offer for for locations in the.
+2
+OK.
+2
+But it's more difficult to find information about control lines and about the topography in in other
+locations.
+
+
+OK.
+1
+I see because from my understanding we only have original service maps for the UK area.
+1
+So was that within digit map as well or is it something like other collection like geology or?
+2
+Well, within Digi map there is this global.
+1
+Ohh I see.
+2
+Where there is a lot of information about locations in other places.
+2
+But doesn't go through the ordinance survey.
+2
+That's why the information available is is often less, less accurate.
+1
+I see.
+1
+So specifically the contour lines.
+2
+Yes, I use a lot the global.
+2
+How is it called?
+2
+I need to open it.
+2
+Sorry I didn't.
+4
+Have time to no, it's alright.
+2
+Rome or something like that.
+1
+Oh, yeah, yeah, I think it is global room, yes.
+2
+That's the yeah, we use that a lot.
+2
+Yeah, this is the the global room.
+1
+OK.
+1
+Thank you.
+1
+So I've heard that you would either download the data and import it into like the secondary softwares
+like AutoCAD and or the maps that you download and print out so.
+1
+After like besides the exporting part, do you do any like annotation or drawing or line measurements
+within the digimap system at all?
+2
+I often use the the IMAP system.
+2
+To to measure the dimensions of a site, in particular, at the beginning of the process of developing my
+my, the, my the brief for my course, I often need to choose which sites I'm going to offer the students
+work in, and I need.
+2
+To make sure that.
+2
+For example, the sides have got all of them have put a similar dimension, things like that.
+2
+So I often use the the the measure tool to to to measure the size.
+1
+I see it.
+1
+And how do you feel about our?
+1
+Measurement tools.
+1
+Is it intuitively placed?
+1
+Is it difficult to use?
+2
+Well, it's it's quite intuitive and it's not fully accurate, but that sometimes I don't really need that
+accuracy.
+2
+So I often just do a rough.
+2
+Measure without.
+2
+I mean, yeah, I don't need.
+2
+Up that position.
+2
+And then when I download the the cut version is.
+2
+When I do the.
+2
+More precise measurements, so I don't try to do very precise measurements within within the digimap.
+1
+I see.
+1
+Yes, I see.
+1
+So from my previous experience with interview other like teaching members of the university, they
+mentioned that they've never used any function besides only downloading the data or the math.
+1
+And they only see digimap as a filing cabinet because there's other softwares that can do every other
+task.
+1
+So yes.
+1
+So how often do you see like say for say for like a prop?
+1
+That you have to put like 100% working preparing the task for students. How much time do you spend
+or how much effort do you spend in digimap versus other secondary softwares would you say?
+2
+Well, just I didn't spend much time in this e-mail, to be honest.
+4
+I see.
+2
+Yeah, I just use it to, to to navigate to, to, to just find the the locations where I want to work sometimes
+do this kind of very basic measurements to make sure that that's what I'm there.
+2
+After I mentioned I want to.
+2
+The one for that.
+2
+Site and then I just download the information and then of most of the time work with that information
+outside the the digimap, yes.
+1
+I see.
+1
+So is it like less than 5 minutes of work you would say?
+2
+OK, I will say is quite quite simple, yeah.
+4
+OK, I see. Thank you.
+2
+Well, what I probably spend more time on is especially when I'm looking for some information of sites
+located outside the UK I.
+2
+Look through the different options of maps.
+2
+Our offer, just to make sure that I'm downloading the map that has good information I require because
+there are different versions of maps that can be downloaded.
+2
+But that's probably most of my time spending this map is is on choosing the right kind of of map.
+2
+I'm going to require to to download.
+4
+I see.
+1
+Yeah, that that just reminds me of added question to that.
+1
+So because that we I have also heard the students saying that because before you download the data
+you have to select the area that you want the data to be in and you can only draw a shape or import like
+a a previous shape that you drawn before.
+1
+But have you ever faced any difficulties where you can't select the?
+1
+Specific area that you wanted.
+1
+For example, I want to select Scotland but there's no option for me to select Scotland or Edinburgh as a
+city.
+1
+Has that ever been a difficulty for you?
+2
+Well, to me, yeah, it's not, I don't think.
+2
+I've faced that question of.
+2
+Trying to select an area which cannot be selected as because it's probably to.
+2
+Be but what I'm saying?
+2
+Is is the question.
+2
+So about a priority.
+2
+I wouldn't know how big is going to be the.
+2
+App I need to download for that.
+2
+Particular area I'm interested.
+2
+In and at a particular scale.
+2
+So that's kind of it's kind of.
+2
+Difficult to understand.
+2
+How big is the rectangular one? I need to draw to feed that map at a particular scale in an A3 for
+example.
+2
+In an H2.
+1
+I see.
+2
+There's no option.
+2
+For doing that for select.
+2
+That a particular dimension according to a scale and a dimension of a paper.
+2
+So that's something that I need to do outside the region.
+2
+Maybe that makes sense, yeah.
+1
+Oh oh for my.
+1
+So there's no like match between the coordinates and the scale, if that's correct.
+2
+And the scale?
+2
+Yes, the scale of the paper.
+2
+According to the scale of the map.
+2
+So I normally just try to draw a rectangle which is which is.
+2
+Similar to what will be landscape.
+2
+And piece of paper adds what I'm going that I'm going to print or use at 83 or 82 and the scale is going to
+be 1 to I don't know 500.
+3
+Or 1:00 to.
+2
+2000 whatever. But there's no way to understand the relationship between the scale of that piece of
+rectangle.
+2
+Or a piece of paper I'm imagining.
+2
+And with this, the real scale is going to be at that.
+2
+For that particular area.
+2
+In that in that in that.
+2
+In that particular channel.
+1
+I see it's.
+2
+Is that clear?
+2
+More or less.
+1
+So is that for the data download?
+1
+Or is it for the map printing?
+2
+That's the for the moment when I.
+2
+So the first.
+2
+Attempt to selecting that area for downloading.
+2
+I just need to make sure that I have good enough.
+2
+That area selected for a particular dimension of a map.
+2
+I want to produce, and there's no way to understand that that well indeed, you know.
+2
+You know what I mean?
+2
+So I can, I can throw the rectangle.
+2
+But I don't know whether that's going to be.
+2
+And Array 3, array 2 at the.
+2
+At the scale of 1, the map to in.
+1
+Ohh I see so it's.
+1
+Oh, OK, let me try to describe it so that I make sure that I understand your problem.
+3
+For doing.
+2
+That that I haven't.
+2
+Haven't used, I don't know.
+1
+OK. So is it like so you can see the screen and you can draw a rectangle shape on the screen with that
+specific scale, but you're not sure after you select that how big it will actually look on an A3 paper?
+2
+Yes, yes, absolutely.
+1
+I see.
+1
+OK.
+1
+And I see and is that like a practical issue for giving assignments to students because they might have to
+print out the area themselves as well?
+2
+So they might need so one of the things that I do when I do the.
+2
+Assignment to students.
+2
+And I have got a conversation.
+2
+With them.
+2
+I encourage to them to make sure that they always print out a rectangle which is slightly bigger than the
+area they are going to be required to analyze because sometimes.
+2
+They just throw a random rectangle.
+2
+And there are very many interesting features.
+2
+That lie outside that rectangle a lot, because don't fit the dimension of the piece of paper where they
+print that out.
+2
+They means very essential information, so it's it's kind of difficult to choose exactly what is the
+dimension and what kind of parts of the city around the site.
+4
+I see.
+2
+Where they are working are going to be interested, interesting for them to.
+2
+To look at.
+1
+Yeah, that's an interesting problem.
+1
+Thank you for bringing that up, yes.
+2
+And is that issue because?
+2
+We don't do any three analysis of the area before downloading the area, so everything.
+2
+Is done out after afterwards.
+2
+So we need to make.
+2
+Sure that the area.
+2
+The the, the, the.
+2
+Part of the of the of the map that has been downloaded contains all the information that needs to be
+analyzed.
+1
+I see.
+1
+Well, OK.
+1
+So adding up to the question after that.
+1
+I see that you give instructions for students in the task and how specific are the instructions?
+1
+Are is any of the instruction involved with like navigating through digimap or do they just start using it?
+2
+Well, in the past we have have.
+2
+Digital skills workshops.
+1
+OK.
+2
+And during the pandemic, we didn't.
+2
+Prerecorded it so.
+2
+We used to show them how to navigate into digimap how to download things and all the basics of of
+how to download something from from digimap and this.
+2
+Year I'm trying to think about it because.
+2
+This year that.
+2
+In the first semester, I'm.
+2
+I'm this year I have been teaching only.
+2
+The second semester.
+2
+And that has been done in the first semester, so I've not been involved in that this year, but tribute
+years.
+1
+I see.
+2
+We've done that, that.
+2
+Workshop where we saw the students step by step how to navigate through the map and how to
+download that information.
+4
+I see.
+2
+So I've got that future doing that that.
+2
+Workshop for us.
+1
+And afterwards the workshops.
+1
+Are there any like difficulties that students have report that you think that there's a pattern they're like,
+they're mostly struggling with the same things in common?
+2
+Well, they often have struggled with finding.
+2
+Information about sites which are located outside.
+2
+The UK, as I said before.
+1
+I see.
+2
+Because also depending on the size.
+2
+Some of them have got more.
+2
+Yeah, have good, more information than others and.
+2
+Often they found it difficult to choose.
+2
+The map they need to download and we are asking them to download and the to make sure that that
+map that they are downloading contains all the information we're asking them to to look at and to one
+advice.
+2
+Because it's normally second year students.
+2
+That start to do this work for the first time.
+2
+So yeah, they are not that familiar with.
+2
+Analyzing or on PlayStation things like that.
+2
+So it's the first time they are.
+2
+Doing something like that.
+2
+So that's probably, yeah, it's it's about finding exactly the kind of where are the data.
+2
+That they need to.
+2
+Download and and what is the kind of map we're asking them to download?
+1
+I see.
+1
+So when you're talking about the different maps to download, are you talking about the base maps or
+map overlays or map contents, or like the downloading section, the actual data?
+2
+Well, let me check.
+2
+So we normally ask them to download.
+2
+Depending on the scale we are going to be.
+2
+Working maps which contain the.
+2
+The details at this scale we are.
+2
+Going to be working at.
+2
+And vector maps, so maps that can be then exported into card.
+2
+So but I.
+2
+Don't remember exactly depends.
+4
+I I can.
+2
+It also depends on whether we are working with ordinance survey or with the global in other places.
+1
+I see. I'm.
+2
+So yes.
+1
+Gonna share my screen if you can.
+3
+We normally have.
+2
+To just go to.
+2
+The download data for TIS or cut?
+1
+OK.
+1
+Can you see my screen at the moment?
+1
+OK, because from my understanding that you select either OK if you zoom to a level up to here you can
+select the vector map and oh it's the raster.
+1
+OK, so we are talking about the different map.
+1
+Contents to download are you talking about like this part of the area or are you talking about like the
+map content where you can like deselect and select rows and buildings.
+2
+So yes, I normally asked him to.
+2
+Download vector maps and then select the kind of aspects we are interested in.
+1
+OK.
+2
+So we are normally interested in the build fabric, so in the buildings or the different activities within the
+buildings then the roads are quite important for us as well.
+1
+OK.
+2
+And then as I said before the contour lines.
+2
+So I normally asked them to download as much information as they can and then when they do the
+analysis, they can then take off the information they don't need.
+2
+Depending on the map they are going to.
+2
+Produce, if that makes sense.
+2
+But I would normally I normally recommend them to.
+2
+As as much content as they can.
+1
+I see.
+2
+So for example, in this case I will have asked them to download everything to tick everything and then
+select.
+2
+The the information they need afterwards, once they have got the the the information down.
+1
+I see.
+1
+And so how, how?
+1
+How much would you say they're downloading the data versus the print map?
+1
+So I see that you have to do some like secondary analysis and other softwares, but for maps you can
+only like draw.
+1
+On them, after you download them so.
+1
+Is it really?
+1
+Important for them to download the map as how it looks as well as the data itself.
+2
+Yes, they need, yes.
+2
+So they will need to download the map as it loop itself because they need to be able to understand the
+map and to understand the information.
+2
+But then what is important for us is that they analyze that information.
+2
+So, for example, that they can create then a map of the density of the fabric, or the amount of the
+topography, or so that they need to, they need to be able to then.
+2
+Struct just a few of the of the.
+2
+Aspects of that map.
+2
+So but yeah, I I think that it's both things are important.
+2
+So it's important for us that they understand everything together and that they can see the map as it is
+and as.
+2
+It looks like.
+2
+And then that will be the 2nd.
+2
+The second part of the process is that is to start to analyze it in in light in layers.
+2
+I will say you're in different for different aspects.
+2
+Of the of the map.
+1
+I see.
+1
+I see.
+1
+And when you mentioned that you were not sure about how the rectangle was going to look in the
+actual paper, are you talking about the map printing?
+1
+Or the data downloading.
+1
+I'm sorry, I think you're frozen a bit.
+1
+Because of the connection.
+2
+Sorry I I think I have.
+2
+An issue with my.
+4
+Network. That's alright. Yes, you.
+2
+Well, yeah, I cannot see your screen now, but I think that was interesting because it's I think it's in both
+cases.
+2
+So for example that.
+2
+Image yes, in this one I will see.
+2
+So this is you can see that the page size is a four and the scale is is 1 to 1.
+2
+But they don't know whether that's going to just fit the whole of the A four page or or that that there is
+some data that is going that's going to stand beyond the DA four page.
+1
+I see.
+2
+So yeah.
+1
+So you would now like, probably zoom out from the map a bit to.
+
+
+Yes, so that.
+2
+Needs to be slightly adjusted.
+1
+I see.
+2
+Accord the the aspects of the area around where they are working.
+2
+They are interested in sitting.
+1
+I see and.
+2
+For example, if there is something.
+2
+I don't know and.
+2
+I will say another village.
+
+
+Or or whatever or.
+2
+A shopping center with slights.
+2
+To the outside, the the area they have previously selected, they will need to adjust the dimension
+slightly so they don't need to play with that a few times in order to make sure that everything they have
+selected is what they with the required to do the.
+1
+Analysis I see and has that been a problem in the download as well?
+1
+So you have.
+1
+To like select.
+1
+More a bigger area than just this park in town as well.
+2
+Yes, that will apply both to the to the, to the map, to the printed original version of the map, and to the
+data with the downloaded.
+2
+So really both things we need to match.
+1
+Yeah. OK.
+2
+And they.
+2
+Will once they download.
+2
+The data.
+2
+So for example the card data.
+2
+We often have a wider area around the selected rectangle depending on how the data have been
+produced.
+2
+So then we need to again redo their their rectangle once they they they they export that into cut.
+1
+So I see.
+1
+So there is a bit going back and forth.
+1
+To like adjust the area that you actually want.
+2
+That's just the area, yes.
+1
+I see.
+2
+That's probably one of the most difficult is for for them to to to make sure that they are downloading
+the area that is required.
+2
+For the analysis.
+1
+I see.
+1
+Yes, thank you so much for explaining this part.
+1
+Now I feel like I completely understand the problem so.
+3
+Is, well, one of the reasons for that is now that I'm looking at the screen, which.
+2
+Is, I think quite.
+2
+Useful is that the zoom in and out they do in the map.
+2
+For example, now this we are seeing.
+2
+This map at 1/2.
+2
+I don't know what the.
+2
+Scale will be, but there's 200 metres.
+2
+Like is is that size.
+2
+And they when they download it, they think that that's the scale they are going to be downloading the.
+2
+Map app and it's not.
+2
+So one thing is what they can see in the map by zooming in and out and something different.
+2
+Is the scale they are downloading the map app.
+2
+And the both the scales can be different.
+2
+That's why probably is is sometimes confusing for them to understand the difference.
+2
+The map they are seeing so mean and out the scale of that map and the scale.
+2
+Of the download.
+1
+I see. Oh, so like, even if I'm looking at a 1 to 200 meters map right now and when I try to download it, it
+will jump to another scale, is that correct?
+2
+Yes. For example, when.
+2
+You when you are trying to print it.
+2
+That scale?
+2
+Yes, exactly that scale would be different.
+2
+To the map you're seeing, yeah.
+1
+Oh, I see. And it doesn't even allow a number that is less than 1000.
+1
+So has that been a problem?
+1
+For the students that they can zoom into a very like detailed scale to print out the map.
+2
+Well, they can.
+2
+They can zoom in into a very detailed scale, so it's not the problem is not that they cannot zoom in.
+2
+The problem is more that they need to understand the difference between what they see on the screen.
+2
+Before trying to print it and the scale they are printing it out.
+4
+I see. I see.
+2
+So it's about understanding more how the how the system works in, in, in terms of the of the scales,
+because that this preview doesn't have a scale on it.
+2
+No. Yeah, so so.
+2
+Once they print it, they.
+2
+Then realize.
+2
+Oh, really, that's not the scale I was looking for.
+2
+Yes, exactly.
+1
+I see.
+1
+OK.
+1
+I see.
+1
+Yeah, that's interesting.
+4
+Point I've never actually realized that.
+4
+OK, thank you.
+1
+OK, I see.
+1
+And I've noticed that there's a help page right here and previous interviews.
+1
+Basically, nobody has noticed it or used it before and after they click on it and they realize that ohh,
+there's so much helpful information on there that they could just like look at and probably not struggle
+about them anymore and has that been an important part of the instructions in.
+1
+The assignments for students for you.
+2
+For me, I've used that I've used that, so I I normally I'm I'm quite used to using the the help in All in all
+softwares.
+2
+So I've used that a little bit, especially for understanding what kind of data I can download at the
+beginning when I.
+2
+Started to use.
+2
+It and for these students we normally when we introduce.
+2
+Because in these digital workshops we introduce lots of different supports and we normally encourage
+them to to use that help or our extra info option.
+2
+And but I I cannot remember 100% because I was not the person delivering this work. So I had that
+future delivering the workshop, and I've been normally there just helping with the procedure and and
+answering two questions. So I don't exactly remember.
+2
+Whether we will.
+2
+Introduce this, but we normally ask them.
+2
+To first try to solve that issue their problem by looking at the at the help center within that software and
+then if they cannot solve that issue, then they they they can come back to us and let us know if they still
+have have got any issues.
+2
+So we normally do that.
+2
+In this particular case, I don't remember whether we introduced it or not.
+1
+Yeah, yeah.
+1
+Because you would think that it's pretty obvious for students to know.
+1
+Notice that.
+1
+But like in every single interview that I have had so far, they've not used it.
+1
+So I'm really, I'm really glad to hear that.
+2
+Yeah, I mean, we normally we always encourage them to use that.
+2
+And in the case of of Digi Maps, there's so much information out there and and open St.
+2
+Maps and all that, there's really a lot a huge amount of information out there.
+2
+So yeah.
+2
+But yeah, it's always, it's always difficult.
+1
+Well, thank you for sharing this information.
+1
+I think I've almost got all the questions I wanted to ask and it's just like a final usability scale that I will
+share it with you.
+1
+And could you give me a rating?
+1
+For each question and a reason for why you gave that rating.
+1
+If possible please can you see the scale OK?
+1
+Yes, and UM, yeah. Could you just give me a score for each question and explain why you give that
+score, please?
+2
+OK, I think I would like to use this system frequently.
+2
+So do you mean that the the this system do you mean the digimap?
+1
+Oh yes.
+1
+So this questionnaire was not designed specifically for digit map, but all the questions I would like you to
+answer in the scope of.
+1
+Digit map please.
+2
+OK for the Dima.
+2
+Yes, yes, I agree that I.
+2
+Would like to to use.
+2
+It frequently and I and I use it frequently.
+2
+When I.
+2
+Start a new.
+2
+Brief or yeah, even even in the future, once they start the new research, I probably need to to use it
+quite frequently.
+2
+So yeah, I I strongly agree you can.
+1
+OK.
+2
+For first question I will say five.
+2
+Yes, I found the system unnecessarily complex.
+2
+I strongly disagree.
+2
+I I find it quite easy to understand.
+2
+Probably it's probably because I've used.
+2
+It is very basic tools I've not used.
+2
+Probably the most complex options, but I don't find it difficult to to understand.
+1
+Thank you.
+2
+Then the third one.
+2
+I thought the system was easy to use.
+2
+Well, it's been it to me.
+2
+It's been simple to use.
+2
+From the beginning, because I use a little bit of GIS before I see.
+3
+It's a father.
+3
+I've been downloading.
+2
+Maps in other from from other services in in in other countries so.
+2
+I didn't find it particularly difficult to use.
+2
+I think it's it's the basics are are simple and easy to to use.
+2
+So I will say and I strongly disagree on that one as well.
+2
+So I don't think.
+2
+It's it's I.
+2
+Didn't think was more was going.
+2
+To be more easy to use, OK.
+1
+I see.
+2
+Thing that I.
+2
+Will need to support the support of a technical person to be able to.
+2
+Use this system.
+2
+No, absolutely not so.
+3
+Probably if I if I use.
+2
+Much more if I ever need to use much more complex tools, it will be really useful to have someone
+explaining that a little bit more, but I don't think I will need.
+2
+Technical Support.
+2
+As for the kind of things I I I do at the moment and I.
+2
+Need that. OK, I see.
+2
+I found the various functions in this system were well integrated and well have not explored many
+different functions.
+2
+First no.
+2
+And the functions have explored are well integrated.
+2
+I will say yes.
+2
+They are well integrated.
+2
+I thought there was too much inconsistency.
+2
+No, I haven't found.
+1
+Yeah, I see.
+1
+So would that be a one like a strongly disagree.
+2
+I strongly disagree.
+1
+Yes, I see.
+1
+OK, got it.
+3
+I will imagine.
+2
+That most people.
+2
+Will learn to use this system very quickly.
+2
+I think that it requires probably.
+2
+Previous knowledge a little bit about understanding of scale, understanding of.
+2
+Maps in general and the content of maps.
+2
+Understanding of how to translate the difference between row and vector and and and and and cluster
+and maps and all that.
+2
+So I don't think it's very intuitive for people that probably are external to that knowledge for.
+2
+I would imagine that most people will learn the.
+2
+I disagree with that, yes.
+1
+Would that be of strongly disagree?
+1
+Or would that be like a two or?
+2
+Probably like, yes, probably at 2, yes.
+1
+I see. Thank you.
+2
+I don't think.
+2
+It's particularly difficult in general, but I think it requires.
+2
+People especially.
+1
+Like prior knowledge.
+2
+Yeah, for for my second year students.
+2
+I think it's more difficult to to use it, that it is for me.
+2
+So I think that it requires some some pre knowledge and spatial issues in general, yeah.
+1
+I see. Thank you.
+2
+I found the system very.
+2
+Cumbersome to use.
+2
+What do you mean about that?
+2
+It's in particular.
+1
+Like there's too much drag like you have to do a lot of extra things in order to get one thing done.
+1
+For example for downloading maps and you have to like go through all these extra things.
+1
+If that makes sense.
+2
+Well, I think it's it requires.
+2
+To use.
+2
+To understand the complexity probably.
+2
+So it's probably something a little bit unavoidable to to to the the the little, yeah, the little complexity
+involved in in doing these things.
+2
+But I don't think it's.
+2
+Really, really complex too, too complex.
+2
+I will say that it's.
+2
+It's probably we're also expecting it to be so.
+2
+I will say three.
+2
+I don't agree or disagree.
+2
+I think is what I was expecting.
+4
+OK, call that.
+2
+I feel very confident with using the system.
+2
+I will say.
+2
+4 So I feel confident, but I've.
+2
+Not explored.
+2
+Very complex options, so I'm.
+4
+I see.
+
+
+Very that I'm very confident.
+1
+So confident with what you're using right now.
+2
+I needed to learn a lot of things before I could get.
+2
+Going with the system.
+1
+So a lot of things here would probably.
+1
+Mean the knowledge in GIS, yes.
+2
+Yeah, well, The thing is that because I started using it.
+2
+After graduating and so yeah, because I'm quite old so.
+2
+When I graduated with and have this kind of.
+2
+This technology I started without without the Internet so.
+3
+I didn't probably realize.
+2
+That have required a lot of blur of pre learning because they just learn probably within a very long
+period of time all these.
+4
+I see.
+2
+Things, but I.
+2
+Think it requires.
+2
+To to learn a little bit before so, but it was not particularly.
+2
+So it required learning, but not it was not particularly to to.
+2
+I didn't.
+2
+I didn't have to do any extra learning before I could get going with the system, so I from the first day I I
+tried I.
+2
+Could just download some data.
+1
+I see.
+2
+So more than probably learning it requires.
+2
+Probably a little bit of familiarity with the system, I will say rather than extra learning.
+1
+I see.
+2
+OK, so.
+2
+I need to learn, so I will say probably A2I disagree. I don't think it requires a lot of learning, it's more like
+familiarity than than learning in yeah.
+1
+OK, I see that's a really good point.
+1
+Familiarity versus actual learning.
+4
+Thank you.
+2
+Because all these systems are somehow similar but also.
+2
+The setup and the organization of the tools and all that can be a little bit different, so it requires a little
+bit of understanding in general, yeah.
+1
+I see.
+1
+Well, thank you for giving me all those answers.
+1
+It's been really helpful and I've gotten a lot of information from the conversation.
+1
+Thank you very much again.
+1
+And before we move on to like our days and I just wanted to ask, has there been any question that I
+didn't bring up?
+
+
+Thank you.
+1
+Just now that you thought about it before, like using during the your use for digital map.
+2
+Well, no, I cannot think of any other.
+2
+Any other things?
+2
+Yeah, because probably because I do a very kind of simple and straightforward use of that so.
+
+
+OK.
+2
+I can't think of any any other things.
+1
+OK, great.
+1
+Well, thank you so much again for coming to the interview and.
+1
+Thank you so much for all these answers and I like took so much notes and well, if they're.
+2
+How many people have been interfering?
+1
+Oh, I've done 12 so far and for the coming week there's another nine or eight, eight or nine, yes.
+2
+I mean, do you have enough people already?
+4
+Yes, I do.
+4
+Yes, yes, thank you.
+4
+Well if.
+
+
+Like we thought, we thought that.
+1
+Thank you for helping me with this.
+1
+If there is anything that I could help you, although I kind of doubt if I can, but if there's anything that I
+can do for you, I'll please just let me know.
+4
+There's anything.
+2
+Yes, please feel free to just send me the results on on your research because it's.
+4
+Yes, I will.
+2
+Where do you end up?
+2
+Doing with this?
+2
+And I think in any case, I think it's a, it's a really.
+2
+It's a really great program.
+2
+And it's really super useful to have it.
+2
+So yeah, great.
+1
+Thank you so much.
+2
+Luck with that.
+1
+Yes, thank you.
+1
+I hope you have a rest.
+1
+Good rest every day.
+1
+Thank you.
+1
+You too.
+1
+Thank you."
+
+
+Begin!
+System: During the interview, the participant discussed their experience with using the "Digimaps" software product developed by EDINA. They mentioned that they primarily use it for teaching purposes rather than research. They explained how they use the maps in their design courses at the School of Architecture. Students are asked to download information about a site, such as survey maps and vector data, for site analysis in software like AutoCAD or Illustrator. The participant mentioned that the availability and accuracy of data can vary depending on the location, and they sometimes face challenges in selecting the specific area they want to download or print on a map. They also discussed the use of measurement tools in the software and the importance of students understanding the scale and dimensions of the maps they are working with. Overall, the participant found the system easy to use and did not require extensive technical support. They expressed confidence in using the system and mentioned that familiarity with GIS and maps in general is helpful in navigating and understanding the software.

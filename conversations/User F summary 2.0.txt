@@ -1,0 +1,1554 @@
+ 
+System: Hi there! How can I assist you today? 
+
+User: Act as a summarizer. Your aim is to summarize an interview transcript so it can then be used for qualitative thematic analysis. You must remove all irrelevant information and keep everything that could be useful for thematic analysis.
+The interview is on the subject of user experience using the "Digimaps" software product developed by EDINA.
+Interview transcript:
+"2
+Now, OK, because I was thinking if the device allows us, could you maybe like share your screen later, so 
+I could like look at how you like do the tasks on your screen if that's possible, but if you're using your 
+phone, I can just share my screen as well and you can talk me through the process.
+1
+We might have to do that, sorry.
+2
+OK.
+2
+Yeah, that's completely alright.
+2
+OK.
+2
+So I'll just start with the first questions.
+2
+Could you please tell me about your research interest please?
+1
+So I'm going to teaching and scholarship professor, so I'm mostly involved in education, but I teach 
+across construction disciplines, so it's education of architects and engineers.
+2
+I see.
+1
+Construction managers, quantity surveyors, et cetera.
+1
+And we also teach some geography as well in the department, so.
+1
+Yeah, I'm an architect by background.
+1
+When I worked in practice, I used Ordnance Survey maps for all sorts of reasons and practice.
+1
+Most of my work or all of my work now is in higher education, and so my digimap use is entirely in 
+working on hypothetical.
+1
+Projects with students.
+1
+Or occasionally, on live real projects with students.
+2
+So from my understanding that a big portion of your work is a big proportion of usage in digimap is 
+involved in teaching instead of research.
+2
+If that's correct, OK. So how would you say the distribution is it like basically most of it is like 100% 
+teaching or do you still do some research?
+1
+Absolutely yes.
+2
+Your own digit maps.
+1
+And there are certain. Yeah, I'd say 100% teaching for.
+1
+Me is the easiest one, yeah.
+2
+OK, I see.
+2
+Thank you.
+2
+And how long roughly have you been using digital?
+1
+Forever since I was at university, so you know, more than 20 years.
+2
+Well, oh, so was did you map a part of your curriculum when you when you?
+2
+Were at uni.
+1
+I'm just.
+1
+I mean, I'm thinking I'm trying to remember when.
+1
+I was first introduced to.
+1
+It and.
+1
+Must have been to my postgraduate studies, would have been 2000 and six 2007. When did did you 
+map begin?
+2
+I think in 1998 or 99.
+1
+OK.
+1
+So yeah, in that case, I was I was taught with it so.
+1
+That would make sense.
+2
+OK, OK.
+2
+Well, that's a long history of using that.
+2
+I'm glad that we could hear your thoughts on it.
+2
+You must have so many thoughts, so other than the ordinary survey collection, have you been using 
+other collections of digimap as well?
+2
+And how for like, what's the frequency of?
+2
+Like each version that you would use.
+1
+So look by far the thing I use most is vector based ordinance survey.
+2
+I see.
+1
+That's what I'm tend to be after, and it tends to be what I asked.
+1
+The students to look at, and I would say that for project research purposes isn't this is still education.
+1
+So for my students to.
+1
+Research their the projects they asked them to do.
+1
+They use direct digit map a lot.
+1
+And so that's not the vector based ones that's going back into the historic maps.
+1
+I I'm not a GIS user.
+1
+And I attended a session on learning how to use those aspects of digimap better what probably just pre 
+pandemic.
+1
+So sort of 2019 and and it would have been some of your, you know the guys working with the drama 
+from you with Adina talking about.
+1
+Big data and opportunities for using GIS with digimap and then I'm afraid the pandemic happened and I 
+kind of got caught up in that and we didn't really.
+1
+Well, I didn't develop.
+1
+That part of my education so much, but I know I now.
+2
+Right.
+1
+Have colleagues who are use.
+1
+Thing I believe other parts of digimap that I'm not.
+2
+OK.
+2
+Well, that's completely OK and I'm really happy to hear that because the main focus is on the audience 
+service collection.
+2
+So next question is that could you share some like typical tasks you would?
+2
+Do so.
+2
+For example, I've heard that you.
+2
+Is it possible that you're giving instructions to students, or like giving assignments to them?
+2
+How do they look like and is it like are they are there like detailed instructions or do you just like tell 
+them the end results and like they have the whole process?
+2
+Figuring out by themselves.
+1
+So no, I I asked the students to use digimap.
+1
+I think it's an important tool for them to become used to using.
+1
+So most of the instructions or assignments I would give them.
+1
+I will ask them to go to digimap to register if they're not registered yet to then find the vector based.
+1
+And I'll often go through it live on screen in a class so that they can see what I'm doing, but I would then 
+expect them to go and get the data, get the information and work.
+
+Ohh well.
+1
+From that.
+2
+Right.
+1
+And I do often as part of the brief that I would give the students, I would have a PDF of the particular 
+location that I want from Digimap source from digimap.
+1
+And that would form part of the brief.
+1
+But it's important to me that the students go and find the information and that they get the experience 
+of, you know, requesting the file, waiting for it to be confirmed, downloading it, importing it into their 
+cards.
+2
+All right.
+1
+You know, I want them to.
+1
+Have that whole experience because.
+1
+I don't want to just give them everything.
+2
+Right.
+2
+Yeah, yeah.
+2
+That makes complete sense.
+2
+So interestingly, because I've been talking to undergraduates and postgraduates within the architecture 
+depart.
+2
+And from their perspective, so for the undergraduate students, their main purpose of using digit map is 
+to print the map out so they can do like further drawings and plannings on top of the map.
+2
+But for postgraduate students, their tasks would be more like downloading the original data and 
+importing them to like.
+2
+Third party model building software and is that something that you would agree what's happening to 
+your teaching as well?
+2
+And is there any difference in terms of your experience?
+1
+That's interesting.
+1
+So I guess you're speaking to me from Harriet Watt.
+1
+Mainly, right?
+1
+I I teach at Harriet Watt.
+1
+I also have still a part time role at Edinburgh, but much reduced now so I do teach at ASALA a little bit.
+1
+And excella, I teach undergraduates.
+1
+So I have a sense of what you're talking about because I'm working with them in studio a little bit.
+1
+Do I think that's applicable?
+1
+I think that, Harriet.
+1
+When I'm working across a lot of different disciplines, the construction project managers, the urban 
+studies students.
+1
+To an extent, the civil engineers, they're all more likely to want to use or want to download vector based 
+files and import them into secondary software.
+2
+I see.
+1
+But that could be an urban analysis software.
+1
+It could be utilities and civil software that wants the.
+1
+The geographic data the the topographic data as well.
+1
+I mean it could be.
+1
+Getting measurement software where the Q's are looking for kind of areas. So I think that it's much 
+more likely that the undergraduates I work with.
+1
+Would not want to kind of print it out and draw over it.
+1
+They would want the vector based information.
+1
+Just trying to think there's different courses that I work on and we have slightly kind of different briefs.
+1
+So yeah, I can see also that some of them would want.
+1
+Yeah, some of them would just want a PDF, something that they can take to site and draw over or.
+1
+Computers here now and you're.
+1
+Here and I'm.
+1
+So I think I think to say that the undergrads want rasterized printouts, and the postgrads want vectors.
+1
+Is kind of oversimplification, and I think we're certainly moving towards encouraging students to use 
+vector a lot more.
+2
+I see.
+1
+It's not maybe not relevant to you, but for me.
+1
+One of the impacts.
+1
+Of going online during COVID was that students find.
+1
+Scale a lot more difficult to work with because they were just working on screen all the time and yeah, 
+you didn't even print out your.
+2
+Right.
+1
+Ordinance survey map drawings.
+1
+You know, you would show it on your screen, but you have no no sense of like, what does the scale?
+1
+1 to 1250 look like at a three you don't know because you haven't printed it. You know it's been on your 
+screen and you can zoom in and.
+
+Right.
+1
+You can zoom out easy, no problem.
+1
+And and I think it's a problem that we're now dealing with quite a lot that students just really have no 
+sense of what a scale look like.
+2
+Right.
+1
+I say it's a problem.
+1
+Is it a problem?
+1
+Is it just that we are moving towards working?
+1
+With digital a lot more and either way.
+1
+If you have a PDF, you can get the scale very wrong.
+1
+If you have a vector, then you can't because it's got, you know it's intelligent, it knows measurements 
+and dimensions.
+1
+So I would say.
+1
+I'm moving very significantly towards just using vectors like telling students do not download a raster 
+map.
+1
+I'm not interested, I just want to have vector information.
+2
+OK, I see.
+2
+So, but that would still go into like the area of data download and like importing into secondary 
+softwares so.
+2
+Is it fair?
+2
+To say that Digimap is just a filing cabinet for you and the students.
+1
+See, I think you're right.
+1
+At the moment that's how I use it.
+1
+And my intention is not to.
+1
+And so, like one of the reasons to do this interview with you was because I will learn a little bit more as.
+1
+Well, about what the opportunities are.
+1
+And I just feel like in the last few years where I've wanted to develop that, you know, because of.
+1
+Industrial action because of pandemic.
+1
+Because of all these things, I haven't had an opportunity to perhaps get hold of the other pieces that you 
+can do now.
+2
+Right.
+1
+You know, to really understand the options that you.
+1
+Have within the gamma.
+1
+Also, Harriet, what I think.
+1
+If we.
+1
+We subscribe to less of your.
+1
+Your archive than we should right and there is at the moment a proposal to teach postgraduate 
+architecture at Harriet Watt.
+1
+We never have until now, but we might be in a year and years time and that will, I think, push us 
+towards a greater subscription to digital, which I would like.
+2
+Yeah, I do apologize because I just started my internship like earlier this summer, so I'm not, like too 
+familiar with like all sorts of data or archives that I that we have currently, so.
+2
+Could you be a teacher to me to tell me about, like, like what?
+2
+Currently you think that is missing from your subscription and why you think that is important to get the 
+missing part?
+1
+Let me.
+1
+Actually, sorry, I'm looking for the emails that I exchanged when.
+1
+We talked about this last.
+1
+Of course it's.
+1
+A budget thing, right?
+1
+Someone, somewhere, said.
+1
+We don't want to.
+1
+Spend all this money.
+
+Just a minute.
+
+All right.
+1
+So I can see discussions about this back to 2020 and consistently it's just let's keep with what we have at 
+the moment.
+1
+Let's keep with what we have.
+
+At the moment.
+1
+OK so.
+1
+Sorry, this is really boring for you.
+1
+Most of the.
+1
+So we at the moment subscribe to Digimon Ordinance survey and Digimap Marine that still makes 
+sense.
+2
+Right.
+1
+OK, cool.
+1
+And the argument that's being heard is that that subscription is only held within our school.
+1
+But it turns out there's loads of other.
+1
+Students using it as well.
+2
+OK.
+1
+Other other schools.
+1
+Which I think is really good, but it suggests that there are students.
+1
+Yeah, even in our business degrees who understand that this is valuable and they're using.
+1
+So the fight internally is all about who is going to.
+1
+Pay for it.
+1
+Or you increase it.
+1
+It's really ridiculous, right?
+3
+I see.
+1
+OK, so at the moment we don't subscribe to historic, which is a problem we really should.
+1
+Yeah, we don't have geology, we don't have area, we don't have lidar, we have an environment.
+1
+So I can see a big discussion with all of our groups here.
+1
+I know that our geography department is actually the one that's pushing this.
+1
+The most.
+2
+OK.
+1
+So they I think would like to have more access to the smart data that you hold rather than just the 
+ordinance service.
+2
+Right, because that would make sense.
+2
+I wouldn't imagine the Geoscience Department would need a lot of this kind of data.
+2
+Yeah, but.
+2
+OK, so sorry, back to the questions about like students tasks.
+2
+So because that we also have like simple drawing measurement tools in terms of like the scale as well as 
+like coordinates for example.
+2
+So besides just going in and downloading the data and closing the tab, would you say that students 
+would also use features like drawing and measuring tools like that?
+1
+But they might, but I don't ask them to because I make an assumption they'll be taking the file into 
+another program that they're more familiar with.
+1
+No, it's a good question.
+1
+I've never really used them.
+1
+You know, I kind of draw a box around what I want and then download it.
+1
+Yeah, don't know.
+1
+Don't use them.
+1
+I'm not aware that the students would.
+1
+Use them either.
+2
+OK, I see.
+2
+And you mentioned that like you before you download the data, you first draw a box indicating the part 
+of the data you would like.
+2
+And I've noticed that you can't like there's no option for you to select specific borders.
+2
+For example, like the City of Edinburgh or like the Scotland area, and has that been a problem to you?
+2
+Or is it really easy for you to filter that information out once you get the data into some other 
+softwares?
+1
+I tend to be looking at a smaller area than.
+1
+That I I would tend to be.
+1
+I'm an architect.
+1
+I'm looking at something which is kind of building scale or a bit bigger than building scale.
+
+Right.
+1
+So local neighborhood.
+1
+So I don't know what other boundary would make sense to me.
+1
+You know, I would never want to download something as big as Edinburgh.
+1
+I guess I can't use it as a small graphic.
+
+OK.
+1
+Adjacent to something else I you know, I'm much more likely to take a kind of neighbourhood, but it 
+wouldn't make sense for that to be.
+1
+A post code or a.
+1
+A A named neighbourhood.
+1
+Or so I I don't you know, for me, drawing a line or drawing a a box, a boundary makes the most sense.
+2
+OK.
+1
+You know, sometimes that involves having several tiles that you then put together yourself, which is 
+fine.
+1
+Part of the challenge for students.
+2
+Uh, yeah, sorry, I was just taking notes there.
+2
+OK, I see.
+2
+So basically it is just.
+2
+So basically the students are just going in to get the data.
+2
+And that's everything that.
+2
+They're doing.
+2
+And have they reported any like difficulties or is there something that they wanted to do but could not?
+1
+No, I think if they sometimes they have questions about why is certain information not included.
+1
+So if they're downloading vector data at a certain scale, why does does not include detailed geological 
+data or topographic data or something, but you know it's a different kind of map, so that's a question 
+that we can answer.
+1
+They shouldn't have that.
+1
+Because it's a different type, a different scale of data is stored, and sometimes it's stored in a different 
+format.
+
+Right.
+1
+So that's the sort of questions that they would come up with, like when I download this, why do I not get 
+everything?
+1
+Why are there different maps for different things?
+1
+But I think that's a reasonable question, but it's also a reasonable answer like I.
+1
+Well, I mean, it's interesting, I guess maybe it would be great if you could download everything, but data 
+comes at different scales and I think that's a useful thing for students to learn to understand.
+2
+So when you're talking about the scale, are you referring to?
+2
+Like what, what, what kind of could you give me an example of?
+1
+The so I haven't used it for a little while, right, so I might not be immediately giving you the best answers 
+possible, but let's say for an architectural sized site I would be interested in.
+1
+Building data pavement edges.
+1
+You know the sizes of roads and then some political type data as well.
+1
+So the the kind of building that it is potentially if.
+1
+It's public or private or.
+1
+Whatever, right.
+1
+But then students would also be interested in topographic data, so contour lines.
+1
+And and they might be interested in the geological data as well to understand foundation needs.
+1
+But there is no one ordinance survey map that would give me geological data and sociopolitical data and 
+traffic type data, and that is silly.
+1
+I don't think there are no, it should.
+1
+It should be a.
+1
+Type of map that has all of those.
+1
+So if the students want their geological data map, they would be downloading a very different file.
+1
+They'd be asking for a different file from digimap.
+1
+And let me just log in now and see if the interface is the same as it was when I last went in.
+1
+Sorry, I'm just logging in and hopefully it's working.
+1
+Yes it is.
+1
+OK.
+1
+No it does need me to reregister something.
+1
+So I can't access it immediately.
+1
+Does that make sense?
+2
+Yes it does.
+2
+So different information are stored in different maps.
+2
+All those students want the all the informations they will have to get them from different maps.
+
+Yeah, sorry.
+1
+It looks like it's.
+1
+Yeah, it looks like I.
+1
+Need to reregister, which is annoying but.
+1
+Now it's giving.
+1
+All of the prices.
+1
+And so I'm wondering.
+1
+Which bundle we have?
+1
+I'm getting distracted.
+2
+Sorry, what?
+2
+What were you?
+2
+What information?
+2
+What you're looking for.
+2
+Do you want me to share my screen so you can, like, take a look on my side?
+1
+Go on, then.
+1
+Yeah, if you could.
+1
+That would be great.
+1
+And I'll.
+2
+OK.
+1
+Hopefully be able to explain a bit better.
+2
+Yes, I will just figure that out in a second.
+2
+Uh, can you see my screen?
+1
+Yeah, that's correct.
+2
+OK.
+2
+OK, so I'll just close the survey.
+2
+Uh, yes, point me wherever that you would like to go.
+1
+So if you zoom into a postcode, say.
+2
+OK.
+1
+So eh 14.
+1
+Four as.
+1
+I don't know if it's.
+2
+Is it?
+1
+Did you put a postcode there?
+1
+Or there we go.
+1
+There you go.
+1
+That's what I thought I'd.
+1
+Find super OK.
+1
+So if I was to OK, the interface is slightly different from.
+1
+I remember if I.
+1
+Draw a area of interest that I want.
+1
+So choose.
+1
+Yeah, half of that or.
+1
+Part of that.
+1
+And then if I choose download data.
+1
+It gives me.
+1
+There you go, a whole bunch of different options.
+1
+And so I want vector data as I think I've said to you.
+1
+So I would go.
+1
+Yeah, I'd sort of go down there and then what students will be asking me is ohh, why can't I also have 
+the.
+1
+Sorry, I'm looking at this.
+1
+Yeah, the land and height data are in the same file.
+1
+Why isn't it possible to have the?
+1
+Road or traffic data in the same file and you know they're different.
+1
+They're different libraries, right?
+1
+So that's OK that they are different.
+2
+Yeah, that that completely makes sense then, yes.
+1
+But that's that's the sort of question that students would ask, like, why?
+1
+And I guess it's fair if this is all digital, why should they have to ask for several different downloads if 
+they want the different information?
+1
+Should they not just be able to say this area and then?
+1
+Everything on on one file.
+2
+Right.
+2
+But you were saying that.
+2
+Sorry, I'm, like, not too great with, like, geospatial data formats, but essentially they are different 
+formatted files, so they can't be merge.
+1
+So if you, if you have vector data which is, yeah, you got up there and I think vector map local is.
+1
+Often what I choose.
+1
+And you choose the the arrow to the right.
+1
+Of it, yes.
+1
+And it tells us a bit about it.
+1
+Yeah, right.
+1
+So that's only got a shape or a GML 3, which is no good for me actually, because I wanna pull it into into 
+SketchUp or into CAD.
+1
+So try the next one down.
+1
+Vector map local.
+1
+And if you ohh sorry, that is correct, Michael.
+1
+OK, one up then try the OS open map local.
+2
+OK.
+2
+Oh, that was the one we just looked at.
+1
+OK, sorry.
+1
+So the one down again you just.
+1
+Yeah, you're just faster.
+1
+Than me.
+1
+So there I can get a DWG and that's the file type.
+1
+That I want.
+2
+OK.
+1
+So this is the sort of thing that I would be showing students on screen to say.
+1
+If you want to import it into AutoCAD or Revit or whatever you need.
+1
+This is the the file type I would suggest.
+1
+That you use.
+2
+I see.
+2
+I am.
+1
+But say if you then go down to open rivers, yes.
+1
+And we look at the formats available there, you don't have the DWG, so they're not able to kind of 
+access that.
+1
+Now I'm sure that shape and GML 3 would be understandable for geography students, but for my built 
+environment students they can't access that data in that format.
+1
+However, if they go out of vector data.
+1
+And instead they're just looking for PDF data.
+1
+So yeah, OS terrain that would work.
+1
+Then they can probably download something more like a yeah, a a PDF or whatever.
+1
+OK.
+1
+DWG there.
+1
+OK.
+1
+That's new to me.
+1
+I didn't.
+1
+Know I could get that.
+2
+OK, so I'm just checking other.
+1
+There's a lot of DML three if you Scroll down the list a little bit more and go into some of the road 
+information underneath vector data.
+1
+Yeah, that's sort of oops.
+1
+Boundary and location data maybe.
+1
+Builds up areas National Grid, this sort of thing.
+1
+What formats are they?
+2
+CSV and trio package.
+1
+Right.
+1
+OK.
+1
+So again things that my built environment students would not be able to access easily.
+2
+Oh, OK.
+2
+So is it mainly just the sorry.
+2
+Well, it's called DWG files that you're looking.
+1
+Almost always, yeah.
+2
+OK.
+2
+And so if there is no DWG file available, would that mean that they would have to find some alternative 
+source of the data or is there a way to like transform the data from other file?
+1
+Might be and this is a question, yeah.
+1
+I don't know.
+1
+So for me it's limited to things I can access as a PDF or a DWG.
+2
+OK.
+1
+That's that's my limited use.
+2
+OK, got it.
+2
+Thank you so much.
+2
+That really makes a lot of sense.
+2
+Yeah, because I remember talking to my line manager about this and the part of the result is because we 
+do have like budgets providing different formatted files as well.
+2
+And after we look at the user groups we actually identify.
+2
+Architecture to be our biggest group of users across, like postgraduate undergraduate students and staff 
+members.
+2
+So now that I will definitely report to them that DWG and PDF files are what you are looking for.
+2
+For the most.
+1
+And I mean, this could also be about my education, right?
+1
+Software changes so quickly and there could well be different softwares that I should be using different 
+file types for, but I'm not aware of that so.
+2
+Yeah. OK. So.
+2
+Yeah, just to sum up, so is it fair to say that from your perspective?
+2
+The functionality is just downloading the data and then there has been fairly.
+2
+And intuitive for the students to use.
+2
+And besides the limitation on file formats, there's no like major problem in terms of the experience of 
+using.
+2
+This so far.
+1
+No, there isn't, but I, as I say I do show it on screen and it's partly because.
+1
+The menu you have up there draw, modify, delete, use coordinates, select visible there.
+1
+It's fairly it makes a fair amount of sense, but I think that undergraduate students can still get very 
+confused.
+1
+You know, they they Draw Something or they they don't click the draw icon.
+1
+Yeah, they they select the wrong area or they can't work out how to select an area and before you select 
+an area you don't see any of this, right?
+1
+So if you haven't managed to select an area, then you haven't got any access to what you might 
+download or anything.
+3
+Right.
+1
+I don't really criticize it, but I do think you need to be taught how to use it the first time, or you need to 
+be quite confident in working it out yourself.
+2
+Right, I see.
+2
+So have you ever told students to look at their help page or has that been helpful to you in terms of the 
+teaching process?
+1
+And I mean, I think they should, but I I haven't used that.
+1
+I've just shown them on screen and then asked people to copy that.
+1
+I mean, they should.
+1
+That's what they should do is look at the help page and it would probably explain.
+1
+It all very well.
+2
+OK cause I just did an interview earlier this morning with a architecture student from another university.
+2
+And basically, she said that the school provided no instruction when they just started to use it and 
+nobody knew about the help page that it even existed or were to access it. So, UM.
+2
+What is your picture in terms of this?
+2
+Like, has there been an instruction say that like, OK, this is the help page you guys should look at this or 
+since that you have like the live lectures showing them how to use this like how important do you think 
+that we made the help page really like visible and accessible?
+2
+And really shout out that well, we have a help pitch here, would that be helpful in?
+3
+Terms of your teaching experience.
+
+I mean, look at it, you.
+1
+Know it's a big question mark in the middle.
+1
+Of the screen it's quite obvious they should probably pick that up.
+1
+It's funny like.
+1
+I I asked students to do this themselves because I want them to get used to navigating online sites and 
+themselves, and if it's not immediately obvious, I kind of want them to spend a bit of time thinking 
+about it.
+1
+And if they've honestly spent like 10 minutes looking at the screen and they haven't seen a help button, 
+then there's a problem.
+3
+And unfortunately, I don't think.
+3
+Most people know that have been noticing it.
+1
+It's funny, isn't it?
+1
+But yeah, I don't know.
+1
+I don't think there's too much more you can do.
+1
+That's me.
+1
+Looks quite well signposted now.
+1
+I haven't to my knowledge you've used it and as I say, I've been using digimap forever.
+1
+And every time I use it or not every time.
+1
+But you know there are updates.
+1
+There are interface changes slightly.
+1
+Some things are a bit better.
+1
+Something a bit more difficult and.
+1
+Yeah, I don't think I've ever used the help.
+1
+I don't remember using it, but I know how to use digimap so it must also be that it kind.
+1
+Of makes sense.
+1
+To you after.
+1
+A while or maybe I did use the help years ago and.
+2
+Right.
+1
+Then I haven't recently, you know.
+2
+Right.
+2
+I I think there was some things added to it like some specific instructions and like task practices 
+examples etcetera.
+2
+Yeah, but unfortunately nobody knew that existed apparently so.
+2
+So that was.
+2
+Pretty much my questions about your user test scenarios and is it possible for me to share my screen so 
+you can look at the system usability scale and give me some.
+2
+That you think is.
+2
+Can you see my screen for this system?
+1
+Yes, that's fine. Yeah.
+2
+OK, so.
+2
+So basically, could you give me a score for each of these questions and explain why you gave it please?
+1
+One sorry question one answer 3 like I don't need to use it more so I don't think that frequently is 
+important to me.
+2
+OK.
+1
+Question to answer.
+1
+Two, I think there's elements that are a bit too complex, like I find the fact you have to draw the area 
+before you get any.
+1
+Of the options is.
+1
+Slightly strange, I don't see where that needs to exist, but otherwise it's it's basically good.
+1
+It's not too complex, no?
+2
+Right.
+1
+Do I think it's easy to use for?
+1
+Same reason, question four I think that I would need to the support of a technical person to be able to 
+use the system.
+1
+No disagree 1.
+2
+OK.
+1
+Five, I found the various functions in the system were well integrated.
+1
+Three in the middle.
+1
+I mean, to me, maybe this is unfair and to me this.
+1
+So I also practice as an architect for years and in that period I needed to access OSD.
+1
+Sorry OS maps, not Digi Maps for professional purposes and so at that point I would go to a commercial 
+supplier.
+1
+So stanfords or whatever.
+1
+It tends to be easier.
+1
+On those commercial platforms to highlight the area that you need to make sure that you get the 
+exactly the area that you want like you don't have the problem of having to piece together different tiles 
+of map or whatever.
+2
+Right.
+1
+But of course those are.
+1
+Yeah, they would have to pay a lot of money at the end of that experience because it's a commercial 
+platform, right?
+1
+Whereas this is provided for education.
+1
+So I think that I would put a different standard on that because I know that the commercial platform is 
+getting a load of money from commercial operations like my architecture practice to do that.
+1
+So no wonder it has an easier interface because it's.
+1
+Getting more money and it has a commercial game.
+1
+So I think that digimap as it stands functions brilliantly as an educational resource.
+1
+But if it was out there as a commercial resource, I don't think it would do as well as the ones that are 
+already there because they have a better interface.
+2
+Right.
+2
+And for my understanding, are you referring specifically to selecting and drawing tools?
+1
+No, the whole process of selecting mapping data.
+2
+So the process before you actually download.
+2
+The data to select a.
+2
+Part of the area and.
+1
+So the my well for my purposes, as you say, mostly what I do is I I use it as an archive and I go and get 
+something and then I work on that offline.
+2
+Right.
+1
+UM.
+1
+And yeah, that process of selecting what I want from the archive I think is better on commercial 
+platforms than it is on digimap.
+1
+I don't have a problem with that.
+1
+I would much rather that if digimap don't have too much money, they spend it.
+1
+Making sure that we have as free access or as much access as we can, and keeping our subscriptions 
+low, right?
+1
+I would prefer that than digimap makes the most beautiful commercial site and then makes the 
+subscriptions higher so that my university doesn't get.
+1
+Them that would be a lot worse.
+2
+I see.
+2
+I see and like.
+2
+Could you give me like 1 specific example of?
+2
+How you think the interface is difficult, more difficult to use?
+2
+Is it just the part that you mentioned?
+2
+You have to select the area before you can select.
+2
+The data you want.
+1
+Yeah, I mean, it moves a little slow for me usually.
+1
+Like when you put in the post code to go to Harriet Watt, it takes a little while and then it gets there.
+2
+I see.
+1
+If you.
+1
+Excuse me.
+1
+If you move them up, you scroll them up.
+1
+You have to choose a different tool.
+1
+I think you can't just do zooming in now you know there are various different function like things like 
+that that just you don't think of it.
+1
+It's just really expensive and good user interface design to me.
+2
+I see just like the little things, but they're everywhere.
+1
+Kind of, yeah.
+1
+It just feels a little bit clunkier than.
+1
+If you're going through Google or Pixel's latest thing you know.
+2
+I see.
+2
+OK.
+2
+Yeah, that makes sense now.
+1
+Anyway, I think that's good.
+1
+That was.
+1
+My point?
+1
+So, so, so, so.
+1
+So I thought there was too much inconsistency in the system.
+1
+No, I don't really understand what that would be, so.
+1
+I don't know what an example of inconsistency would be.
+2
+OK, that's good.
+2
+That's good to.
+1
+Know seven.
+1
+I would imagine that most people would learn to use this system very quickly.
+1
+Yeah, medium, I don't think it's so.
+1
+Three or four.
+1
+Eight, I found the system very cumbersome to use No2.
+1
+Just explain why it's not brilliant, but I don't think it's cumbersome.
+
+OK.
+1
+No, I felt very confident using the system I do now.
+1
+Yeah, so fine.
+1
+I understand how to use it and I like that.
+1
+I guess that's what.
+1
+I mean, you can learn.
+1
+It and then.
+1
+It works and then I needed to learn a.
+1
+Lot of things before I can get going with this system.
+2
+Sorry, specifically the things here would refers to like geospatial knowledge.
+2
+I would think would would that be necessary?
+1
+Maybe so.
+1
+You know, I have to tell students these are the file types that you can work with, and these are the ones 
+that you cannot.
+1
+And they need to know that in order to be able to, there's no point in them downloading a load of files.
+1
+They can't open.
+2
+Right, yeah.
+1
+But that's maybe special knowledge that students need before they can effectively access this, although 
+I think.
+2
+I see.
+1
+I seem to remember that recently when I've downloaded things, there is a kind of warning on some of 
+these to say something about file compatibility, so maybe you already do something there.
+2
+OK, OK.
+1
+I guess there's also.
+1
+Sorry, please pull in my throat.
+1
+The collections.
+
+Are ordered.
+1
+According to ordinance survey terminology.
+1
+And that's relatively straightforward, but maybe not always as clear as it could be.
+1
+Unless they open up those drop down menus.
+2
+Right.
+1
+Maybe students wouldn't understand where they would find Rd.
+1
+data which which group would it be under?
+2
+I see.
+1
+Where would they find topographic data?
+1
+Which group would it be under you know?
+2
+Right.
+2
+Yeah, that was.
+2
+Yeah, that was a.
+2
+Clear example.
+2
+Yes, I understand what you're saying now.
+2
+So like basically the order of the data types that they can download, I mean not sorry not data type like 
+the content, the map layers that they can down.
+2
+Yeah, OK, I see.
+1
+And they're they're kind of, you know, underneath those drop down menus and you might not know, 
+but again you can just open a few menus and find it like.
+2
+Right.
+1
+I think that I think the level of accessibility is right for something which is being studied in an academic 
+environment, because I think you should expect your academic users to have to.
+1
+Make some kind of effort here.
+2
+Right.
+1
+It's not a commercial environment and to me that that is a significant thing and that makes it OK.
+2
+OK, I see.
+2
+OK.
+2
+Thank you for giving me those answers and I'll go back to.
+2
+This camera view.
+2
+Now so, so that was pretty much all the questions I designed to ask.
+2
+And just like during the process, the, the things you mentioned just reminded me of some actual 
+questions, if that's OK, because I do realize it's like.
+2
+Pass right now if you have.
+
+I don't have.
+1
+Where to go soon, but not immediately.
+2
+OK.
+2
+OK, great.
+2
+Thank you.
+2
+Because I was also looking at log data in terms of the session lengths that the students were having, and 
+to my surprise that the longest session we had was from an undergraduate architectural student who 
+spent 17 hours straight using the system.
+2
+It's not that not uncommon because there is a lot of users who spend like 5 to 7 hours straight on the 
+service as well.
+2
+And like, how does that make sense to you?
+2
+Or does that even make sense to you like?
+1
+Does it automatically log people out after inaction?
+2
+Yes, after one hour of inactivity the session is gone.
+2
+But then apparently people stay on there for, yeah, and as undergraduate students as well.
+2
+So I'd imagine that there's no like project.
+2
+I mean, like, independent research project involved.
+2
+Or like a dissertation thesis or something.
+1
+Really weird, isn't it?
+1
+I mean, so it sounds.
+1
+I mean, are they just exploring like it's really interesting, but I mean 70 hours, somebody can't be awake 
+for all that.
+1
+So is it a group of people using one computer?
+1
+Is it somehow the computer itself is automatically refreshing enough to stop the automatic logout?
+1
+I don't know.
+1
+I mean that just it sounds weird, doesn't it that?
+1
+Sounds like an anomaly.
+2
+OK, I see.
+2
+So that is uncommon from your perspective as well.
+1
+I mean, I could imagine that students would leave the tab open and come back to it, you know, across a 
+day.
+2
+Right, yeah.
+1
+But if you.
+1
+Have a one hour time up.
+1
+I would imagine that would catch most of those you know.
+2
+Right.
+1
+I do think the first time you access it, I think it's fascinating.
+1
+So I could imagine.
+1
+Students doing their project, but also then going Oh my God, how about like?
+1
+Where I live.
+1
+Like I'm interested in that or like ohh let.
+1
+Go and look at this, you know.
+1
+I cynically I guess there's also a chance.
+1
+You have students who are working for commercial companies whilst they're studying.
+1
+As those companies ask them to access digimap on their.
+2
+Ah, I see.
+
+Right.
+1
+Academic licenses, like when I was working in practice, I know that my employer enjoyed that I had 
+access to educational digimap.
+
+I see.
+1
+So there's a chance that that seems pretty unlikely to me.
+2
+So, So what would you say is the typical session length for your students?
+1
+An hour, you know?
+1
+Or two hours maybe, but I couldn't imagine, you know, not more than half a day.
+1
+No way.
+2
+I see.
+2
+So is it mostly in a lab setting, or is it just like them doing their assignments on their own?
+1
+The assignments on their own is how I leave it I.
+1
+Don't run it as a lab.
+2
+OK, I see.
+2
+OK.
+2
+Thank you.
+2
+That was one of the questions.
+2
+And just so that because I'm also recruiting for students from like undergraduate and postgraduate 
+degrees, and I know that like a lot of people are holiday right now and.
+2
+Are you currently supervising any postgraduate students, for example, and they their research is 
+involved with digimap?
+1
+One, but I know that she's got a struggle to complete at the moment, so I.
+1
+Don't wanna distract her.
+2
+Oh, yeah, yeah, of course.
+1
+Kind of think, yeah, maybe.
+1
+Actually I could I could.
+1
+I will suggest.
+1
+To a couple of them that.
+1
+They get in touch with you.
+2
+Thank you so much.
+1
+In fact, actually, she's a good one because she's also working in industry, so she might be helpful at 
+thinking about that relationship as well.
+3
+OK, well, I'm so grateful for that because I'm struggling so much looking for people to willing to.
+3
+Be a part of this interview, yeah.
+3
+Thank you so much.
+1
+What's your target?
+1
+How many people do?
+1
+You want to find.
+2
+Honestly, it's very much dependent on the user groups, so we are currently focusing on architecture, 
+geosciences, engineering and archaeology.
+2
+And we are trying to recruit like undergraduate, postgraduate and staff members.
+2
+So probably just to fill those 12 user groups in.
+2
+Would be great, yeah.
+1
+I'll flag it to my colleague as well, who has been part of the the discussion about how we use digimap.
+1
+I'll see if you'd be happy to do it.
+1
+As you say, a lot of people are away on holiday.
+2
+Yeah, yeah.
+1
+You know, it's an extra.
+1
+But anyway, I hope it's interesting.
+
+Yeah, I.
+2
+Really appreciate it.
+2
+So yeah, that was everything that I wanted to ask.
+2
+Is there anything that you would like to mention or anything that came to your mind that is particular?
+2
+Ugly important for me to pass the word on or like for me to know.
+1
+No, I don't think so.
+1
+It's it's good for me to get back into this headspace because we do need to talk about the resourcing or 
+you know, our our.
+1
+Our bundle that we get from you and we need to develop that.
+1
+So I'm kind of glad I've put my head back.
+1
+In his face a little bit.
+2
+So I'm sorry for not being able to help a lot because I'm still into myself, but I'm really happy to help with 
+anything if there's anything I can do.
+1
+No problem.
+1
+Will do and thank you as well and really, really sorry I was so late.
+1
+That it's very.
+3
+It's completely alright.
+1
+Thank you very much.
+1
+OK, cool.
+2
+All right.
+1
+Lovely to meet.
+2
+Yeah, me too.
+1
+I will say goodbye.
+2
+Thank you so much.
+2
+Enjoy your day."
+
+Begin!
+System: Thank you for providing the interview transcript. I have removed all irrelevant information and kept everything that could be useful for thematic analysis. The interview focused on the user's experience with the "Digimaps" software product developed by EDINA. The interviewee is an education professional, primarily involved in teaching across construction disciplines. They use Digimaps for educational purposes, particularly in working on hypothetical projects with students. The interviewee primarily uses vector-based Ordinance Survey maps for their work and encourages students to use Digimaps to access and analyze data. They mentioned that the interface could be clunkier compared to commercial platforms, but overall, they find Digimaps to be a valuable educational resource. They also discussed the limitations of file formats and the need for students to have some geospatial knowledge to effectively use the system. The interviewee mentioned that sessions typically last for an hour or two, but longer sessions are not uncommon, especially if students are exploring different areas of interest. They also mentioned that they have one postgraduate student using Digimaps for their research. Overall, the interview provided insights into the user's experience and the educational use of Digimaps.

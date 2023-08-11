@@ -1,0 +1,1159 @@
+ 
+System: Hello! How can I assist you today? 
+
+User: Act as a summarizer. Your aim is to summarize an interview transcript so it can then be used for qualitative thematic analysis. You must remove all irrelevant information and keep everything that could be useful for thematic analysis. 
+The interview is on the subject of user experience using the "Digimaps" software product developed by EDINA. 
+Interview transcript:
+"1
+So first of all, may I just ask what is the name of your institution and department through which you're 
+accessing the map?
+2
+The architecture department.
+2
+So yeah, not sure what's your name but.
+1
+Right.
+1
+And could you just tell me the name of the university as well, please?
+2
+The University of Strathclyde.
+1
+OK, OK, great.
+1
+Good to know so and what course specifically are you taking at that institution?
+2
+Just architecture.
+1
+OK, so the the name is called architecture.
+2
+Yeah, I think it's just architecture anyway.
+2
+I think that's sorry, my cameras seems to be having issues.
+2
+It keeps saying your cameras not working.
+3
+Ohh no, it's alright.
+1
+Don't don't worry about the camera.
+1
+OK?
+1
+So is it a four year program or like what year are you currently?
+2
+It's seven, it's 7.
+2
+Years in total, but it's sort of like in fourth year you can go to work for a year, so.
+2
+Just like I think you graduate.
+2
+Maybe after four and then you go on and do your next part.
+1
+Ohh wow, that's I didn't know it was such a degree from 7 years.
+1
+So can you do it separately or do you have to finish the entire thing?
+1
+To get like a degree.
+2
+No, I think you can finish after the first part, but it's not like the complete degree.
+2
+So it's like I think if you want to become an actual architect, you have to.
+2
+Do the whole.
+2
+Seven years, I see.
+1
+And so you're currently in?
+2
+I've just finished second year OK to go into third.
+2
+Year next year. OK, great.
+1
+Yeah. So have you had?
+1
+Any prior experience with any geographic information system before you enter?
+1
+In this program.
+2
+The first I'd say I hadn't looked at digimap for anything before doing architecture, but it's quite a like a 
+lot of people use it in our course.
+2
+So that's their first.
+2
+First heard about.
+1
+I see.
+1
+So the four digit map.
+1
+Have you ever used like similar products or like Google Maps?
+1
+Do you use like maps system usually?
+2
+I would use.
+2
+Usually before just Google Maps all the time, still use Google Maps obviously, but just for architecture I 
+always use digimap.
+1
+OK, I see.
+1
+Thank you.
+1
+So for my understanding.
+1
+So you've been using it for almost 2 years now we so since.
+1
+You OK? Great.
+1
+And what collections do you most frequently use?
+2
+So I always use the same sort of thing.
+2
+I don't use a few of them, it's normally just the ordinance survey part of the G map that we used and 
+occasion.
+2
+I've looked at the.
+2
+Historic one before just for like some parts.
+2
+So I've not looked.
+2
+I was having a look on it this morning again to see the other ones.
+2
+They do. I've not really.
+2
+Had a look at the other.
+2
+Sort of environment area like the those sort of ones have not.
+2
+It's normally the ordinance survey.
+1
+OK, I see.
+2
+That I use.
+1
+Yeah, yeah, I've been hearing that from a lot of people as well because.
+1
+And you know, we've like integrated.
+1
+So there used to be two parts of the Ordnance Survey, so there's like a room part where you can, like, 
+browse the data and just like, look around on the map.
+1
+Apps and there's another part called download.
+1
+So basically you just go straight in to download data and now we have like an integration of these two 
+systems.
+1
+And what part of it do you?
+1
+Mostly use, you would say.
+2
+Normally go into it and then so far architecture.
+2
+We get given like a area that are like projects based in.
+2
+So for example my last project was based in Saint Andrews and it's like you get a site to work on uh, so I 
+use it sort of for different scales.
+2
+So we maybe get asked to do like location plans and site plans and we all get asked to do.
+2
+Specific scale. So maybe like 1 to 125 or 1 to 500, so I'll sort of go in and.
+2
+And the area that we're being asked to like build on and then I would download it at a certain scale.
+2
+So then I can like sort of use that to do like initial planning of like sketches and ideas and and like just.
+2
+So you've got the area in front of you and you can see the.
+2
+Context around around what you're doing.
+2
+So yeah, it's mostly just for the initial like.
+2
+Sort of site site planning and stuff and.
+2
+Like context of the area that we're doing our projects on.
+2
+If that makes any sense.
+1
+Yeah, that makes total sense.
+1
+And I just wanted to add some follow up questions.
+1
+So first of all, you mentioned that this is for a course project and is it based on the teaching setting or so 
+like, is it an assignment for a specific course or is it like an independent research project?
+2
+And so of course we have in architecture, we've got design studios and in design studios we get given 
+like we all get given a project.
+2
+So for example, I'll just give you an example of a random one, but we have like a library project, so we 
+get asked all the year that's doing our architecture at Strathclyde.
+2
+But yeah, it gets asked to do this like library project and you get given maybe like a area.
+2
+So for example as in Saint Andrews and you get a list of.
+2
+Requirements that you have to cover by the end of the project.
+2
+So it's like we're all doing it, but our own sort of individual project, but we're all doing.
+2
+So we're all designing our own one, obviously, but in the same area.
+1
+I see.
+2
+So yeah, so we use it quite often.
+2
+It'll in the list of requirements we get, it will quite often say like.
+2
+Produce allocation plan at scale one to 125 or a site plan at 1 to 500. So that's where I mostly use 
+digimap for to help.
+1
+I see. I see.
+1
+Yeah, that makes a lot of sense.
+1
+And I've heard that there are some like set of rules, for example like the scale you use and which you'll 
+see there's a lot more instruction when you started to use the gmap.
+1
+So basically was there like a walkthrough of like how you should navigate through the system where you 
+can find?
+1
+Like all the functions and features, et cetera.
+2
+I can't remember because it was a while ago that we got told that we must have been told about it quite 
+early on, but I don't remember there being like a huge thing of like how to work.
+2
+I think I remember just sort of.
+2
+Trying to navigate it myself or like my friend helping me holiday do it for example, but I don't.
+2
+I don't think from my understanding group but.
+2
+There was like a class.
+2
+Or anything on how to use it?
+1
+I see.
+1
+And so like during the project itself.
+1
+So you mentioned the scale and can you give me some other like specific instructions like is it something 
+like go on to digit map, open the owner service collection like go to the specific base?
+1
+App and like select the area.
+1
+Is it something like this or is it?
+1
+Like more simple, just the.
+2
+It's more just I can see at some point if I can get up for you, but.
+2
+It's like we'll have a.
+2
+We have at just a design brief and then it will say at the end of it a list of like requirements.
+2
+It doesn't tell you like how what to use for or whatever, but a lot of people know.
+2
+I think in the course to use just to use for it because it's good, easy and.
+2
+Like to find what you need.
+1
+I see. So you have.
+1
+To figure out it yourself.
+2
+Yeah, it doesn't specifically say like use digimap to do this, it it's sort of just, I think, yeah, quite a lot of 
+people know of digimap, so they know to use it.
+1
+I see.
+1
+OK, great.
+1
+And also you mentioned that you download the map for like later plans.
+1
+So is it so we have like different sections of download, so you can either print the map out which is just 
+like a map?
+1
+Thank you.
+1
+Download as a PDF or whatever, and there's the second part where you download the specific data that 
+you select.
+1
+So which download are you mainly using it for?
+2
+So I haven't looked him up now and see what I would do, so I would go on and then I think I go up to the 
+print generator file for printing and then I would.
+1
+Right.
+2
+Change the scale to whichever scale I need for the task and then I would keep it in the PDF and then 
+normally print out like a three or whatever, but it I normally would print out.
+1
+OK.
+1
+OK, I see.
+1
+And have you ever downloaded it?
+1
+Does your car like, does any of the course require the raw data?
+1
+For your designs.
+2
+Normally, no.
+2
+Normally I use digimap as sort of a tool to like I would get the base printed off and then from then I 
+would then trace over it or draw over it like I wouldn't hand in work.
+2
+That was like just off the jump.
+2
+I'd sort of.
+2
+I'd use digimap as the tool to then generate my own work sort of thing.
+1
+OK.
+1
+I see.
+1
+OK.
+1
+Got it.
+1
+So sorry, I'm just looking at the set of questions side and.
+1
+So are you comfortable with sharing your screen or do you want me to open it up on my side OK.
+2
+Yeah, I've not.
+2
+I've not used before, but I'll try.
+2
+I would say my camera doesn't seem to be working though, so I'm not sure if it will.
+2
+Work just be.
+1
+If you look at the top right corner beside the red button called leave, there's like a share button.
+2
+And then is it just?
+1
+Share a screen?
+1
+Or window.
+1
+If you select a specific window, but either.
+1
+Way is fine.
+2
+Entire screen see if this breaks one SEC.
+2
+I'm not sure why it's not letting.
+2
+And click.
+2
+It's going to try and share this whole screen, but I'm not sure if it's.
+2
+Going to let me.
+2
+I can try and do, uh, just share it.
+2
+Tab, see if that work.
+2
+Do you want me to go digimap is that?
+1
+Yes, please.
+
+OK.
+1
+Can you see that?
+1
+Perfect.
+1
+So I'll go back.
+2
+So yeah, you just want me to show you what the avid is.
+1
+Yes, please.
+1
+And could you just like talk me through every step?
+1
+So like for every button that you click on, could you like explain why you're going there?
+2
+Yeah. So.
+2
+I I I'll just do what I usually do cause I don't really know much, but I always go on to the ordinance 
+survey, part of it, and then I would go here to the OS digimap on that.
+2
+And and then for example, I would go to the search to wherever my projects based and I'd maybe so for 
+example, Saint Andrews.
+1
+Right.
+
+Right.
+2
+I just go to there and then I would come to the screen and then I would zoom in to wherever my my 
+project, my project spaced.
+2
+So for example.
+2
+I don't know.
+2
+We might be.
+2
+Working on a project.
+2
+That's like.
+2
+Down here, this is just this isn't exactly where our mine was, but it's just an example, right?
+2
+But see, see, we got sorry, say we got asked to do a building in this green space, right?
+2
+Quite good.
+2
+Because I would then go to.
+2
+Generate print file.
+2
+I could maybe say if I was doing a location plan, I would get at that scale.
+2
+And go to layout preview just to sort of get exactly where I want it to go.
+2
+Generate the print file.
+2
+And then it clicked on here.
+2
+And then I would print that out.
+2
+And I would sort of use that to sort of get the sizing of what I want.
+2
+In here and sort of use the context around it as like help.
+2
+But that's mainly what I would use it for and obviously doing it at different scales so I could do it at.
+2
+That one and then.
+2
+I could do a closer up sort of scale so I could get more detail once I get into more final plans and stuff.
+2
+Yeah, but can you still see my screen?
+1
+Yes, I can.
+2
+Can you see it when I like flick into different ones?
+1
+Uh, no, sorry.
+1
+I can only see digit map because probably you just hit the tab but but that's completely fine.
+1
+I yeah, I understand your steps now, so I just had like a few questions on your step.
+
+OK.
+1
+So have you ever noticed, like other tools besides just like download for example, you can select base 
+maps and because I noticed that you zoomed into the vector map and have you ever choose like the 
+overlays of the map to adjust for what areas or what part of the maps that you want?
+1
+It to print.
+2
+And so I forgot to mention, I'd also sometimes use.
+2
+So when I go to print it, I've used like I've added on for example like National Grid lines.
+2
+Oh, right. I've done that before. Just for we went. We once got asked to do a site section model, so sort 
+of like a 3D like actual model of the land to show like the gradient and stuff. So I've used the grid lines 
+before to like create a A model.
+2
+Of what it would be like in real life, but not really explored.
+2
+The other things that you mentioned.
+1
+I see.
+1
+And so there was no requirement on these selections either.
+2
+What was it? Sorry.
+1
+There is no requirement from the course for you to use.
+1
+These features, right?
+2
+They didn't really show us how to use it, but they probably expect us to try and learn.
+1
+Yeah, I know, because it's such a complicated system because I started from knowing nothing about the 
+math either, and it took me days just to like, sit in front of the screen and figure out what everything 
+was.
+1
+Yeah, yeah.
+2
+A lot of it's just sort of with like.
+2
+And you're like peers and stuff, just all sort of showing each other how that everyone does it.
+2
+And that's sort of how we want to learn that, yeah.
+1
+Have you ever used the drawing and measuring tools on here?
+1
+Because I would imagine you have to do some type of movement and drawing.
+1
+But do you usually do that after you print the map out, or do you have?
+
+I think.
+2
+And I think I have used the tools I.
+2
+Ohh I have also used the.
+2
+Quite often when I'm looking at like the site, so I use that as like.
+2
+For all the buildings around it in context, but quite often when I'm measuring the area of the site, I've 
+used Google.
+2
+It's like Google Earth sort of thing and whereas because I don't think I really knew about Digimap being 
+able to do that.
+2
+So I,
+2
+Often use like Google or there is something to get the site areas and dimensions.
+1
+Right.
+1
+And I'm sorry, could you just get the screen back up if possible, because I wanted to show you how you 
+can do that on the map.
+2
+My computer.
+1
+Yeah, sorry or I can share my screen if you do.
+2
+Oh no, I can.
+2
+I can share.
+2
+It's so was it.
+2
+The did you map again?
+1
+Yes, please.
+2
+Did you see?
+2
+Yeah, one second.
+2
+I'll see if I can.
+1
+Sorry for the frustration.
+2
+OK. Is can you see?
+1
+That so if you look at the bar on the left and it says drawing tools and if you click click on that.
+1
+Yeah, and.
+1
+Could you just try to based on the look of it and trying to see if you if it's intuitive for you to use?
+2
+Oh, so you can actually draw on it and.
+1
+Yes, yes you could.
+2
+Stuff as well.
+2
+I didn't realize that actually.
+2
+I'll take it away.
+1
+Right.
+1
+And you can also measure.
+3
+It is really confusing.
+2
+Intro land there we.
+2
+Go and.
+2
+OK.
+2
+And so it's, you know, it's it's quite it's weird you know on.
+1
+Yeah, if you if you double click on a point, it will stop drawing.
+2
+Ohh, double click.
+2
+Oh yeah.
+2
+Click and select to move the chair.
+2
+Oh, I didn't realise you get different.
+2
+Like you can have like lion.
+2
+That's quite cool.
+1
+Yeah, there are so that you can make your map more specific in terms of what you want to see when 
+you print.
+1
+It out.
+2
+I was there.
+1
+You have to click on the thing.
+1
+That you drew to measure.
+1
+OK. Yeah.
+2
+Oh, OK, cool.
+1
+Yeah. So is it.
+1
+Something that will use like similar to what you use Google, I mean.
+1
+Google Maps for.
+2
+Yeah, I didn't realize you could do all of this.
+2
+I'll definitely have a look.
+2
+I'm not very good with computers to start with, that's.
+3
+No, it's our system is so confusing cause it's been around for like more than 20 years and it's so like 
+ancient in terms of.
+3
+The interface, yeah.
+2
+Not realize something.
+2
+I'll go.
+1
+And so if you could also cause we have like a a FAQ page.
+1
+Have you ever noticed where it was and have you ever tried to find it?
+2
+I haven't, haven't actually.
+1
+So within the map, if you click on the OS system again, so go back to the map if you could please.
+1
+And there's on the top bar, you can see a question mark.
+1
+Yeah, and that would be the help page and.
+1
+Is there anything that you would normally need in terms of getting?
+1
+Familiar with the system?
+1
+At the beginning, do you think it's helpful on the?
+2
+No, I I think that looks helpful.
+2
+I definitely will have a look at.
+2
+Can you still?
+2
+See my screen.
+1
+Not really, but that's alright.
+2
+I'm switching between.
+3
+No, it's completely alright, yeah.
+2
+But I'm having a look at it here right now that does look helpful.
+2
+I definitely will have a look at the.
+2
+Like laying tools and the measure tools on here because I didn't realize that you could do that.
+1
+And also if you go to the.
+1
+Because there are also learning materials and if you go to the learning materials it has like specific task 
+scenarios where you can practice on, yeah.
+2
+There's a lot of stuff in here.
+1
+Yeah, there actually is and so.
+1
+Has anyone noticed it before?
+1
+As you know of like your classmates and nobody mentioned to you that there was a help page.
+2
+No, I I think most of us just know do sort of like the base text of like what I showed you earlier.
+2
+But I I don't know many people that like actually use the measure tool and stuff.
+2
+For example on it it's mostly just, yeah.
+1
+I see.
+1
+I see.
+1
+And so I think that.
+1
+Now understand what your typical tasks are and UM, can I just ask, like, from your perception, what are 
+the main functions of digimap and out of the function that you're perceiving that there are, what major 
+functions are you using currently?
+2
+Wait, so is it?
+2
+Sorry, but what?
+1
+So by the look of it, what do you think this system is trying to do and out of all the functions that it could 
+possibly achieve, what functions are you mostly using?
+2
+Well I am.
+2
+I feel like there's a lot of functions of the digimap that I've I've not explored yet, but a lot of probably 
+other people in different courses, but I'm sure use the ones that that I've not looked at yet, but yeah, 
+mainly.
+2
+Main mainly in architecture is just the OS one that I've used just for like context around.
+2
+I can try and share my screen on like what I'm trying to explain about like.
+2
+See if this works.
+2
+Let me know if you can.
+2
+You can see it so.
+1
+Right now is your face.
+2
+Can you still see me?
+1
+Yeah, but it's like kind of frozen.
+2
+Ohh yeah, it's a black.
+2
+It's just a black screen for me so.
+2
+Sure. Can you see my?
+1
+Screen yes I can.
+2
+So like for example, this is just a.
+2
+This is a cut down version of my project, but for example.
+2
+This like location and site plans if you can.
+2
+See that?
+2
+Yes, trying to pretend to slideshow like I use digimap to sort of create that location plan at that scale.
+2
+I used the generate print field to sort of get the sizing of that just to show the location of like where my 
+project would be and then.
+2
+The site plan to then put my one of my plans into it just to see how it would fit at that scale.
+2
+If I'm not sure, is it clear?
+1
+Yeah, it it is.
+1
+I just noticed that like the colors and the map content are slightly different from.
+2
+Yeah, I did that myself.
+2
+Like I I went, I brought that into a different program to then, like change drop over it.
+2
+To change the colors.
+2
+So it fit in with my project and then I let's see if I've got any more.
+2
+I sort of use.
+2
+Did you map here again?
+2
+For example in the to to just see how my building would like fit in with the and and like here again in my 
+final proposals I used DIGIMAP to to.
+2
+And show like the roads and the buildings like around it to then put my plans over.
+1
+I see so.
+2
+In fact.
+1
+Basically for like site information on like the surroundings.
+
+Of the buildings.
+1
+Yeah. OK.
+1
+OK.
+1
+I see that was really clear.
+1
+Thank you so much.
+2
+That's OK.
+1
+OK, so so now I think just like a.
+1
+I'll start to share my screen if that is OK cause.
+1
+There is like a system usability scale that there are 10 questions.
+1
+Can you see by these questions clearly?
+1
+OK.
+1
+It would be great if you could so this questionnaire wasn't specifically designed for digit map, but could 
+you like think of digit map when you're giving a rating to this?
+1
+Questions and explain your reason of your score please.
+1
+Thank you.
+
+OK.
+2
+And I'll start with that.
+2
+I think I would.
+2
+Like to.
+2
+Yeah, I would say 5 probably for for the first one.
+1
+OK.
+2
+And probably because, yeah, I think throughout the projects like it will always have have location that 
+it's like obviously set in.
+2
+So I'll never not really need to need a program like that, because for whichever wherever the projects 
+based.
+2
+It's handy to have the program for like changing the skills and sort of being able to draw over and and 
+use it.
+2
+So yeah, I'd probably say 5 for the first one, second one.
+2
+I found the system unnecessary and complex.
+2
+So I would.
+2
+I'd say or I'd maybe say 2.
+1
+OK.
+2
+Wait, no, wait.
+2
+So I would I say.
+2
+I think I think it's quite laid out well.
+2
+I wouldn't say it's hard to.
+2
+Get around.
+2
+I just think I need to put more time into.
+1
+Right. Yeah and.
+2
+I see.
+2
+So yeah, I disagree with that.
+2
+I thought the system was easy to use.
+2
+Yeah, I'd say probably 4/4 for that because I it probably should be 5. I'd say it is, it is easy to use and 
+various or maybe 5.
+2
+OK, so I do think it's easy to use and there's a help page and everything.
+2
+Is that?
+2
+I just think I need to sort of.
+2
+Look into that.
+1
+Right, right.
+1
+Like the confusing part is that like, the there was no instruction from the beginning for.
+1
+You to have a thorough guy.
+2
+So I don't see that that.
+2
+So I just say maybe within the course we should maybe be taught how to.
+2
+Use it, but that's.
+1
+I see.
+2
+And and then four, I think that I would.
+2
+Need just more of a technical person to use it.
+2
+No, I probably disagree.
+2
+I'd maybe go too on that one.
+2
+Again, I think it would maybe be helpful to have someone to explain how to use it, but I do think it is, it 
+should be easy enough to work out yourself like it's it is laid out well.
+2
+I've I think I've found the assumption system alright.
+2
+Yeah, I'd I'd say 5 again.
+2
+I think I agree.
+1
+Agree with that was the intuitive to you like where the features were based at and.
+2
+Yeah, I think.
+2
+I think there's a lot of functions on on it as well that you told me about today, that which are definitely 
+sorry two years.
+2
+OK, 6.
+2
+No, I could you explain that one?
+2
+A bit, Lauren. What?
+1
+Yeah, six.
+1
+So basically you know that although you haven't used this much, so there's like a data download and 
+there's a map print function and then some like some people will find it confusing because they're based 
+in two different areas and.
+1
+And data download could be mistaken for map printing and.
+1
+So that was.
+1
+An example from inconsistency of like the word choice.
+1
+And like the functions, so like it's both for exporting the information but one is located on the sidebar 
+and one is at the top bar.
+1
+So that was.
+1
+Example of inconsistency.
+2
+I'll maybe go in the middle.
+2
+With that one because.
+2
+I'm not too sure, OK.
+1
+Yeah, that's reasonable.
+2
+For me, for me, it's always been fine.
+2
+Like I've always just used the same ones.
+2
+I think that's why it's always been fine for me.
+1
+OK.
+2
+I'd imagine that most people would learn to use your system quickly.
+2
+Yeah, I I'd say 5 for that.
+2
+OK, I think a lot of people like micros have managed to learn to use it.
+2
+Quite quick.
+2
+I found the most very cumbersome 2 years.
+2
+What does compress done?
+1
+It's like there's a lot of drag in using the system.
+1
+You have to do like so, so much unnecessary things to get to.
+1
+The purpose of it?
+2
+No, I'd say I'd say one I.
+1
+OK.
+1
+OK, that's great to hear.
+2
+I I felt very confident using this system.
+2
+I'll, I'll go.
+2
+Three or four, but I'd say three before, but four.
+2
+I'll say it better now, after you explained.
+2
+Explain that more, but I would maybe say before starting with three just because I I there's a lot.
+2
+I still think I don't don't need to like learn about like.
+2
+That you've made it clearer.
+1
+Thank you for taking time.
+2
+I needed to learn a lot of things.
+2
+Before I could get.
+1
+Going so here, the things would be specifically knowledge about geographic information systems like 
+geospatial data etc.
+2
+And no, I probably say 2-2 maybe disagree. I don't think so, but.
+1
+OK.
+1
+OK.
+1
+That's great.
+1
+Well, thank you so much for answering those questions and that was pretty much everything that I 
+wanted to ask and I will just stop, stop sharing my screen and.
+1
+I think those final question that I missed from the beginning and that would be our final question for 
+today.
+1
+So you mentioned that you would probably use it for a course project and could you tell me like the 
+frequency in a semester and like how long are your sessions usually?
+2
+And so.
+2
+I'd say.
+2
+You'd use it quite a lot throughout the whole project, so we we normally get like.
+2
+Within like for example, last year, we sort of had a project, so per semester.
+2
+So it's like a long project.
+2
+So we'll be doing this project for maybe like 10 to 12 weeks throughout the project.
+2
+I'd say you use it quite a lot towards the start of the project just to get like the initial like.
+2
+Sites, dimensions and spaces, but then you probably also use it.
+2
+For a bit of site analysis, and also, you'd probably use it all the way throughout the project because 
+you're always constantly say we're making like doing floor plans and stuff.
+2
+They're like all of the time you're showing your tutors your new plans, they like to see it in context.
+2
+So they'll always ask you to sort of hit your plan onto like a map, for example.
+2
+Like, did you map to show how it will fit around its surroundings?
+2
+So I'd say I'd say.
+2
+Is it like a lot like throughout the whole project cause you're constantly having to show your change 
+plans and how they fit on the on the site so?
+2
+Yeah, I see.
+1
+And how long, roughly, are the sessions?
+1
+So is it just going and download the data?
+1
+I mean the map and like would you say less than five or five to 10?
+2
+UM, what for the?
+2
+So basically the the course is quite so the course is all.
+2
+Like sort of.
+2
+Portfolio hand INS.
+2
+So a lot of the time it will just be.
+2
+So we get like one design studio week, which is when you're in all day.
+2
+But when I use the maps would be when I'm working on my project like at.
+2
+Like home, so I wouldn't say there's like a specific amount of time.
+2
+It's just sort of when I'm, like, working on my project, if I need to use it, I will sort of thing.
+2
+It's not really like.
+2
+I'll I'll sort of just go on it.
+2
+When I when I need to sort, I use it.
+2
+Yeah, quite a.
+2
+Lot throughout the whole the.
+2
+Whole project if that makes sense.
+1
+Yeah, I see about the frequency.
+1
+And just to have an idea of your session length.
+1
+So for example per one use like, how long would you stay on the website?
+2
+Ohh OK.
+2
+Probably it wouldn't take me. It would probably be like 5-5 ish to 10 minutes, but I'd maybe be on it to 
+get get stuff ready to print and then but then that could be that could be every every week or so that I'm 
+going on to like regenerate, sort of.
+2
+Maps and stuff, but quite often once I've once I've been on it to get like my maps, I'll just use that to like 
+trace over certain things.
+2
+So it's a good like resource to have like printed out sort of at the start start of a project to then like come 
+back to.
+2
+That, yeah.
+1
+OK, got it.
+1
+Perfect.
+1
+So I think I've got everything that I needed more.
+3
+So thank you. So.
+1
+Much for coming through the interview today, we are one bit like a bit overtime.
+1
+I hope that is OK.
+2
+No, actually I'm not.
+2
+Doing anything?
+1
+All right.
+1
+So thank you so much again.
+1
+And yeah, you really gave me a lot of information and that was really helpful for everything that you 
+said.
+2
+You can always.
+2
+You can always e-mail me if there's anything you forgot to ask.
+1
+OK. OK, that's good.
+2
+Sorry about my.
+2
+Camera keep my computers just having my car.
+2
+Just keeps going on and off.
+1
+Yeah, that's that's fine.
+1
+I think we have like a really good conversation going.
+1
+Thank you.
+1
+OK.
+2
+Thank you very much for.
+2
+Teaching me about the different things.
+1
+Yeah, of course.
+1
+And if you had any questions in terms of like the using and like whatever, you can always talk to me for 
+anything and if there's anything I can help with in the future just yeah.
+1
+Ask me anytime.
+2
+Thank you very much.
+1
+Yeah, alright, I'll let you go on with your day now.
+1
+So, yeah, we'll keep in touch.
+1
+Thank you so much.
+2
+Thank you very much.
+2
+Yeah, thanks.
+"
+
+Begin!
+System: The interview transcript is a conversation between the interviewer and a participant who is an architecture student. They discuss the participant's use of the "Digimaps" software product developed by EDINA for their course projects. The participant mentions using the software to access the Ordinance Survey collection and generate print files for location and site plans. They also mention using Google Maps for some measurements and site analysis. The participant finds the system easy to use but mentions that more instruction on certain features would be helpful. They also mention using the drawing and measuring tools in Digimaps. Overall, the participant uses Digimaps frequently throughout their projects and finds it beneficial for their architectural work.
