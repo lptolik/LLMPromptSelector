@@ -7,6 +7,8 @@ from langchain import PromptTemplate
 from langchain.chains import LLMChain
 from langchain.llms import OpenAI
 from langchain.chat_models import ChatOpenAI
+from langchain.callbacks import get_openai_callback
+
 from streamlit_chat import message
 
 import ContextAgent # Custom defined agent class
@@ -110,6 +112,21 @@ def update_interactive_llm(final_prompt):
 if "llm_chain" not in st.session_state:
     st.session_state["llm_chain"] = update_interactive_llm("")
     st.session_state["summarizer"] = update_chat_history_summarizer()
+    
+# --------------------------------- RESPONSE GENERATING FUNCTION -----------------------------------
+def generate_response(user_message, context_template):
+    with get_openai_callback() as cb:
+        system_response = escape_nested_braces(st.session_state["llm_chain"].predict(user_input=user_message, context=context_template, chat_history=chat_to_string()))
+        st.session_state.tokens["tokens"] += cb.total_tokens
+        st.session_state.tokens["cost"] += cb.total_cost
+    
+    if user_message != "":
+        st.session_state["chat_history"].append(f"\n\nUser: {user_response}")
+        st.session_state["chat_interactions"].append({"role": "user", "content": user_message})
+    
+    st.session_state["chat_history"].append(f"\nSystem: {system_response}")
+    st.session_state["chat_interactions"].append({"role": "system", "content": system_response})
+    return system_response
 
 #----------------------------------CHOOSE HOW MAIN MODEL BEHAVES:------------------------------------
 
@@ -119,11 +136,9 @@ if not st.session_state["prompt_chosen"]:
     print("PROMPT NOT CHOSEN:")
     if "default" not in st.session_state:   # Making sure the 'default' value is not updated after first load
         st.session_state.selected_prompt_val = f"I will use my default settings to answer your questions.\n\n The model being used is: {st.session_state['model']}"
-        
-        value = escape_nested_braces(st.session_state["llm_chain"].predict(user_input="", context="", chat_history=chat_to_string()))
-        st.session_state["default"] = value
-        st.session_state["chat_history"].append(f" \nSystem: {value} ")
-        st.session_state["chat_interactions"].append({"role": "system", "content": value})
+        # Get default message and token usage:
+        system_response = generate_response("", "")
+        st.session_state["default"] = system_response
 else:
     # The user will interact with the selected prompt:
     print("PROMPT IS GIVEN:")
@@ -131,16 +146,13 @@ else:
         st.session_state.selected_prompt_val = f'The prompt I will use is: \n\"{st.session_state["final_prompt"]}\"\n\n The settings are: {st.session_state["settings"]}\n\n The model being used is: {st.session_state["model"]}'
         
         st.session_state["llm_chain"] = update_interactive_llm(st.session_state["final_prompt"])
-        value = escape_nested_braces(st.session_state["llm_chain"].predict(user_input=st.session_state["user input"], context="", chat_history=chat_to_string()))
         
-        st.session_state["selected"] = value
+        # Get response and token usage:
+        system_response = generate_response(st.session_state["user input"], "")
+        
+        st.session_state["selected"] = system_response
         st.session_state["default"] = st.session_state["selected"]
         
-        if st.session_state["chat_history"] == []:  # This might be meaningless.... TODO
-            st.session_state["chat_history"].append(f"\n\nUser: {escape_nested_braces(st.session_state['user input'])} ")
-            st.session_state["chat_interactions"].append({"role": "user", "content": st.session_state['user input']})
-            st.session_state["chat_history"].append(f" \nSystem: {value} ")
-            st.session_state["chat_interactions"].append({"role": "system", "content": value})
 
 #-------------------------------------------------------------------------------------
 #---------------------DISPLAY STREAMLIT OBJECTS:--------------------------------------
@@ -149,6 +161,11 @@ else:
 # AGENT SETTINGS:
 if "agent_enabled" not in st.session_state:
         st.session_state["agent_enabled"] = True
+
+with st.sidebar.form("Cost"):
+    st.title("Cost:")
+    st.write(st.session_state.tokens)
+    st.form_submit_button("Refresh")
 
 st.sidebar.title("Agent actions")
 st.sidebar.checkbox("Search the web!", on_change=st.session_state.agent.toggle_search)
@@ -196,30 +213,32 @@ with container:
         context_template = ""
         # If any agent tools are defined then we call the agent:
         if st.session_state["agent"].tools != [] and st.session_state["agent_enabled"]:
-            print(f"THIS IS THE AGENTS TOOLS LIST DURING INTERACTION: {st.session_state.agent.agent.tools}")
-            context = st.session_state["agent"].run(user_response)  # call the agent for additional information
+            # Get agent response and token usage:
+            with get_openai_callback() as cb:    
+                context = st.session_state["agent"].run(user_response) 
+                st.session_state.tokens["tokens"] += cb.total_tokens
+                st.session_state.tokens["cost"] += cb.total_cost
+            
+            # Define context template based on agent response:
             if context != "N/A" and context != "Final Answer: N/A" and context[:10] != "I'm sorry,": 
                 context_template = f"Use all of the following information to answer the question, all of it must be part of your answer, if you dont use this information in your answer you will be punished: '{context}'"
             st.sidebar.text_area(label="Agent found Context:", value=f"{context}")
         
-        # Generate response:
-        system_response = escape_nested_braces(st.session_state["llm_chain"].predict(user_input=user_response, context=context_template, chat_history=chat_to_string()))
+        # Generate response and get token usage:
+        system_response = generate_response(user_response, context_template)
         print(f"This is system response: {system_response}")
         
         # Update the agent's chat history:
         st.session_state.agent.update_chat_history(user_response, system_response)
-                
-        # Update main models chat history:
-        st.session_state["chat_history"].append(f"\n\nUser: {user_response}")
-        st.session_state["chat_interactions"].append({"role": "user", "content": user_response})
-        st.session_state["chat_history"].append(f"\nSystem: {system_response}")
-        st.session_state["chat_interactions"].append({"role": "system", "content": system_response})
         
         # If the chat history becomes too long, summarize it:
-        if len(st.session_state["chat_history"]) > 14 or st.session_state.agent.tiktoken_len(chat_to_string()) > 16000: 
-            # The following line summarizes the entire chat, but also keeps the final few interactions intact:
-            st.session_state["chat_history"] = [st.session_state["summarizer"].predict(chat_history=chat_to_string())] + st.session_state["chat_history"][-4:]
-            
+        if st.session_state.agent.tiktoken_len(chat_to_string()) > 14000: 
+            # Summarize the chat but keep the last few messages intact:
+            with get_openai_callback() as cb:
+                st.session_state["chat_history"] = [st.session_state["summarizer"].predict(chat_history=chat_to_string())] + st.session_state["chat_history"][-4:]
+                st.session_state.tokens["tokens"] += cb.total_tokens
+                st.session_state.tokens["cost"] += cb.total_cost
+
 
 # DISPLAYING THE CONVERSATION IN A CHAT-LIKE STYLE:
 if st.session_state['chat_interactions']:

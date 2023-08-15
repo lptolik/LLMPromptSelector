@@ -11,6 +11,7 @@ from langchain import PromptTemplate
 from langchain.chains import LLMChain
 from langchain.llms import OpenAI
 from langchain.chat_models import ChatOpenAI
+from langchain.callbacks import get_openai_callback
 from langchain.vectorstores import Pinecone
 import pinecone
 
@@ -22,7 +23,7 @@ PINECONE_ENV = "us-west4-gcp-free"
 
 os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
 embeddings = OpenAIEmbeddings()
-#llm = OpenAI(temperature=0, verbose=True)
+
 llm = ChatOpenAI(
     openai_api_key=OPENAI_API_KEY,
     model_name='gpt-3.5-turbo',
@@ -60,6 +61,19 @@ def load_chat_archive():
                 result_list.append({"Chat name": chat_name, "conversation": content})
     return result_list
 
+# Assumes the first use of curly brackets is for the dictionary:
+def extract_dictionary(text):
+    stack = []
+    for m in re.finditer(r'[{}]', text):
+        pos = m.start()
+        if m.group() == '{':
+            stack.append(pos)
+        elif stack:
+            start_pos = stack.pop()
+            if not stack:
+                return (text[:start_pos], text[start_pos:pos + 1])
+    return ""
+
 #-------------------------------------------------------------------------------------
 #---------------------DEFINE STREAMLIT SESSION VARIABLES:-----------------------------
 #-------------------------------------------------------------------------------------
@@ -76,6 +90,8 @@ st.session_state["final_prompt"] = ""
 st.session_state["settings"] = {"temperature": 0.7, "top_p": 1.0, "presence_penalty": 0, "frequency_penalty": 0}
 st.session_state["user input"] = ""
 st.session_state.selected_prompt_val = f"I will use my default settings to answer your questions.\n\n The model being used is: {st.session_state['model']}"
+if "tokens" not in st.session_state:
+    st.session_state["tokens"] = {"tokens": 0, "cost": 0}
 if 'sys_msgs' not in st.session_state:
     st.session_state['sys_msgs'] = []
 if 'usr_msgs' not in st.session_state:
@@ -93,19 +109,6 @@ if "saved_chat" not in st.session_state:
 if "load_chat" not in st.session_state:
     st.session_state["load_chat"] = ""
     
-
-# Assumes the first use of curly brackets is for the dictionary:
-def extract_dictionary(text):
-    stack = []
-    for m in re.finditer(r'[{}]', text):
-        pos = m.start()
-        if m.group() == '{':
-            stack.append(pos)
-        elif stack:
-            start_pos = stack.pop()
-            if not stack:
-                return (text[:start_pos], text[start_pos:pos + 1])
-    return ""
     
 #-------------------------------------------------------------------------------------
 #----------------------STORED PROMPT PROCESSING:--------------------------------------
@@ -157,6 +160,7 @@ def retrieve_best_prompts(db, user_input):
     
     return prompt_df
 
+# --------------------------------------- LOAD SAVED CONVERSATIONS/PROMPTS ------------------------------------
 # Loads a prompt from a saved conversation:
 def load_saved_prompt_config(chat_name):
     folder_path = "conversations"
@@ -297,7 +301,6 @@ def initialise_linking_model():
     return linker_chain
 
 def initialise_editing_model():
-    # Create a template for answering the user query using the selected prompt
     prompt_editor_temp = """
     You are a prompt editing system. 
     You must identify the part of the given prompt where the first user input/suggestion/request/code/object is specified and return all of the prompt except for the identified part and any text relating to the first user input. The first user input is usually in quotes. Notice that anything talking about "your" objective shouldnt be changed because its not user input. 
@@ -311,7 +314,7 @@ def initialise_editing_model():
         template = prompt_editor_temp
     )
 
-    editing_chain = LLMChain(llm = gpt4,    # can be changed to 3.5 but Old Man gets through :/
+    editing_chain = LLMChain(llm = gpt4,
                     prompt = edit_prompt,
                     verbose=True)
     
@@ -362,22 +365,30 @@ st.title("Prompt Selector")
 # Display the prompts table:
 display_prompts()
 
+with st.sidebar.form("Cost"):
+    st.title("Cost:")
+    st.write(st.session_state.tokens)
+    st.form_submit_button("Refresh")
+
 st.sidebar.title("Options:")
 st.session_state["model"] = st.sidebar.radio("Choose a model:", ("gpt-3.5-turbo", "gpt-4", "gpt-3.5-turbo-16k", "gpt-4-32k-0613"))
 st.session_state["show_details"] = st.sidebar.checkbox("Show details!")
 
 # Display saved chats:
 if len(st.session_state["chat_archive"]) > 0:
-    # Truncate to most recent 3 chats:
-    if len(st.session_state["chat_archive"]) > 6:
-        st.session_state["chat_archive"] = st.session_state["chat_archive"][-3:]
+    # Truncate to most recent 10 chats:
+    if len(st.session_state["chat_archive"]) > 10:
+        st.session_state["chat_archive"] = st.session_state["chat_archive"][-10:]
+        
     st.sidebar.title("Previous chats:")
     archive_df = pd.DataFrame.from_dict(st.session_state["chat_archive"])
-    st.sidebar.write(archive_df)
+    st.sidebar.write(archive_df)    # display archived chats on the sidebar
+    
+    # Create a default selection equal to None:
     new_row = {"Chat name": "None", "Conversation": ""}
     new_archive_df = archive_df.append(pd.DataFrame([new_row], index=['0'], columns=archive_df.columns))
     
-    # Load chat for continuing conversation:
+    # Load chat to continue saved conversation:
     load_chat_name = st.sidebar.selectbox("Load chat", options=(new_archive_df["Chat name"][::-1]))
     if load_chat_name != "None":
         st.session_state["load_chat"] = new_archive_df.loc[new_archive_df["Chat name"] == load_chat_name].conversation.values[0]
@@ -395,11 +406,13 @@ if len(st.session_state["chat_archive"]) > 0:
     else:
         st.session_state["saved_chat"] = "" 
 
+# Method to run a provided chain async:
 async def async_generate(chain, message, final_prompt):
     resp = await chain.arun(message=message, query=st.session_state["user input"], prompt=final_prompt)
     print(resp)
     return (message, resp)
 
+# Link chat helper function - rates each message concurrently:
 async def run_concurrent_rating(rating_chain, messages, final_prompt):
     tasks = [async_generate(rating_chain, message, final_prompt) for message in messages]
     return await asyncio.gather(*tasks)
@@ -412,8 +425,11 @@ def link_chat(final_prompt, context_strictness, saved_chat):
     messages = st.session_state["saved_chat"].split("User:")[1:]
     
     progress_bar.progress(25, "Finding most relevant messages...")
-    ratings = asyncio.run(run_concurrent_rating(rating_chain, messages, final_prompt))
-    
+    with get_openai_callback() as cb:
+        ratings = asyncio.run(run_concurrent_rating(rating_chain, messages, final_prompt))
+        st.session_state.tokens["tokens"] += cb.total_tokens
+        st.session_state.tokens["cost"] += cb.total_cost
+        
     # Display message relevance:
     with st.container():
         st.write("Most relevant messages identified:")
@@ -489,7 +505,10 @@ with st.form("form"):
     if submit:    
         # Display chosen prompt og and edited version to user:
         st.session_state["prompt_chosen"] = True
-        final_prompt, settings, settings_explanation = edit_and_configure_prompt(chosen_prompt)
+        with get_openai_callback() as cb:
+            final_prompt, settings, settings_explanation = edit_and_configure_prompt(chosen_prompt)
+            st.session_state.tokens["tokens"] += cb.total_tokens
+            st.session_state.tokens["cost"] += cb.total_cost
         
         if st.session_state["saved_chat"] != "":
             final_prompt, ratings = link_chat(final_prompt, strictness, st.session_state["saved_chat"])
