@@ -28,10 +28,7 @@ from langchain.prompts import BaseChatPromptTemplate
 from langchain.utilities import GoogleSerperAPIWrapper
 
 # API Keys
-OPENAI_API_KEY = "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"
-os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
-os.environ["SERPER_API_KEY"] = "0e061654f54d1acb6888ae6e8c7ef8356a64526d"
-
+from credentials import OPENAI_API_KEY
 # URL to Weaviate Cluster. Expires every 14 days.
 WEAVIATE_URL = "https://document-vectorstore-7hl32cpm.weaviate.network"
 
