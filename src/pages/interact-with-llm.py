@@ -14,8 +14,8 @@ from streamlit_chat import message
 import ContextAgent # Custom defined agent class
 
 # Initialize keys, models and prompt templates:
-OPENAI_API_KEY = "API KEY HERE"
-WEAVIATE_URL = "WEAVIATE URL HERE"
+OPENAI_API_KEY = "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"
+WEAVIATE_URL = "https://prompt-cluster-8z6hr799.weaviate.network"
 
 os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
 
@@ -121,7 +121,7 @@ def generate_response(user_message, context_template):
         st.session_state.tokens["cost"] += cb.total_cost
     
     if user_message != "":
-        st.session_state["chat_history"].append(f"\n\nUser: {user_response}")
+        st.session_state["chat_history"].append(f"\n\nUser: {user_message}")
         st.session_state["chat_interactions"].append({"role": "user", "content": user_message})
     
     st.session_state["chat_history"].append(f"\nSystem: {system_response}")
@@ -230,9 +230,9 @@ with container:
         
         # Update the agent's chat history:
         st.session_state.agent.update_chat_history(user_response, system_response)
-        
         # If the chat history becomes too long, summarize it:
-        if st.session_state.agent.tiktoken_len(chat_to_string()) > 0.8*openai.max_context_size(st.session_state["model"]): 
+        print(f"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA {st.session_state['model']}")
+        if st.session_state.agent.tiktoken_len(chat_to_string()) > 0.8*(OpenAI.modelname_to_contextsize(OpenAI, st.session_state["model"])): 
             # Summarize the chat but keep the last few messages intact:
             with get_openai_callback() as cb:
                 st.session_state["chat_history"] = [st.session_state["summarizer"].predict(chat_history=chat_to_string())] + st.session_state["chat_history"][-4:]

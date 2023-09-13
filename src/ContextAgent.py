@@ -28,12 +28,12 @@ from langchain.prompts import BaseChatPromptTemplate
 from langchain.utilities import GoogleSerperAPIWrapper
 
 # API Keys
-OPENAI_API_KEY = "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"
+OPENAI_API_KEY = "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"
 os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
 os.environ["SERPER_API_KEY"] = "0e061654f54d1acb6888ae6e8c7ef8356a64526d"
 
 # URL to Weaviate Cluster. Expires every 14 days.
-WEAVIATE_URL = "https://document-vectorstore-7hl32cpm.weaviate.network"
+WEAVIATE_URL = "https://prompt-cluster-8z6hr799.weaviate.network"
 
 embeddings = OpenAIEmbeddings()
 
@@ -88,6 +88,7 @@ class ContextAgent():
     
     # Process the file into something an llm can use:
     def __split_data(self, file_name):
+        print(f"ADFHA;ODSG;ADSKHGASD;HGADFJALSDJFKLASDJFLJASDLFKJA;DLJFASJDF;LJADSF;J !!!!{file_name}")
         text_splitter = RecursiveCharacterTextSplitter(
                 chunk_size = 1000,
                 chunk_overlap = 200,
@@ -96,9 +97,9 @@ class ContextAgent():
                 add_start_index = True
             )
         
-        base_dir = "C:\\Users\\Alexander\\Documents\\GPT_app\\Prompt_select_bot\\Prompt_Selector_Bot\\Files"
+        base_dir = "Files"
         
-        file_name = os.path.join(base_dir, file_name)
+        file_name = f"C:\\Users\\Alexander's Laptop\\Documents\\Computing Stuff\\LLM's\\LLMPromptSelector\\Files\\{file_name}"
         
         if file_name[-4:] == ".csv" or file_name[-4:] == ".txt":
             with open(file_name) as f:

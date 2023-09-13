@@ -15,8 +15,8 @@ from langchain.callbacks import get_openai_callback
 from langchain.vectorstores import Pinecone
 import pinecone
 
-OPENAI_API_KEY = "YOUR_API_KEY"
-#WEAVIATE_URL = "WEAVIATE_URL"
+OPENAI_API_KEY = "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"
+WEAVIATE_URL = "https://prompt-cluster-8z6hr799.weaviate.network"
 
 PINECONE_API_KEY = "YOUR_API_KEY"
 PINECONE_ENV = "us-west4-gcp-free"
@@ -123,7 +123,7 @@ def display_prompts():
 # Load the .csv database of prompts:
 @st.cache_resource
 def load_prompts():
-    loader = CSVLoader("prompts_data_updated.csv", csv_args={
+    loader = CSVLoader("src/prompts_data_updated.csv", csv_args={
         'fieldnames': ['Act', 'Prompt']
     })
     documents = loader.load()
@@ -150,9 +150,10 @@ def retrieve_best_prompts(db, user_input):
     # Display the potential prompts to the user:
     for document in potential_prompts:
         # Split the string into two parts using the "prompt: " as the separator
-        act, prompt = document.page_content.split("\nprompt: ")
+        print(document.page_content)
+        act, prompt = document.page_content.split("\nPrompt: ")
         # Strip the "act: " and "prompt: " from the respective parts
-        act = act.replace("act: ", "").strip()
+        act = act.replace("Act: ", "").strip()
         prompt = prompt.strip()
         potential_prompts_dict.append({"act": act, "prompt": prompt})
     prompt_df = pd.DataFrame(potential_prompts_dict)
@@ -386,7 +387,7 @@ if len(st.session_state["chat_archive"]) > 0:
     
     # Create a default selection equal to None:
     new_row = {"Chat name": "None", "Conversation": ""}
-    new_archive_df = archive_df.append(pd.DataFrame([new_row], index=['0'], columns=archive_df.columns))
+    new_archive_df = pd.concat([archive_df, pd.DataFrame([new_row], columns=archive_df.columns)], ignore_index=True)
     
     # Load chat to continue saved conversation:
     load_chat_name = st.sidebar.selectbox("Load chat", options=(new_archive_df["Chat name"][::-1]))
@@ -480,7 +481,7 @@ def edit_and_configure_prompt(chosen_prompt):
 
 # Display the container to enter prompt query:
 with st.container():
-    db = load_pinecone_prompts()
+    db = load_prompts()
     #db = load_prompts()    # alternative option using weaviate
     
     user_input = st.text_input("Enter query", key="query")
