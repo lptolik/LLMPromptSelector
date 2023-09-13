@@ -28,9 +28,9 @@ from langchain.prompts import BaseChatPromptTemplate
 from langchain.utilities import GoogleSerperAPIWrapper
 
 # API Keys
-from credentials import OPENAI_API_KEY
+from credentials import OPENAI_API_KEY, WEAVIATE_URL, BASE_DIR
 # URL to Weaviate Cluster. Expires every 14 days.
-WEAVIATE_URL = "https://prompt-cluster-8z6hr799.weaviate.network"
+#WEAVIATE_URL = "https://prompt-cluster-8z6hr799.weaviate.network"
 
 embeddings = OpenAIEmbeddings()
 

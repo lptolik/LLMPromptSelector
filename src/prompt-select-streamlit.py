@@ -15,11 +15,13 @@ from langchain.callbacks import get_openai_callback
 from langchain.vectorstores import Pinecone
 import pinecone
 
-OPENAI_API_KEY = "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"
-WEAVIATE_URL = "https://prompt-cluster-8z6hr799.weaviate.network"
+# API Keys
+from credentials import OPENAI_API_KEY, WEAVIATE_URL, PINECONE_API_KEY, PINECONE_ENV
+#OPENAI_API_KEY = "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"
+#WEAVIATE_URL = "https://prompt-cluster-8z6hr799.weaviate.network"
 
-PINECONE_API_KEY = "YOUR_API_KEY"
-PINECONE_ENV = "us-west4-gcp-free"
+#PINECONE_API_KEY = "YOUR_API_KEY"
+#PINECONE_ENV = "us-west4-gcp-free"
 
 os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
 embeddings = OpenAIEmbeddings()
