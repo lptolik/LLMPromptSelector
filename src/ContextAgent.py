@@ -94,9 +94,9 @@ class ContextAgent():
                 add_start_index = True
             )
         
-        base_dir = "Files"
+        base_dir = BASE_DIR#"C:\\Users\\Alexander's Laptop\\Documents\\Computing Stuff\\LLM's\\LLMPromptSelector\\Files\\"
         
-        file_name = f"C:\\Users\\Alexander's Laptop\\Documents\\Computing Stuff\\LLM's\\LLMPromptSelector\\Files\\{file_name}"
+        file_name = f"{base_dir}{file_name}"
         
         if file_name[-4:] == ".csv" or file_name[-4:] == ".txt":
             with open(file_name) as f:
