@@ -56,7 +56,7 @@ def load_chat_archive():
                 chat_name = os.path.splitext(file_name)[0]
 
                 # Read file contents
-                with open(os.path.join(folder_path, file_name), 'r') as f:
+                with open(os.path.join(folder_path, file_name), 'r', encoding='utf-8', errors='ignore') as f:
                     content = f.read()
 
                 # Create dictionary and append to result list
