@@ -14,8 +14,10 @@ from streamlit_chat import message
 import ContextAgent # Custom defined agent class
 
 # Initialize keys, models and prompt templates:
-OPENAI_API_KEY = "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"
-WEAVIATE_URL = "https://prompt-cluster-8z6hr799.weaviate.network"
+# API Keys
+from credentials import OPENAI_API_KEY, WEAVIATE_URL
+#OPENAI_API_KEY = "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"
+#WEAVIATE_URL = "https://prompt-cluster-8z6hr799.weaviate.network"
 
 os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
 
